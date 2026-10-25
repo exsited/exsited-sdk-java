@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Exsited Java SDK - a thin, predictable HTTP layer over the Exsited v4 REST API:
+  payloads and responses cross the wire untouched as Maps and Lists, or as typed
+  views measured from the API; frozen validated configuration; OAuth2 with
+  cross-process token caching; retry narrowed on state-changing methods; cursor
+  and offset pagination detected per page; secret redaction everywhere.
+
+  Behaviour that must not be changed casually, because live callers and cached
+  data depend on it: the pagination walk rules, the query-value normalisation
+  table and its refusals, the token-cache file format, the transport semantics
+  (401 replay, unsafe-method retry narrowing, X-Idempotency-Key on POST), and the
+  empty <dependencies> block.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.exsited</groupId>
+    <artifactId>exsited</artifactId>
+    <!-- The version lives here and in the newest CHANGELOG heading, which move
+         together; maven-jar-plugin writes it into the manifest, which is what
+         SdkConfig.SDK_VERSION reports. -->
+    <version>4.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Exsited Java SDK</name>
+    <description>Java SDK for the Exsited v4 REST API.</description>
+    <url>https://github.com/exsited/exsited-sdk-java</url>
+
+    <!-- The licence the LICENSE file at the repository root states, so the
+         terms travel with the artifact. -->
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/exsited/exsited-sdk-java</url>
+        <connection>scm:git:https://github.com/exsited/exsited-sdk-java.git</connection>
+        <developerConnection>scm:git:https://github.com/exsited/exsited-sdk-java.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Ashiq Rahman</name>
+            <email>ashiq@webalive.com.au</email>
+            <organization>Exsited</organization>
+            <organizationUrl>https://www.exsited.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <properties>
+        <!-- 21: the SDK closes the java.net.http.HttpClient it built, and
+             HttpClient is AutoCloseable from JDK 21. -->
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
+        <!-- `mvn install -DskipTests` runs no test and still compiles both source
+             sets. Declared so the exec plugin never receives the unresolved text. -->
+        <skipTests>false</skipTests>
+        <!-- The live selection, read by LiveSuite. Empty means "no case
+             selected", so the live run started without a selector runs
+             nothing. Name what to run on the command line (-Dexsited.live=all, a
+             group, or a case) or with -Plive. -->
+        <exsited.live></exsited.live>
+        <!-- The verbose selector, same shape. Empty leaves payloads, bodies,
+             headers and curl off; they carry live customer records. -->
+        <exsited.test.verbose></exsited.test.verbose>
+    </properties>
+
+    <!-- Empty on purpose: the SDK depends on the JDK and nothing else, and so do
+         its tests. Every plugin below is a build plugin, which is not transitive
+         and never reaches a consumer's dependency graph. -->
+    <dependencies/>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <!-- src/test/java holds every test: the harness, the credentials
+             fixture and case, and resources/<family>/. -->
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <!-- The licence and the consumer guide travel inside the jar, under
+             META-INF, so the terms the <licenses> block above states arrive with
+             the artifact rather than only with the repository. -->
+        <resources>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <targetPath>META-INF</targetPath>
+                <filtering>false</filtering>
+                <includes>
+                    <include>LICENSE</include>
+                    <include>README.md</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- Local credential-bearing *Driver.java files, gitignored by the
+                 same pattern, are excluded so the build compiles what a clone
+                 carries. -Xlint:all with -Werror on both source sets: any
+                 warning fails the build. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <testExcludes>
+                        <testExclude>**/*Driver.java</testExclude>
+                    </testExcludes>
+                    <showWarnings>true</showWarnings>
+                    <compilerArgs>
+                        <arg>-Xlint:all</arg>
+                        <arg>-Werror</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <!-- Declared only to be switched off: nothing here is JUnit, and
+                 surefire's default includes would match every *Test.java. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <!-- The test run: LiveSuite as a plain main class, in the test phase.
+                 It reads the live selection from exsited.live, and with none,
+                 which is the default, it prints that nothing was selected and
+                 returns before it reads .env or builds a client, so `mvn test`
+                 compiles every case and runs none. exec:exec forks a JVM, so
+                 LiveSuite's System.exit(1) becomes a non-zero exit that fails the
+                 build. workingDirectory is load bearing: Auth reads .env from
+                 it. -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>live-suite</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skipTests}</skip>
+                            <executable>java</executable>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>-Dexsited.live=${exsited.live}</argument>
+                                <argument>-Dexsited.test.verbose=${exsited.test.verbose}</argument>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>com.exsited.LiveSuite</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Writes Implementation-Version (and friends) into the jar
+                 manifest, which is where SdkConfig.SDK_VERSION and the
+                 User-Agent read the version from when packaged. A run over
+                 target/classes has no manifest and reports the
+                 SdkConfig.FALLBACK_VERSION sentinel (0.0.0+source). -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <!-- The sources jar beside the binary one, so an IDE in a consuming
+                 project can step into the SDK. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- A wrong @param name, a broken {@link}, malformed HTML or a bad
+                 reference fails the build; `-missing` drops only the demand that
+                 a doc exist. -Xmaxwarns is raised because javadoc stops counting
+                 at 100 by default. Bound to verify. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven.javadoc.plugin.version}</version>
+                <configuration>
+                    <show>protected</show>
+                    <doclint>all,-missing</doclint>
+                    <failOnWarnings>true</failOnWarnings>
+                    <additionalOptions>
+                        <additionalOption>-Xmaxwarns 10000</additionalOption>
+                    </additionalOptions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>strict-public-docs</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.9.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>false</autoPublish>
+                    <waitUntil>validated</waitUntil>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- The whole live suite in one word: `mvn test -Plive` selects every
+             case. It reads .env from the project root (the environment wins),
+             and a blank credential stops it with the SDK's own AuthConfig
+             refusal. It creates, updates and deletes records of its own on
+             whatever instance .env points at, and each case removes or
+             neutralises what it created where the API allows it.
+             -Dexsited.live=<group|case> is the narrower form. -->
+        <profile>
+            <id>live</id>
+            <properties>
+                <exsited.live>all</exsited.live>
+            </properties>
+        </profile>
+        <profile>
+            <id>release</id>
+            <activation>
+                <property>
+                    <name>env.MAVEN_GPG_KEY</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.7</version>
+                        <configuration>
+                            <signer>bc</signer>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

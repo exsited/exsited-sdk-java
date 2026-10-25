@@ -1,0 +1,15 @@
+# Line-ending policy lives here. Every text file is stored and checked out
+# with LF whatever the local core.autocrlf says: without it a Windows checkout
+# commits CRLF and a Linux one LF, and the same file reads as wholly rewritten
+# depending on who touched it last, which buries the real diff.
+* text=auto eol=lf
+
+# Binary, so never touched. Add a `-text` or `binary` entry here for any file
+# that must reach the working tree with exactly the bytes the blob holds.
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.jar binary
