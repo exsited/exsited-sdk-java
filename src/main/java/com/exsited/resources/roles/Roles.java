@@ -40,8 +40,7 @@ public final class Roles implements BoundResource {
     }
 
     /**
-     * Create a role: {@code POST /settings/roles}; the role can be saved and the answer still be a
-     * 500, from a failing server-side lookup. No typed view; read {@code getMap()}.
+     * Create a role: {@code POST /settings/roles}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> createSettingsRole(
             Object payload, RequestOptions options) {
@@ -82,8 +81,7 @@ public final class Roles implements BoundResource {
     }
 
     /**
-     * Update or enable/disable a role: {@code PATCH /settings/roles/{role_id}}; the change can be
-     * saved and the answer still be a 500, from a failing server-side lookup. No typed view; read
+     * Update or enable/disable a role: {@code PATCH /settings/roles/{role_id}}. No typed view; read
      * {@code getMap()}.
      */
     public ApiResponse<Dto> updateSettingsRole(

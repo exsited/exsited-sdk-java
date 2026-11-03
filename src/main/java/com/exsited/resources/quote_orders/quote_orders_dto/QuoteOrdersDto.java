@@ -11,7 +11,7 @@ public final class QuoteOrdersDto {
 
     /** One page of a quote's invoices, under {@code data}. */
     public static final class QuoteOrderInvoiceList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/quote_orders/{quote_order_id}/invoices");
 
@@ -34,24 +34,18 @@ public final class QuoteOrdersDto {
         public String created_on;
         public QuoteOrderInvoiceCurrency currency;
         public QuoteOrderInvoiceCustomForm custom_form;
-        /** Null in every record measured, so untyped. */
         public Object customer_purchase_order_id;
         public Double discount_amount;
         public String due;
         public String due_date;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object invoice_note;
         public String issue_date;
-        /** Null in every record measured, so untyped. */
         public Object last_payment;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public QuoteOrderInvoiceOrder order;
-        /** Null in every record measured, so untyped. */
         public Object origin;
         public String paid;
         public String payment_status;

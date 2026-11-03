@@ -12,7 +12,7 @@ public final class NoteAttachmentsDto {
      * The note attachment body, under {@code note_attachment}; {@code base64} is the file itself.
      */
     public static final class NoteAttachment extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/note_attachment/{attachment_uuid}");
 

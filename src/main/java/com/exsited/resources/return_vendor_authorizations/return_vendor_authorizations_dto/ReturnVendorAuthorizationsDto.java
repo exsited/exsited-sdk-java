@@ -11,7 +11,7 @@ public final class ReturnVendorAuthorizationsDto {
 
     /** One return vendor authorization, as the listing returns it. */
     public static class ReturnVendorAuthorization extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/return_vendor_authorizations");
 
@@ -22,9 +22,7 @@ public final class ReturnVendorAuthorizationsDto {
         public String href;
         public String id;
         public Long item_count;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String note;
         public String object;
@@ -39,7 +37,7 @@ public final class ReturnVendorAuthorizationsDto {
      * One page of {@code ReturnVendorAuthorization} records, under {@code data}; paged by cursor.
      */
     public static final class ReturnVendorAuthorizationList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/return_vendor_authorizations");
 
@@ -54,7 +52,7 @@ public final class ReturnVendorAuthorizationsDto {
      * the listing's record with its {@code lines} and {@code receive_rvas}.
      */
     public static final class ReturnVendorAuthorizationView extends ReturnVendorAuthorization {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/return_vendor_authorizations/{rva_id}");
 
@@ -63,9 +61,7 @@ public final class ReturnVendorAuthorizationsDto {
             return "return_vendor_authorization";
         }
 
-        /** Empty in every record measured, so the entries are untyped. */
         public List<Object> lines;
-        /** Empty in every record measured, so the entries are untyped. */
         public List<Object> receive_rvas;
     }
 

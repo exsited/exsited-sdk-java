@@ -9,7 +9,7 @@ public final class ReturnMerchandiseAuthorisationsDto {
 
     /** The return merchandise authorisation body. */
     public static final class ReturnMerchandiseAuthorisation extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/return_merchandise_authorisations");
 
@@ -20,26 +20,22 @@ public final class ReturnMerchandiseAuthorisationsDto {
         public String href;
         public String id;
         public Long item_count;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
-        /** never populated in 2 measured records. */
         public Object last_updated_on;
         public String note;
         public String object;
         public String return_status;
         public String rma_date;
         public ReturnMerchandiseAuthorisationSaleInvoice sale_invoice;
-        /** never populated in 2 measured records. */
         public Object sale_order;
         public String status;
         public Long version;
-        /** never populated in 2 measured records. */
         public Object warehouse;
     }
 
     /** A page of ReturnMerchandiseAuthorisation records. */
     public static final class ReturnMerchandiseAuthorisationList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/return_merchandise_authorisations");
 
@@ -51,7 +47,7 @@ public final class ReturnMerchandiseAuthorisationsDto {
 
     /** The invoice return merchandise authorisation receive body. */
     public static final class InvoiceReturnMerchandiseAuthorisationReceive extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_code}/receive",
                 "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_code}/receive/{receive_uuid}");
@@ -71,7 +67,7 @@ public final class ReturnMerchandiseAuthorisationsDto {
 
     /** A page of InvoiceReturnMerchandiseAuthorisationReceive records. */
     public static final class InvoiceReturnMerchandiseAuthorisationReceiveList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_code}/receive");
 
@@ -84,7 +80,7 @@ public final class ReturnMerchandiseAuthorisationsDto {
 
     /** The return merchandise authorisation read body. */
     public static final class ReturnMerchandiseAuthorisationRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_id}",
                 "GET /api/{api_version}/return_merchandise_authorisations/{rma_id}");
@@ -101,9 +97,7 @@ public final class ReturnMerchandiseAuthorisationsDto {
         public String href;
         public String id;
         public Long item_count;
-        /** never populated in 1 measured record. */
         public Object last_updated_by;
-        /** never populated in 1 measured record. */
         public Object last_updated_on;
         public List<Object> lines;
         public String note;
@@ -112,17 +106,15 @@ public final class ReturnMerchandiseAuthorisationsDto {
         public String return_status;
         public String rma_date;
         public ReturnMerchandiseAuthorisationReadSaleInvoice sale_invoice;
-        /** never populated in 1 measured record. */
         public Object sale_order;
         public String status;
         public Long version;
-        /** never populated in 1 measured record. */
         public Object warehouse;
     }
 
     /** The invoice return merchandise authorisations body. */
     public static final class InvoiceReturnMerchandiseAuthorisations extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations");
 
@@ -134,7 +126,7 @@ public final class ReturnMerchandiseAuthorisationsDto {
 
     /** The return merchandise authorisations body. */
     public static final class ReturnMerchandiseAuthorisations extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/return_merchandise_authorisations");
 
@@ -170,9 +162,7 @@ public final class ReturnMerchandiseAuthorisationsDto {
         public String created_on;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public Double quantity_received;
@@ -192,9 +182,7 @@ public final class ReturnMerchandiseAuthorisationsDto {
         public String created_on;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public Double quantity_received;
@@ -208,9 +196,7 @@ public final class ReturnMerchandiseAuthorisationsDto {
         public String created_on;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public Double quantity_received;

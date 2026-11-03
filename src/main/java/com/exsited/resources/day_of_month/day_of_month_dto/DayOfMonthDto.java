@@ -11,7 +11,7 @@ public final class DayOfMonthDto {
 
     /** The settings day of month body, under {@code day_of_month}. */
     public static final class SettingsDayOfMonth extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/day_of_month",
                 "GET /api/{api_version}/settings/day_of_month/{day_of_month_id}");
@@ -21,16 +21,13 @@ public final class DayOfMonthDto {
             return "day_of_month";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public Long day;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -40,7 +37,7 @@ public final class DayOfMonthDto {
 
     /** One page of {@code SettingsDayOfMonth} records, under {@code data}. */
     public static final class SettingsDayOfMonthList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/day_of_month");
 

@@ -42,7 +42,7 @@ public final class Usages implements BoundResource {
         return getUsages(null, null);
     }
 
-    /** Create bulk usages: {@code POST /usages}. Recorded 201. */
+    /** Create bulk usages: {@code POST /usages}. */
     public ApiResponse<UsagesDto.Usages> createUsage(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -55,7 +55,7 @@ public final class Usages implements BoundResource {
         return createUsage(payload, null);
     }
 
-    /** Get multiple usages: {@code GET /usages/{usage_id}}. Recorded 404, 200. */
+    /** Get multiple usages: {@code GET /usages/{usage_id}}. */
     public ApiResponse<Usage> getUsage(
             String usageId, Map<String, Object> queryParams, RequestOptions options) {
         requireValue(usageId, "usage_id");
@@ -73,7 +73,7 @@ public final class Usages implements BoundResource {
     }
 
     /**
-     * Delete usage: {@code DELETE /usages/{usage_id}}. Recorded 404. No typed view; read
+     * Delete usage: {@code DELETE /usages/{usage_id}}. No typed view; read
      * {@code getMap()}.
      */
     public ApiResponse<Dto> deleteUsage(

@@ -9,7 +9,7 @@ public final class WorkflowsDto {
 
     /** One page of what {@code get_workflow_milestones} lists, under {@code data}. */
     public static final class WorkflowMilestoneList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/workflows/{workflow_uuid}/milestones");
 
@@ -22,23 +22,18 @@ public final class WorkflowsDto {
     /** One entry of a {@link WorkflowMilestoneList}'s {@code data}. */
     public static class WorkflowMilestone extends Dto {
         public WorkflowMilestoneActivityDefinition activity_definition;
-        /** Null in every record measured, so untyped. */
         public Object auto_create;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_name;
-        /** Null in every record measured, so untyped. */
         public Object estimated_hours;
         public String href;
-        /** Null in every record measured, so untyped. */
         public Object icon;
         public String id;
         public String last_updated_on;
         public String name;
         public String object;
         public String priority;
-        /** Null in every record measured, so untyped. */
         public Object sort_order;
         public String status;
         public WorkflowMilestoneDetail workflow;
@@ -72,7 +67,7 @@ public final class WorkflowsDto {
 
     /** One page of what {@code getWorkflows} lists, under {@code data}. */
     public static final class WorkflowList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/workflows");
 
@@ -87,11 +82,9 @@ public final class WorkflowsDto {
         public String object;
         public String id;
         public String status;
-        /** Null in every record measured, so untyped. */
         public Object code;
         public String name;
         public String display_name;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String entity;
         public Long entity_id;
@@ -99,7 +92,6 @@ public final class WorkflowsDto {
         public Boolean is_pre_built;
         public Boolean enable_stage;
         public WorkflowCurrentVersion current_version;
-        /** Null in every record measured, so untyped. */
         public Object custom_form;
         public String created_on;
         public String last_updated_on;
@@ -113,7 +105,7 @@ public final class WorkflowsDto {
      * the update, which the handler answers through the same read.
      */
     public static final class WorkflowView extends Workflow {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/workflows/{workflow_id}");
 
@@ -147,7 +139,7 @@ public final class WorkflowsDto {
      * answers, the same fields as a listed one.
      */
     public static final class WorkflowMilestoneView extends WorkflowMilestone {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/workflows/{workflow_id}/milestones/{milestone_id}");
 

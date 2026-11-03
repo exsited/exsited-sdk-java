@@ -9,7 +9,7 @@ public final class NoteGroupsDto {
 
     /** The note group body. */
     public static final class NoteGroup extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/note_groups",
                 "GET /api/{api_version}/note_groups/{note_group_id}",
@@ -22,16 +22,13 @@ public final class NoteGroupsDto {
         }
 
         public List<Object> activity_logs;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
-        /** 1 measured, null on 1. */
         public String last_updated_on;
         public String name;
         public String object;
@@ -41,7 +38,7 @@ public final class NoteGroupsDto {
 
     /** A page of NoteGroup records. */
     public static final class NoteGroupList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/note_groups");
 
@@ -53,7 +50,7 @@ public final class NoteGroupsDto {
 
     /** The note group notes body. */
     public static final class NoteGroupNotes extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/note_groups/{note_group_id}/notes");
 

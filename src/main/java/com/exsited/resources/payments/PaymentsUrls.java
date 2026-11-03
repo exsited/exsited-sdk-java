@@ -35,7 +35,7 @@ public final class PaymentsUrls {
     public static final String PAYMENT_KEY = "payment";
     public static final String PAYMENT_NOTE_FILES_KEY = "data";
 
-    /** The keys {@code createPayment} takes under {@code payment}; any other is a {@code 400}. */
+    /** The keys {@code createPayment} takes under {@code payment}. */
     public static final List<String> PAYMENT_CREATE_KEYS = List.of(
             "id", "date", "origin", "payment_note", "note", "invoices", "payment_applied",
             "credit_applied", "gift_certificates", "custom_attributes");

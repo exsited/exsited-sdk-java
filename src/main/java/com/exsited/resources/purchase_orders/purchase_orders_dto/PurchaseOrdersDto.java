@@ -10,7 +10,7 @@ public final class PurchaseOrdersDto {
 
     /** The purchase order line body. */
     public static final class PurchaseOrderLine extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/lines");
 
@@ -24,7 +24,6 @@ public final class PurchaseOrdersDto {
         public PurchaseOrderLineItemAccountingCode item_accounting_code;
         public Double item_discount_amount;
         public String item_expected_completion_date;
-        /** never populated in 1 measured record. */
         public Object item_invoice_note;
         public PurchaseOrderLineItemPriceSnapshot item_price_snapshot;
         public PurchaseOrderLineItemPriceTax item_price_tax;
@@ -35,7 +34,6 @@ public final class PurchaseOrdersDto {
         public String name;
         public String object;
         public Double price;
-        /** never populated in 1 measured record. */
         public Object purchase_line_note;
         public Long quantity;
         public Long sort_index;
@@ -51,7 +49,7 @@ public final class PurchaseOrdersDto {
 
     /** A page of PurchaseOrderLine records. */
     public static final class PurchaseOrderLineList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/lines");
 
@@ -63,7 +61,7 @@ public final class PurchaseOrdersDto {
 
     /** The purchase order body. */
     public static final class PurchaseOrder extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders");
 
@@ -89,7 +87,6 @@ public final class PurchaseOrdersDto {
         public String origin;
         public String paid_amount;
         public String purchase_order_note;
-        /** never populated in 2 measured records. */
         public Object sale_order;
         public String status;
         public String subtotal;
@@ -97,13 +94,12 @@ public final class PurchaseOrdersDto {
         public String tax_total;
         public String total;
         public Long version;
-        /** never populated in 2 measured records. */
         public Object warehouse;
     }
 
     /** A page of PurchaseOrder records. */
     public static final class PurchaseOrderList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders");
 
@@ -115,7 +111,7 @@ public final class PurchaseOrdersDto {
 
     /** The purchase order purchase invoice body. */
     public static final class PurchaseOrderPurchaseInvoice extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_invoices");
 
@@ -125,7 +121,6 @@ public final class PurchaseOrdersDto {
         public PurchaseOrderPurchaseInvoiceCreatedBy created_by;
         public String created_on;
         public PurchaseOrderPurchaseInvoiceCurrency currency;
-        /** never populated in 2 measured records. */
         public Object custom_form;
         public String due_date;
         public String id;
@@ -147,7 +142,7 @@ public final class PurchaseOrdersDto {
 
     /** A page of PurchaseOrderPurchaseInvoice records. */
     public static final class PurchaseOrderPurchaseInvoiceList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_invoices");
 
@@ -159,7 +154,7 @@ public final class PurchaseOrdersDto {
 
     /** The purchase order purchase payment body. */
     public static final class PurchaseOrderPurchasePayment extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_payments");
 
@@ -172,18 +167,14 @@ public final class PurchaseOrdersDto {
         public PurchaseOrderPurchasePaymentCurrency currency;
         public String href;
         public String id;
-        /** 2 measured, null on 2. */
         public PurchaseOrderPurchasePaymentLastUpdatedBy last_updated_by;
-        /** 2 measured, null on 2. */
         public String last_updated_on;
         public String object;
         public String origin;
         public String paid_total;
         public String payment_date;
         public List<PurchaseOrderPurchasePaymentPaymentMethodApplication> payment_method_applications;
-        /** 2 measured, null on 2. */
         public String payment_note;
-        /** never populated in 4 measured records. */
         public Object payment_reference;
         public List<PurchaseOrderPurchasePaymentPurchaseInvoiceApplication> purchase_invoice_applications;
         public String status;
@@ -192,7 +183,7 @@ public final class PurchaseOrdersDto {
 
     /** A page of PurchaseOrderPurchasePayment records. */
     public static final class PurchaseOrderPurchasePaymentList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_payments");
 
@@ -204,7 +195,7 @@ public final class PurchaseOrdersDto {
 
     /** The purchase orders note body. */
     public static final class PurchaseOrdersNote extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/notes");
 
@@ -212,16 +203,12 @@ public final class PurchaseOrdersDto {
         public String content;
         public PurchaseOrdersNoteCreatedBy created_by;
         public String created_on;
-        /** never populated in 2 measured records. */
         public Object group;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
-        /** never populated in 2 measured records. */
         public Object last_updated_on;
         public String object;
-        /** never populated in 2 measured records. */
         public Object user;
         public Long version;
         public List<PurchaseOrdersNoteWatcher> watchers;
@@ -229,7 +216,7 @@ public final class PurchaseOrdersDto {
 
     /** A page of PurchaseOrdersNote records. */
     public static final class PurchaseOrdersNoteList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/notes");
 
@@ -241,7 +228,7 @@ public final class PurchaseOrdersDto {
 
     /** The purchase order read body. */
     public static final class PurchaseOrderRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}",
                 "POST /api/{api_version}/purchase_orders/{purchase_order_id}/change",
@@ -277,7 +264,6 @@ public final class PurchaseOrdersDto {
         public String origin;
         public String paid_amount;
         public String purchase_order_note;
-        /** never populated in 1 measured record. */
         public Object sale_order;
         public String status;
         public String subtotal;
@@ -285,13 +271,12 @@ public final class PurchaseOrdersDto {
         public String tax_total;
         public String total;
         public Long version;
-        /** never populated in 1 measured record. */
         public Object warehouse;
     }
 
     /** The purchase order updated body. */
     public static final class PurchaseOrderUpdated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "PATCH /api/{api_version}/purchase_orders/{purchase_order_id}");
 
@@ -316,7 +301,6 @@ public final class PurchaseOrdersDto {
         public String expected_completion_date;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object is_price_tax_inclusive;
         public String issue_date;
         public PurchaseOrderUpdatedKpis kpis;
@@ -329,7 +313,6 @@ public final class PurchaseOrdersDto {
         public String paid_amount;
         public String price_tax_inclusive;
         public String purchase_order_note;
-        /** Null in every record measured, so untyped. */
         public Object sale_order;
         public String sale_order_id;
         public String status;
@@ -340,13 +323,12 @@ public final class PurchaseOrdersDto {
         public String total;
         public String uuid;
         public Long version;
-        /** Null in every record measured, so untyped. */
         public Object warehouse;
     }
 
     /** The purchase orders body. */
     public static final class PurchaseOrders extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/purchase_orders");
 
@@ -371,7 +353,6 @@ public final class PurchaseOrdersDto {
         public String expected_completion_date;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object is_price_tax_inclusive;
         public String issue_date;
         public PurchaseOrdersKpis kpis;
@@ -384,7 +365,6 @@ public final class PurchaseOrdersDto {
         public String paid_amount;
         public String price_tax_inclusive;
         public String purchase_order_note;
-        /** Null in every record measured, so untyped. */
         public Object sale_order;
         public String status;
         public String subtotal;
@@ -394,13 +374,12 @@ public final class PurchaseOrdersDto {
         public String total;
         public String uuid;
         public Long version;
-        /** Null in every record measured, so untyped. */
         public Object warehouse;
     }
 
     /** The purchase order information body. */
     public static final class PurchaseOrderInformation extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/information");
 
@@ -439,7 +418,7 @@ public final class PurchaseOrdersDto {
 
     /** The account purchase orders body. */
     public static final class AccountPurchaseOrders extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/accounts/{account_id}/purchase_orders");
 
@@ -451,7 +430,7 @@ public final class PurchaseOrdersDto {
 
     /** The purchase order notes body. */
     public static final class PurchaseOrderNotes extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/notes");
 
@@ -469,7 +448,7 @@ public final class PurchaseOrdersDto {
 
     /** The purchase order note body. */
     public static final class PurchaseOrderNote extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/notes/{purchase_order_note_id}",
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/notes/{purchase_order_note_id}/files");
@@ -488,7 +467,7 @@ public final class PurchaseOrdersDto {
 
     /** The purchase order line read body. */
     public static final class PurchaseOrderLineRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/lines/{purchase_order_line_uuid}");
 
@@ -503,7 +482,7 @@ public final class PurchaseOrdersDto {
 
     /** What {@code get_purchase_order_note_file} answers, under {@code file}. */
     public static final class PurchaseOrderNoteFile extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/notes/{purchase_order_note_id}/files/{purchase_order_file_id}");
 
@@ -521,7 +500,7 @@ public final class PurchaseOrdersDto {
 
     /** What {@code create_purchase_order_note} answers, under {@code note}. */
     public static final class PurchaseOrderNotesView extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/purchase_orders/{purchase_order_id}/notes");
 
@@ -534,17 +513,13 @@ public final class PurchaseOrdersDto {
         public String content;
         public PurchaseOrderNotesViewCreatedBy created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public PurchaseOrderNotesViewDetail purchase_order;
-        /** Null in every record measured, so untyped. */
         public Object user;
         public Long version;
         public List<PurchaseOrderNotesViewWatcher> watchers;
@@ -554,7 +529,7 @@ public final class PurchaseOrdersDto {
      * What {@code create_purchase_order_purchase_invoice} answers, under {@code purchase_invoice}.
      */
     public static final class PurchaseOrderPurchaseInvoices extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/purchase_orders/{purchase_order_id}/purchase_invoices");
 
@@ -571,19 +546,15 @@ public final class PurchaseOrdersDto {
         public String created_on;
         public PurchaseOrderPurchaseInvoicesCurrency currency;
         public List<Object> custom_attributes;
-        /** Null in every record measured, so untyped. */
         public Object custom_form;
         public String due_date;
         public String id;
         public String issue_date;
         public PurchaseOrderPurchaseInvoicesKpis kpis;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public List<PurchaseOrderPurchaseInvoicesLine> lines;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object origin;
         public String payment_status;
         public Boolean price_tax_inclusive;
@@ -635,18 +606,12 @@ public final class PurchaseOrdersDto {
     /** A {@link PurchaseOrderRead}'s {@code kpis}. */
     public static class PurchaseOrderReadKpis extends Dto {
         public String estimated_total;
-        /** Null in every record measured, so untyped. */
         public Object issue_date;
-        /** Null in every record measured, so untyped. */
         public Object last_cancelled_on;
-        /** Null in every record measured, so untyped. */
         public Object last_changed_on;
-        /** Null in every record measured, so untyped. */
         public Object last_deleted_on;
-        /** Null in every record measured, so untyped. */
         public Object last_invoice_issue_date;
         public String last_invoice_total;
-        /** Null in every record measured, so untyped. */
         public Object last_reactivated_on;
         public String object;
         public String total_expense;
@@ -709,7 +674,6 @@ public final class PurchaseOrdersDto {
         public PurchaseOrderLineReadDetailItemAccountingCode item_accounting_code;
         public Double item_discount_amount;
         public String item_expected_completion_date;
-        /** Null in every record measured, so untyped. */
         public Object item_invoice_note;
         public PurchaseOrderLineReadDetailItemPriceSnapshot item_price_snapshot;
         public PurchaseOrderLineReadDetailItemPriceTax item_price_tax;
@@ -720,7 +684,6 @@ public final class PurchaseOrdersDto {
         public String name;
         public String object;
         public Double price;
-        /** Null in every record measured, so untyped. */
         public Object purchase_line_note;
         public Long quantity;
         public Long sort_index;
@@ -740,17 +703,13 @@ public final class PurchaseOrdersDto {
         public String content;
         public PurchaseOrderNotesDataCreatedBy created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public PurchaseOrderNotesDataDetail purchase_order;
-        /** Null in every record measured, so untyped. */
         public Object user;
         public Long version;
         public List<PurchaseOrderNotesDataWatcher> watchers;
@@ -762,17 +721,13 @@ public final class PurchaseOrdersDto {
         public String content;
         public PurchaseOrderNoteDetailCreatedBy created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public PurchaseOrderNoteDetailPurchaseOrder purchase_order;
-        /** Null in every record measured, so untyped. */
         public Object user;
         public Long version;
         public List<PurchaseOrderNoteDetailWatcher> watchers;
@@ -816,18 +771,12 @@ public final class PurchaseOrdersDto {
     /** A {@link PurchaseOrders}'s {@code kpis}. */
     public static final class PurchaseOrdersKpis extends Dto {
         public String estimated_total;
-        /** Null in every record measured, so untyped. */
         public Object issue_date;
-        /** Null in every record measured, so untyped. */
         public Object last_cancelled_on;
-        /** Null in every record measured, so untyped. */
         public Object last_changed_on;
-        /** Null in every record measured, so untyped. */
         public Object last_deleted_on;
-        /** Null in every record measured, so untyped. */
         public Object last_invoice_issue_date;
         public String last_invoice_total;
-        /** Null in every record measured, so untyped. */
         public Object last_reactivated_on;
         public String object;
         public String total_expense;
@@ -871,18 +820,12 @@ public final class PurchaseOrdersDto {
     /** A {@link PurchaseOrderUpdated}'s {@code kpis}. */
     public static final class PurchaseOrderUpdatedKpis extends Dto {
         public String estimated_total;
-        /** Null in every record measured, so untyped. */
         public Object issue_date;
-        /** Null in every record measured, so untyped. */
         public Object last_cancelled_on;
-        /** Null in every record measured, so untyped. */
         public Object last_changed_on;
-        /** Null in every record measured, so untyped. */
         public Object last_deleted_on;
-        /** Null in every record measured, so untyped. */
         public Object last_invoice_issue_date;
         public String last_invoice_total;
-        /** Null in every record measured, so untyped. */
         public Object last_reactivated_on;
         public String object;
         public String total_expense;
@@ -981,21 +924,15 @@ public final class PurchaseOrdersDto {
     public static final class PurchaseOrderPurchaseInvoicesKpis extends Dto {
         public String credit_applied;
         public String credit_issued;
-        /** Null in every record measured, so untyped. */
         public Object deleted_on;
-        /** Null in every record measured, so untyped. */
         public Object last_amended_on;
-        /** Null in every record measured, so untyped. */
         public Object last_cancelled_on;
-        /** Null in every record measured, so untyped. */
         public Object last_payment_date;
-        /** Null in every record measured, so untyped. */
         public Object last_reactivated_on;
         public String object;
         public String outstanding;
         public String overdue;
         public String payment_applied;
-        /** Null in every record measured, so untyped. */
         public Object voided_on;
     }
 
@@ -1419,10 +1356,10 @@ public final class PurchaseOrdersDto {
 
     /**
      * What {@code getPurchaseOrderKpis} answers, under {@code purchase_order_kpis}: the block a
-     * purchase order carries as {@code kpis}. Measured on 2 purchase orders.
+     * purchase order carries as {@code kpis}.
      */
     public static final class PurchaseOrderKpis extends PurchaseOrderReadKpis {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/kpis");
 

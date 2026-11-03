@@ -9,12 +9,11 @@ public final class ApprovalsDto {
 
     /** The approvals account body. */
     public static final class ApprovalsAccount extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/approvals/account");
 
         public String created_on;
-        /** never populated in 2 measured records. */
         public Object description;
         public String display_name;
         public String entity;
@@ -29,7 +28,7 @@ public final class ApprovalsDto {
 
     /** A page of ApprovalsAccount records. */
     public static final class ApprovalsAccountList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/approvals/account");
 
@@ -41,7 +40,7 @@ public final class ApprovalsDto {
 
     /** The approvals saleorder body. */
     public static final class ApprovalsSaleorder extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/approvals/saleOrder");
 

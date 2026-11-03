@@ -10,8 +10,7 @@ public final class ReturnMerchandiseAuthorisationsUrls {
     public static final String INVOICE_RETURN_MERCHANDISE_AUTHORISATION_RECEIVE = "/api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_code}/receive";
     public static final String INVOICE_RETURN_MERCHANDISE_AUTHORISATION_RECEIVE_BY_UUID = "/api/{api_version}/invoices/{invoice_id}/return_merchandise_authorisations/{rma_code}/receive/{receive_uuid}";
     /**
-     * The writes under one RMA take its {@code rma_} id and refuse a code; the reads under it take
-     * its code and answer {@code 404} for an {@code rma_} id. So one path can need two identifiers,
+     * The writes under one RMA take its {@code rma_} id ; the reads under it take its code. So one path can need two identifiers,
      * and the {@code _BY_CODE} templates are the read side of it.
      */
     public static final String RETURN_MERCHANDISE_AUTHORISATION_APPROVE = "/api/{api_version}/return_merchandise_authorisations/{rma_id}/approve";

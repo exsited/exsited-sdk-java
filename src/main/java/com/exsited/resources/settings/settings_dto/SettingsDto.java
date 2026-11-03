@@ -11,15 +11,13 @@ public final class SettingsDto {
 
     /** The settings discount profile body. */
     public static class SettingsDiscountProfile extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/discount_profiles");
 
         public SettingsDiscountProfileAccountingCode accounting_code;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
-        /** 1 measured, null on 1. */
         public String description;
         public String discount_type;
         public String display_name;
@@ -27,9 +25,7 @@ public final class SettingsDto {
         public Double fixed_amount;
         public String href;
         public String id;
-        /** 1 measured, null on 1. */
         public String invoice_note;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public Long max_use_per_account;
@@ -40,20 +36,18 @@ public final class SettingsDto {
         public String owner_type;
         public Double percentage_amount;
         public Boolean price_is_inclusive_of_discount;
-        /** 1 measured, null on 1. */
         public Long priority;
         public Boolean redemption_required;
         public Boolean stackable;
         public String start_time;
         public String status;
-        /** 1 measured, null on 1. */
         public SettingsDiscountProfileTaxCode tax_code;
         public Long version;
     }
 
     /** A page of SettingsDiscountProfile records. */
     public static final class SettingsDiscountProfileList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/discount_profiles");
 
@@ -65,17 +59,15 @@ public final class SettingsDto {
 
     /** The settings payment processor body. */
     public static class SettingsPaymentProcessor extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/payment_processors");
 
         public SettingsPaymentProcessorAccountingCode accounting_code;
         public Double conversion_rate;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
         public SettingsPaymentProcessorCurrency currency;
-        /** never populated in 2 measured records. */
         public Object description;
         public Boolean disconnected;
         public String display_name;
@@ -85,7 +77,6 @@ public final class SettingsDto {
         public String integration_state;
         public Boolean is_default;
         public Boolean is_foreign_currency;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -97,7 +88,7 @@ public final class SettingsDto {
 
     /** A page of SettingsPaymentProcessor records. */
     public static final class SettingsPaymentProcessorList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/payment_processors");
 
@@ -109,25 +100,20 @@ public final class SettingsDto {
 
     /** The settings shipping profile body. */
     public static class SettingsShippingProfile extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/shipping_profiles");
 
         public SettingsShippingProfileAccountingCode accounting_code;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
-        /** 1 measured, null on 1. */
         public String description;
         public String display_name;
         public Double fixed_amount;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object integration_connection;
-        /** 1 measured, null on 1. */
         public String invoice_note;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -143,7 +129,7 @@ public final class SettingsDto {
 
     /** A page of SettingsShippingProfile records. */
     public static final class SettingsShippingProfileList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/shipping_profiles");
 
@@ -155,23 +141,19 @@ public final class SettingsDto {
 
     /** The settings pricing level body. */
     public static class SettingsPricingLevel extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/pricing_levels");
 
-        /** never populated in 2 measured records. */
         public Object built_in_item;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object is_default;
         public Boolean is_tax_inclusive;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -185,7 +167,7 @@ public final class SettingsDto {
 
     /** A page of SettingsPricingLevel records. */
     public static final class SettingsPricingLevelList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/pricing_levels");
 
@@ -197,21 +179,18 @@ public final class SettingsDto {
 
     /** The settings time zone body. */
     public static final class SettingsTimeZone extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/time_zones");
 
         public String code;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
-        /** never populated in 2 measured records. */
         public Object description;
         public Boolean dst_enabled;
         public Long hour;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public Long minute;
@@ -225,7 +204,7 @@ public final class SettingsDto {
 
     /** A page of SettingsTimeZone records. */
     public static final class SettingsTimeZoneList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/time_zones");
 
@@ -237,13 +216,12 @@ public final class SettingsDto {
 
     /** The settings warehouse body. */
     public static class SettingsWarehouse extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/warehouses");
 
         public String city;
         public SettingsWarehouseCountry country;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
         public String description;
@@ -251,7 +229,6 @@ public final class SettingsDto {
         public String href;
         public String id;
         public Boolean is_default;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -264,7 +241,7 @@ public final class SettingsDto {
 
     /** A page of SettingsWarehouse records. */
     public static final class SettingsWarehouseList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/warehouses");
 
@@ -276,7 +253,7 @@ public final class SettingsDto {
 
     /** The settings currency body. */
     public static final class SettingsCurrency extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/currencies");
 
@@ -284,13 +261,11 @@ public final class SettingsDto {
         public String code;
         public Double conversion_rate;
         public SettingsCurrencyCountry country;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
         public Long decimal_places;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -302,7 +277,7 @@ public final class SettingsDto {
 
     /** A page of SettingsCurrency records. */
     public static final class SettingsCurrencyList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/currencies");
 
@@ -314,22 +289,18 @@ public final class SettingsDto {
 
     /** The settings item group body. */
     public static final class SettingsItemGroup extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/item_groups");
 
-        /** 1 measured, null on 1. */
         public SettingsItemGroupAccountingCode accounting_code;
         public String code;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
-        /** 1 measured, null on 1. */
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -340,7 +311,7 @@ public final class SettingsDto {
 
     /** A page of SettingsItemGroup records. */
     public static final class SettingsItemGroupList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/item_groups");
 
@@ -352,20 +323,17 @@ public final class SettingsDto {
 
     /** The custom object body. */
     public static class CustomObject extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/custom_objects");
 
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
-        /** never populated in 2 measured records. */
         public Object custom_component;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -376,7 +344,7 @@ public final class SettingsDto {
 
     /** A page of CustomObject records. */
     public static final class CustomObjectList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/custom_objects",
                 "GET /api/{api_version}/accounts/{account_id}/custom_objects");
@@ -389,19 +357,17 @@ public final class SettingsDto {
 
     /** The settings tax body. */
     public static class SettingsTax extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/taxes");
 
         public String code;
         public SettingsTaxCountry country;
         public List<SettingsTaxCountryTaxByState> country_tax_by_states;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -412,7 +378,7 @@ public final class SettingsDto {
 
     /** A page of SettingsTax records. */
     public static final class SettingsTaxList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/taxes");
 
@@ -424,19 +390,16 @@ public final class SettingsDto {
 
     /** The settings variation body. */
     public static final class SettingsVariation extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/variations");
 
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
-        /** 1 measured, null on 1. */
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -446,7 +409,7 @@ public final class SettingsDto {
 
     /** A page of SettingsVariation records. */
     public static final class SettingsVariationList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/variations");
 
@@ -458,11 +421,10 @@ public final class SettingsDto {
 
     /** The settings payment term body. */
     public static class SettingsPaymentTerm extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/payment_terms");
 
-        /** never populated in 2 measured records. */
         public Object description;
         public String display_name;
         public SettingsPaymentTermDuration duration;
@@ -475,7 +437,7 @@ public final class SettingsDto {
 
     /** A page of SettingsPaymentTerm records. */
     public static final class SettingsPaymentTermList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/payment_terms");
 
@@ -487,7 +449,7 @@ public final class SettingsDto {
 
     /** The settings item groups body. */
     public static final class SettingsItemGroups extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/settings/item_groups",
                 "GET /api/{api_version}/settings/item_groups/{item_group_id}",
@@ -522,7 +484,7 @@ public final class SettingsDto {
 
     /** The settings custom logic script body. */
     public static class SettingsCustomLogicScript extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/custom_logic_scripts/{custom_logic_script_id}");
 
@@ -532,15 +494,12 @@ public final class SettingsDto {
         }
 
         public String action_name;
-        /** never populated in 1 measured record. */
         public Object created_by;
         public String created_on;
-        /** never populated in 1 measured record. */
         public Object description;
         public String display_name;
         public String href;
         public String id;
-        /** never populated in 1 measured record. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -557,7 +516,7 @@ public final class SettingsDto {
             return "currency";
         }
 
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/currencies/{currency_id}");
 
@@ -565,13 +524,11 @@ public final class SettingsDto {
         public String code;
         public Double conversion_rate;
         public SettingsCurrencyReadCountry country;
-        /** never populated in 6 measured records. */
         public Object created_by;
         public String created_on;
         public Long decimal_places;
         public String href;
         public String id;
-        /** never populated in 6 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -583,7 +540,7 @@ public final class SettingsDto {
 
     /** The settings custom object customize body. */
     public static final class SettingsCustomObjectCustomize extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/settings/custom_objects/{custom_object_id}/customize");
 
@@ -594,14 +551,12 @@ public final class SettingsDto {
 
         public SettingsCustomObjectCustomizeConfiguration configuration;
         public String created;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -615,7 +570,7 @@ public final class SettingsDto {
 
     /** The settings custom objects body. */
     public static final class SettingsCustomObjects extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/custom_objects/{custom_object_id}",
                 "POST /api/{api_version}/settings/custom_objects",
@@ -627,16 +582,13 @@ public final class SettingsDto {
         }
 
         public String created;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object custom_component;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -650,7 +602,7 @@ public final class SettingsDto {
 
     /** The settings variations body. */
     public static final class SettingsVariations extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/settings/variations",
                 "GET /api/{api_version}/settings/variations/{variation_id}",
@@ -661,14 +613,12 @@ public final class SettingsDto {
             return "variation";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -685,21 +635,18 @@ public final class SettingsDto {
             return "time_zone";
         }
 
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/time_zones/{time_zone_id}");
 
         public String code;
-        /** never populated in 25 measured records. */
         public Object created_by;
         public String created_on;
-        /** never populated in 25 measured records. */
         public Object description;
         public Boolean dst_enabled;
         public Long hour;
         public String href;
         public String id;
-        /** never populated in 25 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public Long minute;
@@ -713,7 +660,7 @@ public final class SettingsDto {
 
     /** The settings custom logic scripts body. */
     public static final class SettingsCustomLogicScripts extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/custom_logic_scripts");
 
@@ -725,7 +672,7 @@ public final class SettingsDto {
 
     /** The settings body. */
     public static final class Settings extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings");
 
@@ -740,7 +687,7 @@ public final class SettingsDto {
 
     /** The settings field settings item body. */
     public static final class SettingsFieldSettingsItem extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "PATCH /api/{api_version}/settings/field_settings/account",
                 "PATCH /api/{api_version}/settings/field_settings/item",
@@ -750,7 +697,6 @@ public final class SettingsDto {
         public SettingsFieldSettingsItemGeneralSettings general_settings;
         public String message;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object pagination;
         public String url;
     }
@@ -759,7 +705,7 @@ public final class SettingsDto {
      * What {@code update_settings_general_settings_item} answers, under {@code general_settings}.
      */
     public static final class SettingsGeneralSettingsItemUpdated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "PATCH /api/{api_version}/settings/general_settings/item");
 
@@ -806,13 +752,10 @@ public final class SettingsDto {
 
     /** One entry of a {@link SettingsFieldSettingsItem}'s {@code data}. */
     public static class SettingsFieldSettingsItemData extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_code;
-        /** Null in every record measured, so untyped. */
         public Object editable;
         public Boolean enabled;
         public String entity;
@@ -822,11 +765,9 @@ public final class SettingsDto {
         public String group_key;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public Boolean mandatory;
-        /** Null in every record measured, so untyped. */
         public Object note;
         public String object;
         public Long sort_order;
@@ -974,7 +915,6 @@ public final class SettingsDto {
         public String last_updated_on;
         public String object;
         public Double rate;
-        /** Null in every record measured, so untyped. */
         public Object state;
         public String status;
     }
@@ -1029,14 +969,12 @@ public final class SettingsDto {
 
     /** A {@link SettingsGeneralSettingsItemUpdatedDetail}'s {@code item_grouping}. */
     public static final class SettingsGeneralSettingsItemUpdatedDetailItemGrouping extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_group;
         public String enabled;
     }
 
     /** A {@link SettingsGeneralSettingsItemUpdatedDetail}'s {@code item_management}. */
     public static final class SettingsGeneralSettingsItemUpdatedDetailItemManagement extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_manager;
         public String enabled;
     }
@@ -1055,7 +993,6 @@ public final class SettingsDto {
      * pricing_period_can_vary_from_charging_period}.
      */
     public static final class SettingsGeneralSettingsItemUpdatedDetailPricingPeriodCanVaryFromChargingPeriod extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_pricing_period;
         public String enabled;
     }
@@ -1066,7 +1003,6 @@ public final class SettingsDto {
      */
     public static final class SettingsGeneralSettingsItemUpdatedDetailSalePriceEnteredIsInclusiveOfTax extends Dto {
         public String enabled;
-        /** Null in every record measured, so untyped. */
         public Object tax;
         public String tax_included_in_sales_price_is_based_on;
     }
@@ -1095,7 +1031,6 @@ public final class SettingsDto {
 
     /** A {@link SettingsFieldSettingsItemGeneralSettingsAccount}'s {@code account_grouping}. */
     public static final class SettingsFieldSettingsItemGeneralSettingsAccountAccountGrouping extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_group;
         public String enabled;
     }
@@ -1105,14 +1040,12 @@ public final class SettingsDto {
      * creation_of_subsidiary_account}.
      */
     public static final class SettingsFieldSettingsItemGeneralSettingsAccountCreationOfSubsidiaryAccount extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_group;
         public String enabled;
     }
 
     /** A {@link SettingsFieldSettingsItemGeneralSettingsAccount}'s {@code account_management}. */
     public static final class SettingsFieldSettingsItemGeneralSettingsAccountAccountManagement extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_manager;
         public String enabled;
     }
@@ -1122,7 +1055,6 @@ public final class SettingsDto {
      * sales_rep_tracking_at_account_level}.
      */
     public static final class SettingsFieldSettingsItemGeneralSettingsAccountSalesRepTrackingAtAccountLevel extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_sales_rep_tracking;
         public String enabled;
     }
@@ -1132,7 +1064,6 @@ public final class SettingsDto {
      * referral_tracking_at_account_level}.
      */
     public static final class SettingsFieldSettingsItemGeneralSettingsAccountReferralTrackingAtAccountLevel extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_referral_tracking;
         public String enabled;
     }
@@ -1190,19 +1121,17 @@ public final class SettingsDto {
 
     /** One custom object definition, as {@code /settings/custom_objects} serves it. */
     public static class SettingsCustomObjectDefinition extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/custom_objects",
                 "GET /api/{api_version}/settings/custom_objects/{custom_object_id}");
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -1217,7 +1146,7 @@ public final class SettingsDto {
      * cursor.
      */
     public static final class SettingsCustomObjectDefinitionList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/custom_objects");
 
@@ -1229,7 +1158,7 @@ public final class SettingsDto {
 
     /** One custom object definition, under {@code custom_object}: the record the listing serves. */
     public static final class SettingsCustomObjectDefinitionRead extends SettingsCustomObjectDefinition {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/custom_objects/{custom_object_id}");
 
@@ -1241,7 +1170,7 @@ public final class SettingsDto {
 
     /** One discount profile, under {@code discount_profile}: the record the listing serves. */
     public static final class SettingsDiscountProfileRead extends SettingsDiscountProfile {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/discount_profiles/{discount_profile_id}",
                 "POST /api/{api_version}/settings/discount_profiles",
@@ -1255,7 +1184,7 @@ public final class SettingsDto {
 
     /** One payment processor, under {@code payment_processor}: the record the listing serves. */
     public static final class SettingsPaymentProcessorRead extends SettingsPaymentProcessor {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/payment_processors/{payment_processor_id}");
 
@@ -1267,7 +1196,7 @@ public final class SettingsDto {
 
     /** One payment term, under {@code payment_term}: the record the listing serves. */
     public static class SettingsPaymentTermRead extends SettingsPaymentTerm {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/payment_terms/{payment_term_id}");
 
@@ -1279,7 +1208,7 @@ public final class SettingsDto {
 
     /** One pricing level, under {@code pricing_level}: the record the listing serves. */
     public static final class SettingsPricingLevelRead extends SettingsPricingLevel {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/pricing_levels/{pricing_level_id}",
                 "PATCH /api/{api_version}/settings/pricing_levels/{pricing_level_id}");
@@ -1292,7 +1221,7 @@ public final class SettingsDto {
 
     /** One shipping profile, under {@code shipping_profile}: the record the listing serves. */
     public static final class SettingsShippingProfileRead extends SettingsShippingProfile {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/shipping_profiles/{shipping_profile_id}",
                 "POST /api/{api_version}/settings/shipping_profiles");
@@ -1305,7 +1234,7 @@ public final class SettingsDto {
 
     /** One tax, under {@code tax}: the record the listing serves. */
     public static final class SettingsTaxRead extends SettingsTax {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/taxes/{tax_id}");
 
@@ -1317,7 +1246,7 @@ public final class SettingsDto {
 
     /** One warehouse, under {@code warehouse}: the record the listing serves. */
     public static final class SettingsWarehouseRead extends SettingsWarehouse {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/warehouses/{warehouse_id}",
                 "POST /api/{api_version}/settings/warehouses",
@@ -1334,7 +1263,7 @@ public final class SettingsDto {
      * cursor.
      */
     public static final class SettingsFieldSettingList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/field_settings");
 
@@ -1346,7 +1275,7 @@ public final class SettingsDto {
 
     /** One field setting, under {@code field_setting}: the record the listing serves. */
     public static final class SettingsFieldSettingRead extends SettingsFieldSettingsItemData {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/field_settings/{field_setting_id}");
 
@@ -1361,7 +1290,7 @@ public final class SettingsDto {
      * fields and {@code code}, which the server does not store.
      */
     public static final class SettingsCustomLogicScriptSaved extends SettingsCustomLogicScript {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/settings/custom_logic_scripts",
                 "PATCH /api/{api_version}/settings/custom_logic_scripts/{custom_logic_script_id}");
@@ -1371,7 +1300,6 @@ public final class SettingsDto {
             return "custom_logic_script";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object code;
     }
 
@@ -1380,7 +1308,7 @@ public final class SettingsDto {
      * and {@code display_order}.
      */
     public static final class SettingsPaymentTermUpdated extends SettingsPaymentTermRead {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "PATCH /api/{api_version}/settings/payment_terms/{payment_term_id}");
 
@@ -1397,7 +1325,7 @@ public final class SettingsDto {
      * {@code gateway_name} and {@code credentials} where the read has {@code provider}.
      */
     public static final class SettingsPaymentProcessorSaved extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/settings/payment_processors",
                 "PATCH /api/{api_version}/settings/payment_processors/{payment_processor_id}");
@@ -1407,13 +1335,10 @@ public final class SettingsDto {
             return "payment_processor";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object accounting_code;
         public Double conversion_rate;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object credentials;
         public SettingsPaymentProcessorSavedCurrency currency;
         public String description;
@@ -1426,7 +1351,6 @@ public final class SettingsDto {
         public String integration_state;
         public Boolean is_default;
         public Boolean is_foreign_currency;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -1450,7 +1374,7 @@ public final class SettingsDto {
      * {@code period} and {@code duration} where the read nests them.
      */
     public static final class SettingsPaymentTermCreated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/settings/payment_terms");
 
@@ -1459,21 +1383,17 @@ public final class SettingsDto {
             return "payment_term";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_name;
         public Long duration;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object ordering;
         public String period;
         public String status;
@@ -1484,7 +1404,7 @@ public final class SettingsDto {
      * {@code price_tax_inclusive} where the read has three tax fields.
      */
     public static final class SettingsPricingLevelCreated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/settings/pricing_levels");
 
@@ -1493,28 +1413,21 @@ public final class SettingsDto {
             return "pricing_level";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object built_in_item;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object is_default;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
         public String object;
         public Long ordering;
-        /** Null in every record measured, so untyped. */
         public Object price_tax_inclusive;
         public String status;
-        /** Null in every record measured, so untyped. */
         public Object tax_exempt;
     }
 
@@ -1523,7 +1436,7 @@ public final class SettingsDto {
      * {@code item} and {@code order} also carry {@code product}.
      */
     public static final class SettingsGeneralSettings extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/general_settings/{group}");
 
@@ -1552,7 +1465,6 @@ public final class SettingsDto {
     /** A {@link SettingsGeneralSettings}'s {@code dashboard}. */
     public static final class SettingsGeneralSettingsDashboard extends Dto {
         public String accounting;
-        /** Null in every record measured, so untyped. */
         @WireName("defaultDashboard")
         public Object defaultDashboard;
         public String executive;
@@ -1565,7 +1477,6 @@ public final class SettingsDto {
     /** A {@link SettingsGeneralSettings}'s {@code date_and_time}. */
     public static final class SettingsGeneralSettingsDateAndTime extends Dto {
         public String date_format;
-        /** Null in every record measured, so untyped. */
         public Object first_day_of_week;
         public String time_format;
         public String time_zone;
@@ -1583,7 +1494,6 @@ public final class SettingsDto {
         public String allow_name_to_be_changed_in_order;
         public String allow_unit_price_to_be_changed_in_order;
         public String default_fulfillment_status;
-        /** Null in every record measured, so untyped. */
         public Object default_shipping_profile;
         public String displayed_price_is_inclusive_of_tax;
         public String enable_booking;
@@ -1598,21 +1508,18 @@ public final class SettingsDto {
 
     /** A {@link SettingsGeneralSettingsOrder}'s {@code order_management}. */
     public static final class SettingsGeneralSettingsOrderOrderManagement extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_manager;
         public String enabled;
     }
 
     /** A {@link SettingsGeneralSettingsOrder}'s {@code referral_tracking_at_order_level}. */
     public static final class SettingsGeneralSettingsOrderReferralTrackingAtOrderLevel extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_referral_tracking;
         public String enabled;
     }
 
     /** A {@link SettingsGeneralSettingsOrder}'s {@code sales_rep_tracking_at_order_level}. */
     public static final class SettingsGeneralSettingsOrderSalesRepTrackingAtOrderLevel extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object default_sales_rep_tracking;
         public String enabled;
     }
@@ -1696,7 +1603,6 @@ public final class SettingsDto {
 
     /** A {@link SettingsGeneralSettings}'s {@code transaction}. */
     public static final class SettingsGeneralSettingsTransaction extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object accounting_method;
         public SettingsGeneralSettingsTransactionAllowModificationOfFollowingCreditNoteFields allow_modification_of_following_credit_note_fields;
         public SettingsGeneralSettingsTransactionAllowModificationOfFollowingInvoiceFields allow_modification_of_following_invoice_fields;
@@ -1705,7 +1611,6 @@ public final class SettingsDto {
         public SettingsGeneralSettingsTransactionAvailableMediumsForCommunicationPreference available_mediums_for_communication_preference;
         public String create_negative_charge_to_accommodate_adjustment_required_for_order_cancel_or_change;
         public SettingsGeneralSettingsTransactionDefaultAccountingCodes default_accounting_codes;
-        /** Null in every record measured, so untyped. */
         public Object default_shipping_profile;
         public String disable_notification_for_invoice_with_charges_of_zero_amount;
         public String displayed_price_is_inclusive_of_tax;

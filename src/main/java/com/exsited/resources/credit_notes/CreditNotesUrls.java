@@ -28,8 +28,7 @@ public final class CreditNotesUrls {
     public static final String FILE_KEY = "file";
 
     /**
-     * The two keys {@code createCreditNote} takes under {@code credit_note}; any other is a
-     * {@code 400}.
+     * The two keys {@code createCreditNote} takes under {@code credit_note}.
      */
     public static final List<String> CREDIT_NOTE_CREATE_KEYS = List.of("invoice_id", "amount");
 

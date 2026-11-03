@@ -471,8 +471,7 @@ public final class Bookings implements BoundResource {
     }
 
     /**
-     * The payment methods bound to a booking: {@code GET /booking/{booking_id}/payment_methods};
-     * {@code 404} when none is.
+     * The payment methods bound to a booking: {@code GET /booking/{booking_id}/payment_methods}.
      */
     public ApiResponse<BookingPaymentMethods> getBookingPaymentMethods(
             String bookingId, Map<String, Object> queryParams, RequestOptions options) {
@@ -568,8 +567,7 @@ public final class Bookings implements BoundResource {
     }
 
     /**
-     * A shipping line's PDF: {@code GET /booking/{booking_id}/shipping_pdf/{shipping_line_id}};
-     * {@code 404} until the line has a generated shipping PDF. No typed view; read
+     * A shipping line's PDF: {@code GET /booking/{booking_id}/shipping_pdf/{shipping_line_id}}. No typed view; read
      * {@code getMap()}.
      */
     public ApiResponse<Dto> getBookingShippingPdf(

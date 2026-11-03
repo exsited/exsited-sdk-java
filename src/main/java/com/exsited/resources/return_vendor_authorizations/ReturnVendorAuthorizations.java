@@ -42,8 +42,7 @@ public final class ReturnVendorAuthorizations implements BoundResource {
 
     /**
      * Delete draft RVA: {@code DELETE /return_vendor_authorizations/{rva_id}}, the {@code rva_} id
-     * only; a code answers {@code 404}, and anything but a draft {@code 400}
-     * {@code stock_committed}. No typed view; read {@code getMap()}.
+     * only, and only a draft. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteReturnVendorAuthorization(
             String rvaId, RequestOptions options) {

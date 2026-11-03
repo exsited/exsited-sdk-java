@@ -67,7 +67,7 @@ public final class Accounts implements BoundResource {
         return getAccounts(null, null);
     }
 
-    /** One account by its short {@code id}; the {@code uuid} answers 404, filter on it instead. */
+    /** One account by its short {@code id}; filter on the {@code uuid} instead. */
     public ApiResponse<Account> getAccount(
             String accountId, RequestOptions options) {
         return client.sendGetRequest(AccountsUrls.ACCOUNT,
@@ -166,7 +166,7 @@ public final class Accounts implements BoundResource {
         return getAccountQuotePartialInvoices(accountId, null);
     }
 
-    /** One contact by type ({@code billing}, {@code shipping}, {@code primary}); an id is a 404. */
+    /** One contact by type ({@code billing}, {@code shipping}, {@code primary}). */
     public ApiResponse<AccountContact> getAccountContact(
             String accountId, String contactType, RequestOptions options) {
         return client.sendGetRequest(AccountsUrls.ACCOUNT_CONTACT,
@@ -447,7 +447,7 @@ public final class Accounts implements BoundResource {
         return getAccountCustomObjects(accountId, null, null);
     }
 
-    /** Cancel an account; {@code effective_date} is {@code YYYY-MM-DD}, and a datetime is a 400. */
+    /** Cancel an account; {@code effective_date} is {@code YYYY-MM-DD}. */
     public ApiResponse<Account> cancelAccount(
             String accountId, Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -543,7 +543,7 @@ public final class Accounts implements BoundResource {
         return replaceAccountContact(accountId, contactType, payload, null);
     }
 
-    /** Replace billing preferences; {@code billing_start_date} is an enum, a date is a 400. */
+    /** Replace billing preferences; {@code billing_start_date} is an enum. */
     public ApiResponse<Account> replaceAccountBillingPreferences(
             String accountId, Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -700,8 +700,7 @@ public final class Accounts implements BoundResource {
 
     /**
      * Create an account: {@code POST /accounts}; answered {@code 201}, under {@code account}.
-     * {@code name} and {@code type} are required, and {@code POST /accounts/{account_id}} is a
-     * {@code 400}.
+     * {@code name} and {@code type} are required.
      */
     public ApiResponse<Account> createAccount(
             Object payload, RequestOptions options) {

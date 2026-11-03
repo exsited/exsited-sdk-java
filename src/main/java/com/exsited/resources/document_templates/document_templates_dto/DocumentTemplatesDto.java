@@ -11,7 +11,7 @@ public final class DocumentTemplatesDto {
 
     /** The settings document template body, under {@code document_template}. */
     public static final class SettingsDocumentTemplate extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/document_templates",
                 "GET /api/{api_version}/settings/document_templates/{document_template_id}",
@@ -23,7 +23,6 @@ public final class DocumentTemplatesDto {
             return "document_template";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
@@ -34,7 +33,6 @@ public final class DocumentTemplatesDto {
         public Boolean is_default;
         public Boolean is_edited;
         public Boolean is_system_template;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -46,7 +44,7 @@ public final class DocumentTemplatesDto {
 
     /** One page of {@code SettingsDocumentTemplate} records, under {@code data}. */
     public static final class SettingsDocumentTemplateList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/document_templates");
 

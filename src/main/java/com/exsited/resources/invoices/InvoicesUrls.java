@@ -65,7 +65,7 @@ public final class InvoicesUrls {
     /**
      * The names that shape the listing, which pages by cursor; every other name is a
      * {@code filter_<field>} or {@code filter_<field>_<operator>}, the money and date fields
-     * taking the range operators too. A bare {@code filter} expression is {@code 400}.
+     * taking the range operators too.
      */
     public static final List<String> INVOICES_QUERY_PARAMS = List.of("limit", "cursor");
 }

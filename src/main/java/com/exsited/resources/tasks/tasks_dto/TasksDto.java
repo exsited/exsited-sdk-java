@@ -9,11 +9,10 @@ public final class TasksDto {
 
     /** The task body. */
     public static final class Task extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/tasks");
 
-        /** never populated in 2 measured records. */
         public Object actual_hours;
         public String code;
         public String completed_at;
@@ -21,7 +20,6 @@ public final class TasksDto {
         public TaskCreatedBy created_by;
         public String created_on;
         public List<Object> custom_attributes;
-        /** 1 measured, null on 1. */
         public String description;
         public String display_name;
         public String due_date;
@@ -30,31 +28,25 @@ public final class TasksDto {
         public String id;
         public TaskLastUpdatedBy last_updated_by;
         public String last_updated_on;
-        /** never populated in 2 measured records. */
         public Object milestone;
         public String name;
         public String object;
-        /** never populated in 2 measured records. */
         public Object parent_task;
         public String priority;
-        /** never populated in 2 measured records. */
         public Object resource;
         public Long sort_order;
-        /** never populated in 2 measured records. */
         public Object start_after;
         public String start_date;
-        /** never populated in 2 measured records. */
         public Object state;
         public String status;
         public String task_status;
         public Long version;
-        /** never populated in 2 measured records. */
         public Object workflow;
     }
 
     /** A page of Task records. */
     public static final class TaskList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/tasks");
 
@@ -66,7 +58,7 @@ public final class TasksDto {
 
     /** What {@code get_task} answers, under {@code work_task}. */
     public static final class TaskView extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/tasks/{task_id}",
                 "GET /api/{api_version}/tasks/{task_id}/checklist",
@@ -80,7 +72,6 @@ public final class TasksDto {
         }
 
         public List<TaskViewActivityLog> activity_logs;
-        /** Null in every record measured, so untyped. */
         public Object actual_hours;
         public List<Object> alerts;
         public TaskViewAssignees assignees;
@@ -99,31 +90,25 @@ public final class TasksDto {
         public String id;
         public TaskViewLastUpdatedBy last_updated_by;
         public String last_updated_on;
-        /** Null in every record measured, so untyped. */
         public Object milestone;
         public String name;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object parent_task;
         public String priority;
-        /** Null in every record measured, so untyped. */
         public Object resource;
         public Long sort_order;
-        /** Null in every record measured, so untyped. */
         public Object start_after;
         public String start_date;
-        /** Null in every record measured, so untyped. */
         public Object state;
         public String status;
         public String task_status;
         public Long version;
-        /** Null in every record measured, so untyped. */
         public Object workflow;
     }
 
     /** One page of what {@code get_task_notes} lists, under {@code data}. */
     public static final class TaskNoteList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/tasks/{task_code}/notes");
 
@@ -189,7 +174,6 @@ public final class TasksDto {
         public String email;
         public String labour_code;
         public String name;
-        /** Null in every record measured, so untyped. */
         public Object responsibility;
         public String uuid;
     }
@@ -200,7 +184,6 @@ public final class TasksDto {
         public String email;
         public String employee_code;
         public String name;
-        /** Null in every record measured, so untyped. */
         public Object responsibility;
         public String uuid;
     }

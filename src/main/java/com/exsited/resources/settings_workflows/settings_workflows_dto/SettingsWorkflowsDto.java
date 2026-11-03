@@ -11,7 +11,7 @@ public final class SettingsWorkflowsDto {
 
     /** The settings workflow body, under {@code workflow}. */
     public static final class SettingsWorkflow extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/workflows",
                 "GET /api/{api_version}/settings/workflows/{workflow_id}");
@@ -21,12 +21,9 @@ public final class SettingsWorkflowsDto {
             return "workflow";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object code;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_name;
         public Boolean enable_stage;
@@ -35,7 +32,6 @@ public final class SettingsWorkflowsDto {
         public String href;
         public String id;
         public Boolean is_pre_built;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -45,7 +41,7 @@ public final class SettingsWorkflowsDto {
 
     /** One page of {@code SettingsWorkflow} records, under {@code data}. */
     public static final class SettingsWorkflowList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/workflows");
 

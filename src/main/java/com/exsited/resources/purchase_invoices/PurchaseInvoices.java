@@ -134,7 +134,7 @@ public final class PurchaseInvoices implements BoundResource {
 
     /**
      * Cancel purchase invoice:
-     * {@code POST /purchase_invoices/{purchase_invoice_id}/cancel}. Recorded 201.
+     * {@code POST /purchase_invoices/{purchase_invoice_id}/cancel}.
      */
     public ApiResponse<PurchaseInvoiceCancel> cancelPurchaseInvoice(
             String purchaseInvoiceId, Object payload, RequestOptions options) {
@@ -393,7 +393,7 @@ public final class PurchaseInvoices implements BoundResource {
 
     /**
      * Delete purchase invoice note:
-     * {@code DELETE /purchase_invoices/{purchase_invoice_id}/notes/{note_id}}. Recorded 204. No
+     * {@code DELETE /purchase_invoices/{purchase_invoice_id}/notes/{note_id}}. No
      * typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deletePurchaseInvoiceNote(

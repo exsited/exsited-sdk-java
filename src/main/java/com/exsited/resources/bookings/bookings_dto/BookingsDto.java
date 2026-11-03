@@ -11,7 +11,7 @@ public final class BookingsDto {
 
     /** The booking body. */
     public static final class Booking extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking");
 
@@ -23,23 +23,18 @@ public final class BookingsDto {
         public String billing_start_day_of_month;
         public List<BookingCommunicationPreference> communication_preferences;
         public BookingContractProperties contract_properties;
-        /** never populated in 2 measured records. */
         public Object created_by;
         public String created_on;
         public BookingCurrency currency;
         public BookingCustomForm custom_form;
         public String customer_purchase_order_id;
-        /** 1 measured, null on 1. */
         public String description;
         public BookingDiscountProfile discount_profile;
         public String display_name;
         public String id;
-        /** 1 measured, null on 1. */
         public String invoice_note;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
-        /** 1 measured, null on 1. */
         public BookingManager manager;
         public String name;
         public String next_billing_from_date;
@@ -47,7 +42,6 @@ public final class BookingsDto {
         public String object;
         public String order_start_date;
         public String order_type;
-        /** 1 measured, null on 1. */
         public String origin;
         public String original_total;
         public Boolean pre_order;
@@ -66,7 +60,7 @@ public final class BookingsDto {
 
     /** A page of Booking records. */
     public static final class BookingList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking");
 
@@ -78,7 +72,7 @@ public final class BookingsDto {
 
     /** The booking by id body. */
     public static final class BookingById extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}",
                 "GET /api/{api_version}/booking/{booking_id}/information",
@@ -94,14 +88,12 @@ public final class BookingsDto {
         }
 
         public BookingByIdAccount account;
-        /** Empty in every record measured; sent by the writes, not by the reads. */
         public List<Object> activity_logs;
         public Boolean allow_contract;
         public BookingByIdBillingAddress billing_address;
         public BookingByIdBillingPreferences billing_preferences;
         public String billing_start_date;
         public List<BookingByIdCommunicationPreference> communication_preferences;
-        /** never populated in 1 measured record. */
         public Object created_by;
         public String created_on;
         public BookingByIdCurrency currency;
@@ -109,13 +101,11 @@ public final class BookingsDto {
         public BookingByIdCustomForm custom_form;
         public String customer_purchase_order_id;
         public String description;
-        /** never populated in 1 measured record. */
         public Object discount_profile;
         public String display_name;
         public String id;
         public String invoice_note;
         public BookingByIdKpis kpis;
-        /** never populated in 1 measured record. */
         public Object last_updated_by;
         public String last_updated_on;
         public List<BookingByIdLine> lines;
@@ -127,21 +117,16 @@ public final class BookingsDto {
         public String order_start_date;
         public String order_type;
         public String origin;
-        /** never populated in 1 measured record. */
         public Object original_total;
         public Boolean pre_order;
         public Boolean price_tax_inclusive;
         public Boolean quote_converted;
         public Boolean quote_order;
-        /** never populated in 1 measured record. */
         public Object referral_account;
-        /** never populated in 1 measured record. */
         public Object sales_rep;
-        /** never populated in 1 measured record. */
         public Object shipping_address;
         public Double shipping_cost;
         public List<Object> shipping_line_items;
-        /** never populated in 1 measured record. */
         public Object shipping_profile;
         public String status;
         public String subtotal;
@@ -196,11 +181,8 @@ public final class BookingsDto {
     public static final class BookingByIdBillingAddress extends Dto {
         public String address_line_1;
         public String address_line_2;
-        /** Null in every record measured, so untyped. */
         public Object address_line_3;
-        /** Null in every record measured, so untyped. */
         public Object address_line_4;
-        /** Null in every record measured, so untyped. */
         public Object address_line_5;
         public String city;
         public String country;
@@ -270,23 +252,16 @@ public final class BookingsDto {
 
     /** A {@link BookingById}'s {@code kpis}. */
     public static final class BookingByIdKpis extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object deleted_at;
         public String estimated_total;
-        /** Null in every record measured, so untyped. */
         public Object last_cancelled_at;
-        /** Null in every record measured, so untyped. */
         public Object last_changed_at;
-        /** Null in every record measured, so untyped. */
         public Object last_invoice_issue_date;
         public String last_invoice_total;
-        /** Null in every record measured, so untyped. */
         public Object last_reactivated_at;
         public String monthly_recurring_revenue;
-        /** Null in every record measured, so untyped. */
         public Object next_invoice_issue_date;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object start_date;
         public String total_collected;
         public String total_due;
@@ -445,13 +420,10 @@ public final class BookingsDto {
 
     /** A {@link BookingByIdBillingPreferences}'s {@code proforma_properties}. */
     public static final class BookingByIdBillingPreferencesProformaProperties extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object acceptance_date;
         public Boolean acceptance_required;
-        /** Null in every record measured, so untyped. */
         public Object acceptance_term;
         public Boolean payment_required;
-        /** Null in every record measured, so untyped. */
         public Object terms_and_conditions;
     }
 
@@ -506,13 +478,10 @@ public final class BookingsDto {
 
     /** A {@link BookingBillingPreferences}'s {@code proforma_properties}. */
     public static final class BookingBillingPreferencesProformaProperties extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object acceptance_date;
         public Boolean acceptance_required;
-        /** Null in every record measured, so untyped. */
         public Object acceptance_term;
         public Boolean payment_required;
-        /** Null in every record measured, so untyped. */
         public Object terms_and_conditions;
     }
 
@@ -543,7 +512,7 @@ public final class BookingsDto {
 
     /** One page of every order's notes, under {@code data}. */
     public static final class BookingNoteList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/notes");
 
@@ -555,7 +524,7 @@ public final class BookingsDto {
 
     /** What {@code getBookingBillingPreferences} answers, under {@code order}. */
     public static final class BookingBillingPreferencesView extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/billing_preferences");
 
@@ -570,7 +539,7 @@ public final class BookingsDto {
 
     /** One page of the custom objects orders use, under {@code data}. */
     public static final class BookingCustomObjectList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/custom_objects",
                 "GET /api/{api_version}/booking/{booking_id}/custom_objects_instances");
@@ -583,7 +552,7 @@ public final class BookingsDto {
 
     /** One custom object with the booking's instances of it, under {@code custom_object}. */
     public static final class BookingCustomObject extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/custom_objects/{custom_object_id}",
                 "GET /api/{api_version}/booking/{booking_id}/custom_objects_instances/{custom_object_id}");
@@ -593,18 +562,14 @@ public final class BookingsDto {
             return "custom_object";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object custom_component;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_name;
         public String href;
         public String id;
         public List<Object> instances;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -616,7 +581,7 @@ public final class BookingsDto {
 
     /** One page of a booking's invoices, under {@code data}. */
     public static final class BookingInvoiceList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/invoices");
 
@@ -628,7 +593,7 @@ public final class BookingsDto {
 
     /** What {@code getBookingItemFulfillment} answers, under {@code item_fulfillment}. */
     public static final class BookingItemFulfillment extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/item_fulfillments/{fulfillment_id}");
 
@@ -642,11 +607,9 @@ public final class BookingsDto {
         public BookingItemFulfillmentCreatedBy created_by;
         public String created_on;
         public Map<String, Object> custom_attributes;
-        /** Null in every record measured, so untyped. */
         public Object delivery_status;
         public Boolean fulfillment_completed;
         public String fulfillment_date;
-        /** Null in every record measured, so untyped. */
         public Object fulfillment_note;
         public String fulfillment_status;
         public List<BookingItemFulfillmentFulfillment> fulfillments;
@@ -656,7 +619,6 @@ public final class BookingsDto {
         public BookingItemFulfillmentLastUpdatedBy last_updated_by;
         public String last_updated_on;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object order;
         public String status;
         public String tracking_number;
@@ -665,7 +627,7 @@ public final class BookingsDto {
 
     /** What {@code getBookingKpis} answers, under {@code order_kpis}. */
     public static final class BookingKpis extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/kpis");
 
@@ -674,23 +636,16 @@ public final class BookingsDto {
             return "order_kpis";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object deleted_at;
         public String estimated_total;
-        /** Null in every record measured, so untyped. */
         public Object last_cancelled_at;
-        /** Null in every record measured, so untyped. */
         public Object last_changed_at;
-        /** Null in every record measured, so untyped. */
         public Object last_invoice_issue_date;
         public String last_invoice_total;
-        /** Null in every record measured, so untyped. */
         public Object last_reactivated_at;
         public String monthly_recurring_revenue;
-        /** Null in every record measured, so untyped. */
         public Object next_invoice_issue_date;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object start_date;
         public String total_collected;
         public String total_due;
@@ -701,7 +656,7 @@ public final class BookingsDto {
 
     /** What {@code getBookingPaymentMethods} answers, under {@code order}. */
     public static final class BookingPaymentMethods extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/payment_methods");
 
@@ -715,7 +670,7 @@ public final class BookingsDto {
 
     /** What {@code getBookingPaymentMethod} answers, under {@code order}. */
     public static final class BookingPaymentMethod extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/payment_methods/{payment_method_ref}");
 
@@ -729,7 +684,7 @@ public final class BookingsDto {
 
     /** One page of a booking's payments, under {@code data}. */
     public static final class BookingPaymentList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/payments");
 
@@ -741,7 +696,7 @@ public final class BookingsDto {
 
     /** What {@code getBookingPayment} answers, under {@code payment}. */
     public static final class BookingPaymentView extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/payments/{payment_id}");
 
@@ -758,12 +713,9 @@ public final class BookingsDto {
         public List<Object> gift_certificate_applied;
         public String id;
         public List<BookingPaymentViewInvoice> invoices;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object origin;
         public List<BookingPaymentViewPaymentApplied> payment_applied;
         public String payment_note;
@@ -774,7 +726,7 @@ public final class BookingsDto {
 
     /** What {@code getBookingPdf} answers, under {@code order}. */
     public static final class BookingPdf extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/pdf");
 
@@ -788,7 +740,7 @@ public final class BookingsDto {
 
     /** What {@code getBookingQuotePartialInvoices} answers, under {@code order}. */
     public static final class BookingQuotePartialInvoices extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/quote_partial_invoices");
 
@@ -806,14 +758,12 @@ public final class BookingsDto {
         public String content;
         public BookingNoteCreatedBy created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
         public String id;
         public BookingNoteLastUpdatedBy last_updated_by;
         public String last_updated_on;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object user;
         public Long version;
         public List<BookingNoteWatcher> watchers;
@@ -865,29 +815,22 @@ public final class BookingsDto {
 
     /** A {@link BookingBillingPreferencesDetail}'s {@code proforma_properties}. */
     public static final class BookingBillingPreferencesDetailProformaProperties extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object acceptance_date;
         public Boolean acceptance_required;
-        /** Null in every record measured, so untyped. */
         public Object acceptance_term;
         public Boolean payment_required;
-        /** Null in every record measured, so untyped. */
         public Object terms_and_conditions;
     }
 
     /** One entry of a {@link BookingCustomObjectList}'s {@code data}. */
     public static final class BookingCustomObjectEntry extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object custom_component;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -909,24 +852,18 @@ public final class BookingsDto {
         public String created_on;
         public BookingInvoiceCurrency currency;
         public BookingInvoiceCustomForm custom_form;
-        /** Null in every record measured, so untyped. */
         public Object customer_purchase_order_id;
         public Double discount_amount;
         public String due;
         public String due_date;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object invoice_note;
         public String issue_date;
-        /** Null in every record measured, so untyped. */
         public Object last_payment;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public BookingInvoiceOrder order;
-        /** Null in every record measured, so untyped. */
         public Object origin;
         public String paid;
         public String payment_status;
@@ -1000,17 +937,13 @@ public final class BookingsDto {
         public Double fulfillment_qty;
         public Double fulfillment_sent_qty;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object inventory_tracking;
         public BookingItemFulfillmentFulfillmentItem item;
         public String object;
         public Double pending_return;
-        /** Null in every record measured, so untyped. */
         public Object returned;
         public String serving_status;
-        /** Null in every record measured, so untyped. */
         public Object uom;
-        /** Null in every record measured, so untyped. */
         public Object uom_precision;
     }
 
@@ -1103,12 +1036,9 @@ public final class BookingsDto {
         public List<Object> gift_certificate_applied;
         public String id;
         public List<BookingPaymentInvoice> invoices;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object origin;
         public List<BookingPaymentPaymentApplied> payment_applied;
         public String payment_note;
@@ -1144,7 +1074,6 @@ public final class BookingsDto {
     /** One entry of a {@link BookingPayment}'s {@code payment_applied}. */
     public static final class BookingPaymentPaymentApplied extends Dto {
         public String amount;
-        /** Null in every record measured, so untyped. */
         public Object gateway_response;
         public String method;
         public String processor;
@@ -1178,7 +1107,6 @@ public final class BookingsDto {
     /** One entry of a {@link BookingPaymentView}'s {@code payment_applied}. */
     public static final class BookingPaymentViewPaymentApplied extends Dto {
         public String amount;
-        /** Null in every record measured, so untyped. */
         public Object gateway_response;
         public String method;
         public String processor;
@@ -1196,7 +1124,7 @@ public final class BookingsDto {
 
     /** What {@code getBookingLine} answers, under {@code order_line}. */
     public static final class BookingLine extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/booking/{booking_id}/lines/{line_uuid}");
 

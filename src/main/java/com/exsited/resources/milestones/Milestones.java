@@ -77,7 +77,7 @@ public final class Milestones implements BoundResource {
 
     /**
      * Get milestones by employee: {@code GET /milestones/employee/{employee_code}}; the employee's
-     * {@code code}, since an {@code emp_} id answers {@code 404}.
+     * {@code code}.
      */
     public ApiResponse<MilestonesDto.Milestones> getMilestonesEmployeeByCode(
             String employeeCode, Map<String, Object> queryParams, RequestOptions options) {
@@ -97,7 +97,7 @@ public final class Milestones implements BoundResource {
 
     /**
      * Get one milestone: {@code GET /milestones/{milestone_uuid}}, a {@code wfm_} id or its raw
-     * uuid; a workflow's milestone definition is a different record and answers {@code 404}. No
+     * uuid. No
      * typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> getMilestone(

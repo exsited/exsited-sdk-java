@@ -9,7 +9,7 @@ public final class PurchaseCreditNotesDto {
 
     /** The purchase credit note body. */
     public static final class PurchaseCreditNote extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_credit_notes");
 
@@ -42,7 +42,7 @@ public final class PurchaseCreditNotesDto {
 
     /** A page of PurchaseCreditNote records. */
     public static final class PurchaseCreditNoteList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_credit_notes");
 
@@ -54,7 +54,7 @@ public final class PurchaseCreditNotesDto {
 
     /** The purchase credit note read body. */
     public static final class PurchaseCreditNoteRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_credit_notes/{purchase_credit_note_id}",
                 "PATCH /api/{api_version}/purchase_credit_notes/{purchase_credit_note_id}");
@@ -229,7 +229,7 @@ public final class PurchaseCreditNotesDto {
      * body than the reads, and {@code status} an object where they send a string.
      */
     public static final class PurchaseCreditNoteCreated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/purchase_credit_notes");
 
@@ -238,7 +238,6 @@ public final class PurchaseCreditNotesDto {
             return "purchase_credit_note";
         }
 
-        /** Empty in every record measured, so its entries are untyped. */
         public List<Object> activity_logs;
         public String code;
         public String href;

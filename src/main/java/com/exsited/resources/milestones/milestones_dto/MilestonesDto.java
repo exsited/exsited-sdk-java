@@ -8,7 +8,7 @@ import java.util.List;
 public final class MilestonesDto {
     /** The milestones body. */
     public static final class Milestones extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/milestones",
                 "GET /api/{api_version}/milestones/account/{account_id}",

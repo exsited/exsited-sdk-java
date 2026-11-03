@@ -9,7 +9,7 @@ public final class PaymentsDto {
 
     /** The payment body. */
     public static final class Payment extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/invoices/{invoice_id}/payments",
                 "GET /api/{api_version}/orders/{order_id}/payments",
@@ -22,9 +22,7 @@ public final class PaymentsDto {
         public List<PaymentGiftCertificateApplied> gift_certificate_applied;
         public String id;
         public List<PaymentInvoice> invoices;
-        /** 1 measured, null on 1. */
         public PaymentLastUpdatedBy last_updated_by;
-        /** 1 measured, null on 1. */
         public String last_updated_on;
         public String object;
         public String origin;
@@ -37,7 +35,7 @@ public final class PaymentsDto {
 
     /** A page of Payment records. */
     public static final class PaymentList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/invoices/{invoice_id}/payments",
                 "GET /api/{api_version}/orders/{order_id}/payments",
@@ -51,7 +49,7 @@ public final class PaymentsDto {
 
     /** The payment note body. */
     public static final class PaymentNote extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/payments/{payment_id}/notes");
 
@@ -59,17 +57,13 @@ public final class PaymentsDto {
         public String content;
         public PaymentNoteCreatedBy created_by;
         public String created_on;
-        /** never populated in 2 measured records. */
         public Object group;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
-        /** never populated in 2 measured records. */
         public Object last_updated_on;
         public String object;
         public PaymentNoteDetail payment;
-        /** never populated in 2 measured records. */
         public Object user;
         public Long version;
         public List<PaymentNoteWatcher> watchers;
@@ -77,7 +71,7 @@ public final class PaymentsDto {
 
     /** A page of PaymentNote records. */
     public static final class PaymentNoteList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/payments/{payment_id}/notes");
 
@@ -89,7 +83,7 @@ public final class PaymentsDto {
 
     /** The payments note body. */
     public static final class PaymentsNote extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/payments/notes");
 
@@ -97,16 +91,12 @@ public final class PaymentsDto {
         public String content;
         public PaymentsNoteCreatedBy created_by;
         public String created_on;
-        /** never populated in 2 measured records. */
         public Object group;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
-        /** never populated in 2 measured records. */
         public Object last_updated_on;
         public String object;
-        /** never populated in 2 measured records. */
         public Object user;
         public Long version;
         public List<PaymentsNoteWatcher> watchers;
@@ -114,7 +104,7 @@ public final class PaymentsDto {
 
     /** A page of PaymentsNote records. */
     public static final class PaymentsNoteList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/payments/notes");
 
@@ -126,7 +116,7 @@ public final class PaymentsDto {
 
     /** The payment read body. */
     public static final class PaymentRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/payments/{payment_id}",
                 "PATCH /api/{api_version}/payments/{payment_id}");
@@ -158,7 +148,7 @@ public final class PaymentsDto {
 
     /** The account payments body. */
     public static final class AccountPayments extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/accounts/{account_id}/payments");
 
@@ -170,7 +160,7 @@ public final class PaymentsDto {
 
     /** The payment note read body. */
     public static final class PaymentNoteRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/payments/{payment_id}/notes/{payment_note_id}");
 
@@ -184,7 +174,7 @@ public final class PaymentsDto {
 
     /** What {@code get_payment_note_file} answers, under {@code file}. */
     public static final class PaymentNoteFile extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/payments/{payment_id}/notes/{payment_note_id}/files/{payment_file_id}");
 
@@ -202,7 +192,7 @@ public final class PaymentsDto {
 
     /** What {@code create_payment_note} answers, under {@code note}. */
     public static final class PaymentNotes extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/payments/{payment_id}/notes");
 
@@ -215,17 +205,13 @@ public final class PaymentsDto {
         public String content;
         public PaymentNotesCreatedBy created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public PaymentNotesDetail payment;
-        /** Null in every record measured, so untyped. */
         public Object user;
         public Long version;
         public List<PaymentNotesWatcher> watchers;
@@ -242,7 +228,6 @@ public final class PaymentsDto {
     /** One entry of a {@link PaymentRead}'s {@code payment_applied}. */
     public static final class PaymentReadPaymentApplied extends Dto {
         public String amount;
-        /** Null in every record measured, so untyped. */
         public Object gateway_response;
         public String method;
         public String processor;
@@ -299,17 +284,13 @@ public final class PaymentsDto {
         public String content;
         public PaymentNoteReadDetailCreatedBy created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public PaymentNoteReadDetailPayment payment;
-        /** Null in every record measured, so untyped. */
         public Object user;
         public Long version;
         public List<PaymentNoteReadDetailWatcher> watchers;
@@ -355,7 +336,6 @@ public final class PaymentsDto {
     /** One entry of a {@link Payment}'s {@code payment_applied}. */
     public static final class PaymentPaymentApplied extends Dto {
         public String amount;
-        /** Null in every record measured, so untyped. */
         public Object gateway_response;
         public String method;
         public String processor;

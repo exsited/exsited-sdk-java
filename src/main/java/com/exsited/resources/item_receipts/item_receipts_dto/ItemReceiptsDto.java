@@ -10,7 +10,7 @@ public final class ItemReceiptsDto {
 
     /** The item receipt body. */
     public static final class ItemReceipt extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/item_receipts",
                 "GET /api/{api_version}/item_receipts/{item_receipt_id}");
@@ -25,15 +25,12 @@ public final class ItemReceiptsDto {
         public String created_on;
         public String href;
         public String id;
-        /** 1 measured, null on 1. */
         public ItemReceiptLastUpdatedBy last_updated_by;
-        /** 1 measured, null on 1. */
         public String last_updated_on;
         public List<ItemReceiptLine> lines;
         public String object;
         public ItemReceiptPurchaseOrder purchase_order;
         public String receipt_date;
-        /** 1 measured, null on 1. */
         public String receipt_note;
         public String receipt_status;
         public Boolean receive_completed;
@@ -44,7 +41,7 @@ public final class ItemReceiptsDto {
 
     /** A page of ItemReceipt records. */
     public static final class ItemReceiptList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/item_receipts");
 
@@ -56,7 +53,7 @@ public final class ItemReceiptsDto {
 
     /** The item receipts body. */
     public static final class ItemReceipts extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/item_receipts");
 
@@ -83,7 +80,7 @@ public final class ItemReceiptsDto {
 
     /** The item receipt updated body. */
     public static final class ItemReceiptUpdated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "PATCH /api/{api_version}/item_receipts/{item_receipt_id}");
 
@@ -106,7 +103,6 @@ public final class ItemReceiptsDto {
         public ItemReceiptUpdatedPurchaseOrder purchase_order;
         public String purchase_order_id;
         public String receipt_date;
-        /** Null in every record measured, so untyped. */
         public Object receipt_note;
         public String receipt_status;
         public List<Object> receipts;
@@ -119,7 +115,7 @@ public final class ItemReceiptsDto {
 
     /** The purchase order item receipts body. */
     public static final class PurchaseOrderItemReceipts extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_orders/{purchase_order_id}/item_receipts");
 

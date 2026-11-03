@@ -459,7 +459,7 @@ public final class Console {
                 encoderFor(charset).canEncode(glyphProbe()) ? UNICODE_GLYPHS : ASCII_GLYPHS);
     }
 
-    /** Every glyph the probe must be able to encode, printed or not. */
+    /** Every glyph the encoder must be able to carry, printed or not. */
     public static String glyphProbe() {
         return String.join("", UNICODE_GLYPHS.values());
     }

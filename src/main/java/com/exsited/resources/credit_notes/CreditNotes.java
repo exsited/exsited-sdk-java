@@ -95,7 +95,7 @@ public final class CreditNotes implements BoundResource {
 
     /**
      * Delete a credit note: {@code DELETE /credit_notes/{credit_note_id}}, by {@code cn_} id or
-     * code; {@code 204}. A credit note with an active refund is refused {@code 400} {@code in_use}.
+     * code; {@code 204}.
      * No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteCreditNote(

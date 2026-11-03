@@ -9,7 +9,7 @@ public final class CreditNotesDto {
 
     /** The credit note body. */
     public static final class CreditNote extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_notes");
 
@@ -47,7 +47,7 @@ public final class CreditNotesDto {
 
     /** A page of CreditNote records. */
     public static final class CreditNoteList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_notes",
                 "GET /api/{api_version}/accounts/{account_id}/credit_notes");
@@ -60,7 +60,7 @@ public final class CreditNotesDto {
 
     /** The credit note read body. */
     public static final class CreditNoteRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_notes/{credit_note_id}",
                 "PATCH /api/{api_version}/credit_notes/{credit_note_id}");
@@ -205,7 +205,7 @@ public final class CreditNotesDto {
 
     /** A credit note's balance rows, under {@code credit_note}. */
     public static final class CreditNoteItems extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_notes/{credit_note_id}/items");
 
@@ -230,7 +230,6 @@ public final class CreditNotesDto {
         public String credit_note_from_invoice_credit;
         public String credit_note_from_payment_method;
         public String credit_note_total;
-        /** Null in every record measured, so untyped. */
         public Object invoice;
         public String object;
         public String refund_from_blank_method;
@@ -243,7 +242,7 @@ public final class CreditNotesDto {
 
     /** A credit note's applications, under {@code credit_note}. */
     public static final class CreditNoteApplications extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_notes/{credit_note_id}/credit_note_applications");
 
@@ -252,7 +251,6 @@ public final class CreditNotesDto {
             return "credit_note";
         }
 
-        /** Empty in every record measured, so its entries are untyped. */
         public List<Object> applications;
         public String href;
         public String object;
@@ -260,7 +258,7 @@ public final class CreditNotesDto {
 
     /** One note on a credit note, under {@code note}. */
     public static final class CreditNoteNote extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_notes/{credit_note_id}/notes",
                 "GET /api/{api_version}/credit_notes/{credit_note_id}/notes/{note_id}");
@@ -270,31 +268,25 @@ public final class CreditNotesDto {
             return "note";
         }
 
-        /** Empty in every record measured, so its entries are untyped. */
         public List<Object> attachments;
         public String content;
         public CreditNoteNoteCreatedBy created_by;
         public String created_on;
         public CreditNoteNoteDetail credit_note;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object user;
         public Long version;
-        /** Empty in every record measured, so its entries are untyped. */
         public List<Object> watchers;
     }
 
     /** One page of {@code CreditNoteNote} records, under {@code data}. */
     public static final class CreditNoteNoteList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_notes/{credit_note_id}/notes");
 

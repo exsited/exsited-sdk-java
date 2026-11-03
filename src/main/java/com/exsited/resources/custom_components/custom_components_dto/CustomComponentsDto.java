@@ -11,7 +11,7 @@ public final class CustomComponentsDto {
 
     /** The component body. */
     public static final class Component extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/component",
                 "GET /api/{api_version}/component/{component_uuid}",
@@ -24,10 +24,8 @@ public final class CustomComponentsDto {
         }
 
         public List<Object> child_custom_components;
-        /** never populated in 6 measured records. */
         public Object created_by;
         public String created_on;
-        /** never populated in 6 measured records. */
         public Object custom_component;
         public List<ComponentCustomForm> custom_forms;
         public List<Object> custom_objects;
@@ -35,7 +33,6 @@ public final class CustomComponentsDto {
         public String display_name;
         public String href;
         public String id;
-        /** never populated in 6 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -44,13 +41,13 @@ public final class CustomComponentsDto {
         public String status;
         public String use_in;
         public Long version;
-        /** On the create answer only, and empty in every one measured. */
+        /** On the create answer only. */
         public List<Object> activity_logs;
     }
 
     /** A page of Component records. */
     public static final class ComponentList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/component");
 
@@ -66,7 +63,7 @@ public final class CustomComponentsDto {
      * this view takes a record that is already unwrapped.
      */
     public static final class ComponentByUuid extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/component/{component_uuid}",
                 "PATCH /api/{api_version}/component/{component_uuid}/{component_object_id}");
@@ -90,7 +87,7 @@ public final class CustomComponentsDto {
 
     /** The component object body. */
     public static final class ComponentObject extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/components/{component_uuid}/objects/{component_object_id}");
 
@@ -118,7 +115,7 @@ public final class CustomComponentsDto {
 
     /** The component objects body. */
     public static final class ComponentObjects extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/components/{component_uuid}/objects");
 
@@ -130,7 +127,7 @@ public final class CustomComponentsDto {
 
     /** The component object activity body. */
     public static final class ComponentObjectActivity extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/components/{component_uuid}/objects/{component_object_id}/activity");
 
@@ -148,7 +145,7 @@ public final class CustomComponentsDto {
 
     /** The component object custom objects body. */
     public static final class ComponentObjectCustomObjects extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/components/{component_uuid}/objects/{component_object_id}/custom_objects");
 
@@ -175,7 +172,6 @@ public final class CustomComponentsDto {
         public List<Object> attributes;
         public String code;
         public ComponentObjectsDataDetail component;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public ComponentObjectsDataCustomForm custom_form;
@@ -183,9 +179,7 @@ public final class CustomComponentsDto {
         public String href;
         public String id;
         public List<Object> items;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public List<Object> orders;
@@ -195,11 +189,8 @@ public final class CustomComponentsDto {
         public String status;
         public Long version;
         public List<Object> workflow_data;
-        /** Null in every record measured, so untyped. */
         public Object workflow_stage;
-        /** Null in every record measured, so untyped. */
         public Object workflow_status;
-        /** Null in every record measured, so untyped. */
         public Object workflow_status_uuid;
     }
 
@@ -210,7 +201,6 @@ public final class CustomComponentsDto {
         public List<Object> attributes;
         public String code;
         public ComponentObjectCustomComponentObjectDetail component;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public ComponentObjectCustomComponentObjectCustomForm custom_form;
@@ -218,9 +208,7 @@ public final class CustomComponentsDto {
         public String href;
         public String id;
         public List<Object> items;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public List<Object> orders;
@@ -230,11 +218,8 @@ public final class CustomComponentsDto {
         public String status;
         public Long version;
         public List<Object> workflow_data;
-        /** Null in every record measured, so untyped. */
         public Object workflow_stage;
-        /** Null in every record measured, so untyped. */
         public Object workflow_status;
-        /** Null in every record measured, so untyped. */
         public Object workflow_status_uuid;
     }
 
@@ -306,7 +291,6 @@ public final class CustomComponentsDto {
         public Boolean enabled;
         @WireName("encryptData")
         public Boolean encryptData;
-        /** Null in every record measured, so untyped. */
         public Object entity;
         @WireName("fieldRequired")
         public Boolean fieldRequired;
@@ -320,12 +304,10 @@ public final class CustomComponentsDto {
         public Boolean isRequired;
         @WireName("isUnique")
         public Boolean isUnique;
-        /** Null in every record measured, so untyped. */
         @WireName("maxLength")
         public Object maxLength;
         @WireName("metaData")
         public String metaData;
-        /** Null in every record measured, so untyped. */
         @WireName("minLength")
         public Object minLength;
         public String name;
@@ -333,7 +315,6 @@ public final class CustomComponentsDto {
         public String position;
         @WireName("showInListView")
         public Boolean showInListView;
-        /** Null in every record measured, so untyped. */
         @WireName("timeFormat")
         public Object timeFormat;
         public String type;
@@ -385,7 +366,7 @@ public final class CustomComponentsDto {
      * fields a read nests there, with {@code activity_logs} beside them.
      */
     public static final class ComponentObjectRecord extends ComponentObjectCustomComponentObject {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/components/{component_uuid}/objects",
                 "PATCH /api/{api_version}/components/{component_uuid}/objects/{component_object_id}");
@@ -406,7 +387,7 @@ public final class CustomComponentsDto {
 
     /** One component object activity, under {@code custom_component_object_activity}. */
     public static final class ComponentObjectActivityEntry extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/components/{component_uuid}/objects/{component_object_id}/activity",
                 "GET /api/{api_version}/components/{component_uuid}/objects/{component_object_id}/activity/{activity_id}");
@@ -416,7 +397,6 @@ public final class CustomComponentsDto {
             return "custom_component_object_activity";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String href;
@@ -431,7 +411,7 @@ public final class CustomComponentsDto {
 
     /** A component object's note, under {@code note}. */
     public static final class ComponentObjectNote extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/components/{component_uuid}/objects/{component_object_id}/notes",
                 "GET /api/{api_version}/components/{component_uuid}/objects/{component_object_id}/notes/{note_id}",
@@ -448,14 +428,12 @@ public final class CustomComponentsDto {
         public ComponentObjectNoteCreatedBy created_by;
         public String created_on;
         public ComponentObjectNoteCustomComponentObject custom_component_object;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
         public String id;
         public ComponentObjectNoteLastUpdatedBy last_updated_by;
         public String last_updated_on;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object user;
         public Long version;
         public List<Object> watchers;
@@ -463,7 +441,7 @@ public final class CustomComponentsDto {
 
     /** One page of {@code ComponentObjectNote} records, under {@code data}. */
     public static final class ComponentObjectNotes extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/components/{component_uuid}/objects/{component_object_id}/notes");
 
@@ -510,7 +488,7 @@ public final class CustomComponentsDto {
      * A note's files, under {@code data}; its {@code pagination} carries {@code has_more} alone.
      */
     public static final class ComponentObjectNoteFiles extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/components/{component_uuid}/objects/{component_object_id}/notes/{note_id}/files");
 
@@ -522,7 +500,7 @@ public final class CustomComponentsDto {
 
     /** One file of a note, under {@code file}. */
     public static final class ComponentObjectNoteFile extends ComponentObjectNoteAttachment {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/components/{component_uuid}/objects/{component_object_id}/notes/{note_id}/files/{file_id}");
 

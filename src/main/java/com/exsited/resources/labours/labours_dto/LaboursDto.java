@@ -10,7 +10,7 @@ public final class LaboursDto {
 
     /** The labour body. */
     public static final class Labour extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labours",
                 "GET /api/{api_version}/labours/available_for_booking",
@@ -30,34 +30,28 @@ public final class LaboursDto {
         public LabourCreatedBy created_by;
         public String created_on;
         public LabourCustomForm custom_form;
-        /** 2 measured, null on 2. */
         public String description;
         public String display_name;
-        /** 2 measured, null on 2. */
         public String email_address;
         public String href;
         public String id;
-        /** never populated in 4 measured records. */
         public Object image_name;
         public List<Object> labour_availability;
         public List<LabourLabourContact> labour_contacts;
         public List<LabourLabourCustomAvailability> labour_custom_availability;
         public LabourLabourProfile labour_profile;
-        /** 2 measured, null on 2. */
         public LabourLastUpdatedBy last_updated_by;
-        /** 2 measured, null on 2. */
         public String last_updated_on;
         public String name;
         public String object;
         public String status;
-        /** 2 measured, null on 2. */
         public Boolean use_custom_availability;
         public Long version;
     }
 
     /** A page of Labour records. */
     public static final class LabourList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labours",
                 "GET /api/{api_version}/labours/available_for_booking");
@@ -70,7 +64,7 @@ public final class LaboursDto {
 
     /** The labour profile body. */
     public static final class LabourProfile extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labour_profiles");
 
@@ -83,13 +77,11 @@ public final class LaboursDto {
         public List<LabourProfileRow> labours;
         public LabourProfileLastUpdatedBy last_updated_by;
         public String last_updated_on;
-        /** never populated in 2 measured records. */
         public Object max_booking_limit;
         public String name;
         public String object;
         public List<LabourProfileSession> sessions;
         public String status;
-        /** 1 measured, null on 1. */
         public LabourProfileTax tax;
         public Boolean tax_inclusive;
         public Long version;
@@ -97,7 +89,7 @@ public final class LaboursDto {
 
     /** A page of LabourProfile records. */
     public static final class LabourProfileList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labour_profiles");
 
@@ -109,14 +101,13 @@ public final class LaboursDto {
 
     /** The labour availability body. */
     public static class LabourAvailability extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labour_availability");
 
         public List<Object> available_list;
         public String code;
         public String display_name;
-        /** 1 measured, null on 1. */
         public String email_address;
         public String id;
         public LabourAvailabilityLabourProfile labour_profile;
@@ -133,7 +124,7 @@ public final class LaboursDto {
 
     /** A page of LabourAvailability records. */
     public static final class LabourAvailabilityList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labour_availability");
 
@@ -145,7 +136,7 @@ public final class LaboursDto {
 
     /** What {@code get_labour_profile} answers, under {@code labour_profile}. */
     public static final class LabourProfileView extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labour_profiles/{labour_profile_id}",
                 "POST /api/{api_version}/labour_profiles");
@@ -177,7 +168,7 @@ public final class LaboursDto {
 
     /** One page of what {@code get_labour_orders} lists, under {@code data}. */
     public static final class LabourOrderList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labours/{labour_uuid}/orders");
 
@@ -275,7 +266,6 @@ public final class LaboursDto {
         public String first_name;
         public String id;
         public String last_name;
-        /** Null in every record measured, so untyped. */
         public Object middle_name;
         public LabourLabourContactMobile mobile;
         public String object;
@@ -317,52 +307,38 @@ public final class LaboursDto {
     public static final class LabourOrder extends Dto {
         public LabourOrderAccount account;
         public Boolean allow_contract;
-        /** Null in every record measured, so untyped. */
         public Object billing_address;
         public LabourOrderBillingPreferences billing_preferences;
         public String billing_start_date;
         public List<LabourOrderCommunicationPreference> communication_preferences;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public LabourOrderCurrency currency;
         public LabourOrderCustomForm custom_form;
-        /** Null in every record measured, so untyped. */
         public Object customer_purchase_order_id;
-        /** Null in every record measured, so untyped. */
         public Object description;
-        /** Null in every record measured, so untyped. */
         public Object discount_profile;
         public String display_name;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object invoice_note;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
-        /** Null in every record measured, so untyped. */
         public Object manager;
         public String name;
         public String next_billing_from_date;
         public String object;
         public String order_start_date;
         public String order_type;
-        /** Null in every record measured, so untyped. */
         public Object origin;
-        /** Null in every record measured, so untyped. */
         public Object original_total;
         public Boolean pre_order;
         public Boolean price_tax_inclusive;
         public Boolean quote_converted;
         public Boolean quote_order;
-        /** Null in every record measured, so untyped. */
         public Object referral_account;
-        /** Null in every record measured, so untyped. */
         public Object sales_rep;
-        /** Null in every record measured, so untyped. */
         public Object shipping_address;
         public Double shipping_cost;
-        /** Null in every record measured, so untyped. */
         public Object shipping_profile;
         public String status;
         public LabourOrderTimeZone time_zone;
@@ -630,13 +606,10 @@ public final class LaboursDto {
 
     /** A {@link LabourOrderBillingPreferences}'s {@code proforma_properties}. */
     public static final class LabourOrderBillingPreferencesProformaProperties extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object acceptance_date;
         public Boolean acceptance_required;
-        /** Null in every record measured, so untyped. */
         public Object acceptance_term;
         public Boolean payment_required;
-        /** Null in every record measured, so untyped. */
         public Object terms_and_conditions;
     }
 
@@ -666,7 +639,7 @@ public final class LaboursDto {
      * {@link LabourAvailability} record for one labour.
      */
     public static final class LabourCalendar extends LabourAvailability {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labours/{labour_id}/availability");
 
@@ -681,7 +654,7 @@ public final class LaboursDto {
      * {@link LabourProfileViewSession}.
      */
     public static final class LabourProfileSessionList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labour_profiles/{labour_profile_id}/sessions");
 
@@ -693,7 +666,7 @@ public final class LaboursDto {
 
     /** What {@code getLabourProfileSession} answers, under {@code labour_profile_session}. */
     public static final class LabourProfileSessionView extends LabourProfileViewSession {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/labour_profiles/{labour_profile_id}/sessions/{session_id}");
 

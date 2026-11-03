@@ -10,8 +10,7 @@ import java.util.List;
  * <p>A DTO is a view of the body. {@code response.getMap()} is the body as it arrived and is
  * where to look when a field here reads {@code null} and you expected otherwise.
  *
- * <p>A field the API sent as {@code null} in every recorded response is declared
- * {@code Object}.
+ * <p>A field whose type is not fixed is declared {@code Object}.
  *
  * <p>Two shape facts:
  *
@@ -20,7 +19,7 @@ import java.util.List;
  *       item.</b> Where {@code getItem} returns the whole record,
  *       {@code getItemSale} returns {@code {id, name, sale}} - three keys - and its
  *       {@code id} is an <b>Integer</b> ({@code 2}), not the string item id
- *       ({@code "ITEM-0001"}) that every other endpoint uses and that every path
+ *       ({@code "your-item-id"}) that every other endpoint uses and that every path
  *       takes. {@link Item} therefore declares {@code String id} and the three
  *       stubs get their own types, rather than one class declaring {@code Object}
  *       and losing the check everywhere.</li>
@@ -46,7 +45,7 @@ public final class ItemsDto {
      * Whoever created or last updated a record.
      *
      * <p><b>Narrower than the account family's User.</b> On an item it carries
-     * {@code {object, name}} and nothing else in any of the 961 measured blocks.
+     * {@code {object, name}} and nothing else.
      * The rest are declared so a richer body still reads.
      */
     public static final class User extends Dto {
@@ -57,7 +56,7 @@ public final class ItemsDto {
         public String href;
     }
 
-    /** The custom form an item was created under. Present on all 665 items. */
+    /** The custom form an item was created under. */
     public static final class CustomForm extends Dto {
         public String object;
         public String id;
@@ -66,16 +65,14 @@ public final class ItemsDto {
     }
 
     /**
-     * One entry of {@code codes}. Measured 1,330 times: {@code name} always a
-     * string, {@code value} a string on 614 and null on 716 - an empty slot is
-     * normal, not an error.
+     * One entry of {@code codes}: {@code name} is a string, {@code value} a string or null - an empty slot is normal, not an error.
      */
     public static final class ItemCode extends Dto {
         public String name;
         public String value;
     }
 
-    /** One entry of {@code currencies}. Measured 463 times, all four flags boolean. */
+    /** One entry of {@code currencies}. */
     public static final class ItemCurrency extends Dto {
         public String name;
         public Boolean used_for_sale;
@@ -86,7 +83,7 @@ public final class ItemsDto {
     }
 
     /**
-     * One component of a bundle. Measured 131 times. {@code quantity} is a
+     * One component of a bundle. {@code quantity} is a
      * <b>double</b>, not an int - {@code 1.0} rather than {@code 1}.
      */
     public static final class BundleDetail extends Dto {
@@ -96,15 +93,14 @@ public final class ItemsDto {
         public String uom;
     }
 
-    /** One member of an item family. Measured 94 times - the id and name only. */
+    /** One member of an item family. The id and name only. */
     public static final class FamilyDetail extends Dto {
         public String item_id;
         public String item_name;
     }
 
     /**
-     * One variation axis. Measured 258 times across configure_variations and
-     * use_variations. The element shape of {@code values} was not established.
+     * One variation axis. The element shape of {@code values} was not established.
      */
     public static final class VariationOption extends Dto {
         public String object;
@@ -115,8 +111,7 @@ public final class ItemsDto {
     }
 
     /**
-     * One package on an item. Measured 131 times. {@code last_updated_by} and
-     * {@code last_updated_on} were null on every one.
+     * One package on an item.
      */
     public static final class PackageDetail extends Dto {
         public String object;
@@ -151,7 +146,7 @@ public final class ItemsDto {
     }
 
     /**
-     * The pricing block on a sale or purchase. Measured 26 times.
+     * The pricing block on a sale or purchase.
      * {@code latest_used_pricing_version} is the field the nested {@code filter}
      * expression addresses.
      */
@@ -162,7 +157,7 @@ public final class ItemsDto {
         public List<PricingPricingModule> pricing_module;
     }
 
-    /** The charge block on a sale. Measured 14 times. */
+    /** The charge block on a sale. */
     public static final class SaleCharge extends Dto {
         public String type;
         public String price_period;
@@ -170,9 +165,7 @@ public final class ItemsDto {
     }
 
     /**
-     * An item's sale configuration. Measured 14 times. Seven fields were null on
-     * all 14 and are declared {@code Object}. {@code default_sale_price} is a
-     * double on 13 and null on 1.
+     * An item's sale configuration. Fields of no fixed type are declared {@code Object}. {@code default_sale_price} is a double or null.
      */
     public static final class ItemSale extends Dto {
         public Boolean enabled;
@@ -203,8 +196,7 @@ public final class ItemsDto {
     }
 
     /**
-     * An item's purchase configuration. Measured 12 times. {@code accounting_code}
-     * and {@code pricing_profile} were null on all 12.
+     * An item's purchase configuration.
      */
     public static final class ItemPurchase extends Dto {
         public Boolean enabled;
@@ -221,7 +213,7 @@ public final class ItemsDto {
     }
 
     /**
-     * The inventory settings block. Measured 12 times. Note
+     * The inventory settings block. Note
      * {@code quantity_available_for_sale} is a <b>String</b>.
      */
     public static final class InventoryProperties extends Dto {
@@ -243,7 +235,7 @@ public final class ItemsDto {
     }
 
     /**
-     * One warehouse's stock line. Measured 10 times.
+     * One warehouse's stock line.
      *
      * <p><b>The quantities are integers here</b> and each has a {@code _value} twin
      * that is a <b>String</b> - {@code quantity_on_hand: 79999} beside
@@ -264,7 +256,7 @@ public final class ItemsDto {
         public String uom;
     }
 
-    /** An item's inventory block. Measured 12 times. */
+    /** An item's inventory block. */
     public static final class ItemInventories extends Dto {
         public Boolean enabled;
         public Boolean enable_warehouse_management;
@@ -273,7 +265,7 @@ public final class ItemsDto {
         public List<WarehouseInventory> warehouses;
     }
 
-    /** One file on a note. The element shape was not established in the sample. */
+    /** One file on a note. */
     public static final class NoteAttachment extends Dto {
         public String object;
         public String id;
@@ -286,8 +278,7 @@ public final class ItemsDto {
     }
 
     /**
-     * One note on an item. Measured 7 times. {@code group}, {@code user},
-     * {@code last_updated_by} and {@code last_updated_on} were null on all 7.
+     * One note on an item.
      */
     public static class Note extends Dto {
         @Override
@@ -312,17 +303,12 @@ public final class ItemsDto {
     }
 
     /**
-     * One item, as {@code getItem} and the listing return it. Measured 668 records.
+     * One item, as {@code getItem} and the listing return it.
      *
-     * <p>{@code id} is the operator-assigned code - {@code "ITEM-0001"} - and is
-     * what every path takes. Declared {@code String} on the strength of 665 of 668;
-     * the three exceptions are the sale, purchase and inventories stubs, which have
-     * their own types precisely so this one keeps the check.
+     * <p>{@code id} is the operator-assigned code - {@code "your-item-id"} - and is
+     * what every path takes. The sale, purchase and inventories stubs have their own types so this one keeps the check.
      *
-     * <p>{@code base_uom} (560 records) and {@code image_url} (665) were null on
-     * every record. {@code uoms}, {@code custom_attributes} and
-     * {@code activity_logs} were present but <b>empty on every record</b>, so their
-     * element types are unmeasured.
+     * <p>{@code base_uom}, {@code image_url}, {@code uoms}, {@code custom_attributes} and {@code activity_logs} are untyped.
      *
      * <p>The sub-resource fields arrive only on the endpoint that asks for them. On
      * a plain listing they are absent, not null.
@@ -357,12 +343,12 @@ public final class ItemsDto {
 
         public CustomForm custom_form;
         public Reference manager;
-        /** Set on 2 of 665 - nearly always null. */
+        /** Rarely set. */
         public Reference group;
 
         public String created_on;
         public User created_by;
-        /** Both null on 369 of 665 - an item never edited. */
+        /** Null for an item never edited. */
         public String last_updated_on;
         public User last_updated_by;
 
@@ -379,19 +365,16 @@ public final class ItemsDto {
         public List<VariationOption> use_variations;
         public List<Object> custom_objects;
 
-        /** Present but empty on every record measured. */
         public List<Object> uoms;
         public List<ItemCustomAttribute> custom_attributes;
         public List<Object> activity_logs;
 
-        /** Null on every record measured. */
         public Object base_uom;
         public Object image_url;
     }
 
     /**
-     * The listing envelope. Items page by <b>cursor</b>, like accounts: all 51
-     * measured pagination blocks carry {@code has_more}, {@code limit},
+     * The listing envelope. Items page by <b>cursor</b>, like accounts: the pagination block carries {@code has_more}, {@code limit},
      * {@code links}, {@code next_cursor} and {@code prev_cursor}. There is no
      * offset shape here.
      */
@@ -445,12 +428,11 @@ public final class ItemsDto {
     }
 
     /**
-     * One inventory movement. Measured 20 records.
+     * One inventory movement.
      *
      * <p><b>Every quantity is a String here</b> - {@code "79999"}, not
      * {@code 79999} - the opposite of {@link WarehouseInventory}, where the same
-     * names are Longs. {@code created_by} and {@code last_updated_by} were null on
-     * all 20.
+     * names are Longs.
      */
     public static final class InventoryAdjustment extends Dto {
         @Override
@@ -500,8 +482,7 @@ public final class ItemsDto {
     /**
      * The listing envelope for a note's attachments.
      *
-     * <p>Unverified: the one recorded call answered 404, so the element shape is
-     * carried over from the account family rather than measured here.
+     * 
      */
     public static final class NoteFileList extends Dto {
         public String object;
@@ -517,16 +498,13 @@ public final class ItemsDto {
     /**
      * The body {@code createItem} takes.
      *
-     * <p>Measured over the 9 recorded creates: {@code type} and {@code name} on all
-     * 9 and the minimum that works. {@code type} takes {@code "STANDARD"},
+     * <p>{@code type} and {@code name} are the minimum. {@code type} takes {@code "STANDARD"},
      * {@code "BUNDLE"}, {@code "FAMILY"} or {@code "VARIATION_BASED"}.
      *
      * <p><b>The family flags are written {@code is_parent}/{@code is_child} and
      * read back as {@code parent}/{@code child}.</b>
      *
-     * <p>{@code group} rejects an unknown value with
-     * {@code 400 internal_error "Invalid group"} - 5 of the 9 recorded creates
-     * failed exactly that way.
+     * 
      */
     public static final class ItemCreate extends Dto {
         @Override
@@ -577,10 +555,7 @@ public final class ItemsDto {
      * <em>inside</em> the item envelope, and {@code currencies} sits beside it
      * rather than within it.
      *
-     * <p>{@code sale} is {@code Object}: the recorded updates sent
-     * {@code {"default_sale_price": 75}} and
-     * {@code {"charge": {"type": "RECURRING"}}}, too thin a sample to declare a
-     * shape.
+     * <p>{@code sale} is {@code Object}: it takes {@code {"default_sale_price": 75}} or {@code {"charge": {"type": "RECURRING"}}}.
      */
     public static final class ItemSaleWrite extends Dto {
         @Override
@@ -606,9 +581,7 @@ public final class ItemsDto {
     /**
      * {@code {"item": {"inventories": {...}}}}.
      *
-     * <p>Turning inventory <b>off</b> is refused with
-     * {@code 400 "Unable to disable Inventory Management"} once stock exists. The
-     * write spells warehouse management {@code warehouse_enabled} where the read
+     * <p>The write spells warehouse management {@code warehouse_enabled} where the read
      * returns {@code enable_warehouse_management}.
      */
     public static final class ItemInventoriesWrite extends Dto {
@@ -635,10 +608,9 @@ public final class ItemsDto {
     }
 
     /**
-     * The body {@code updateItemVariations} takes, in one of two measured forms: a
+     * The body {@code updateItemVariations} takes, in one of two forms: a
      * parent declares {@code configure_variations}; a child sets
-     * {@code parent_item_id} and {@code use_variations}. Both recorded calls
-     * answered 400.
+     * {@code parent_item_id} and {@code use_variations}.
      */
     public static final class ItemVariationsWrite extends Dto {
         @Override
@@ -662,9 +634,9 @@ public final class ItemsDto {
     }
 
     /**
-     * {@code {"item": {"family_details": {"add": ["ITEM-0002"]}}}} - an <b>object
+     * {@code {"item": {"family_details": {"add": ["your-other-item-id"]}}}} - an <b>object
      * with an {@code add} list</b>, the opposite of how {@code bundle_details} is
-     * written. The recorded call answered 405.
+     * written.
      */
     public static final class ItemFamilyDetailsWrite extends Dto {
         @Override
@@ -675,7 +647,7 @@ public final class ItemsDto {
         public Object family_details;
     }
 
-    /** {@code {"item": {"package_details": {...}}}}. The recorded call answered 405. */
+    /** {@code {"item": {"package_details": {...}}}}. */
     public static final class ItemPackageDetailsWrite extends Dto {
         @Override
         protected String envelopeKey() {
@@ -687,8 +659,7 @@ public final class ItemsDto {
 
     /**
      * Base64 in a JSON body, as on an account - <b>not</b> a multipart upload, and
-     * the one write in this family with no {@code item} envelope. The recorded call
-     * answered 500.
+     * the one write in this family with no {@code item} envelope.
      */
     public static final class ItemImageUpload extends Dto {
         public String image_base64;
@@ -782,14 +753,11 @@ public final class ItemsDto {
 
     /** One entry of a {@link ItemPurchase}'s {@code suppliers}. */
     public static final class ItemPurchaseSupplier extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object accounting_code;
         public Double default_purchase_price;
-        /** Null in every record measured, so untyped. */
         public Object id;
         public String name;
         public Pricing pricing;
-        /** Null in every record measured, so untyped. */
         public Object purchase_order_note;
         public ItemPurchaseSupplierTaxConfiguration tax_configuration;
         public Boolean tax_exempt_when_purchase;
@@ -806,7 +774,6 @@ public final class ItemsDto {
         public String item_id;
         public String item_name;
         public Double quantity;
-        /** Null in every record measured, so untyped. */
         public Object uom;
     }
 
@@ -837,10 +804,8 @@ public final class ItemsDto {
 
     /** One entry of a {@link Pricing}'s {@code pricing_module}. */
     public static final class PricingPricingModule extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object average_purchase_price;
         public String currency;
-        /** Null in every record measured, so untyped. */
         public Object last_purchase_price;
         public Double price;
         public String price_type;

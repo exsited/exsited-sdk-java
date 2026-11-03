@@ -9,7 +9,7 @@ public final class AccountEmailsDto {
 
     /** The account communications email body. */
     public static final class AccountCommunicationsEmail extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/accounts/{account_id}/communications/emails",
                 "GET /api/{api_version}/accounts/{account_id}/communications/emails/{email_uuid}",
@@ -20,28 +20,21 @@ public final class AccountEmailsDto {
             return "email";
         }
 
-        /** never populated in 4 measured records. */
         public Object additional_template;
         public List<AccountCommunicationsEmailAttachment> attachments;
         public List<Object> bcc;
-        /** never populated in 4 measured records. */
         public Object body;
         public List<Object> cc;
-        /** never populated in 4 measured records. */
         public Object created_by;
         public String created_on;
-        /** never populated in 4 measured records. */
         public Object from;
         public String id;
-        /** never populated in 4 measured records. */
         public Object last_updated_by;
-        /** never populated in 4 measured records. */
         public Object last_updated_on;
         public String mail_type;
         public String message_type;
         public String object;
         public String status;
-        /** never populated in 4 measured records. */
         public Object subject;
         public String to;
         public String uuid;
@@ -49,7 +42,7 @@ public final class AccountEmailsDto {
 
     /** A page of AccountCommunicationsEmail records. */
     public static final class AccountCommunicationsEmailList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/accounts/{account_id}/communications/emails");
 

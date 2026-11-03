@@ -1047,8 +1047,7 @@ public final class Orders implements BoundResource {
 
     /**
      * The deposit and instalment invoices of a converted quote:
-     * {@code GET /orders/{order_id}/quote_partial_invoices}; an unconverted quote answers
-     * {@code 400}.
+     * {@code GET /orders/{order_id}/quote_partial_invoices}.
      */
     public ApiResponse<OrderQuotePartialInvoices> getOrderQuotePartialInvoices(
             String orderId, RequestOptions options) {
@@ -1062,8 +1061,7 @@ public final class Orders implements BoundResource {
     }
 
     /**
-     * A shipping line's PDF: {@code GET /orders/{order_id}/shipping_pdf/{shipping_line_id}};
-     * {@code 404} until the line has a generated shipping PDF. No typed view; read
+     * A shipping line's PDF: {@code GET /orders/{order_id}/shipping_pdf/{shipping_line_id}}. No typed view; read
      * {@code getMap()}.
      */
     public ApiResponse<Dto> getOrderShippingPdf(

@@ -10,7 +10,7 @@ public final class ExternalDatabasesDto {
 
     /** The external databases body. */
     public static final class ExternalDatabases extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/external_databases",
                 "GET /api/{api_version}/external_databases/{db_name}",
@@ -24,7 +24,7 @@ public final class ExternalDatabasesDto {
 
     /** What {@code create_external_database} answers, under {@code external_database}. */
     public static final class ExternalDatabasesView extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/external_databases");
 
@@ -42,7 +42,7 @@ public final class ExternalDatabasesDto {
      * What {@code create_external_database_insert_record} answers, under {@code external_database}.
      */
     public static final class ExternalDatabaseInsertRecord extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/external_databases/{db_name}/insert_records");
 
@@ -58,7 +58,7 @@ public final class ExternalDatabasesDto {
 
     /** What {@code create_external_database_search} answers, under {@code external_database}. */
     public static final class ExternalDatabaseSearch extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/external_databases/{db_name}/search");
 
@@ -79,7 +79,7 @@ public final class ExternalDatabasesDto {
      * external_database}.
      */
     public static final class ExternalDatabaseUpdateRecordsUpdated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "PATCH /api/{api_version}/external_databases/{db_name}/update_records");
 

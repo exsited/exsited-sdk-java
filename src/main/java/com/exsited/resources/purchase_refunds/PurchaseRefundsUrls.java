@@ -22,8 +22,7 @@ public final class PurchaseRefundsUrls {
     public static final String PURCHASE_REFUND_KEY = "purchase_refund";
 
     /**
-     * The keys {@code updatePurchaseRefund} takes under {@code purchase_refund}; any other is a
-     * {@code 400}.
+     * The keys {@code updatePurchaseRefund} takes under {@code purchase_refund}.
      */
     public static final List<String> PURCHASE_REFUND_UPDATE_KEYS = List.of(
             "alternate_date", "reference", "note", "custom_attributes");

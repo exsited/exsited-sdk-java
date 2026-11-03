@@ -11,7 +11,7 @@ public final class InvoiceTermsDto {
 
     /** The settings invoice term body, under {@code invoice_term}. */
     public static final class SettingsInvoiceTerm extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/invoice_terms",
                 "GET /api/{api_version}/settings/invoice_terms/{invoice_term_id}");
@@ -33,7 +33,7 @@ public final class InvoiceTermsDto {
 
     /** One page of {@code SettingsInvoiceTerm} records, under {@code data}. */
     public static final class SettingsInvoiceTermList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/invoice_terms");
 
@@ -51,7 +51,7 @@ public final class InvoiceTermsDto {
 
     /** The settings invoice term body a create or an update answers, under {@code invoice_term}. */
     public static final class SettingsInvoiceTermWrite extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/settings/invoice_terms",
                 "PATCH /api/{api_version}/settings/invoice_terms/{invoice_term_id}");
@@ -61,7 +61,6 @@ public final class InvoiceTermsDto {
             return "invoice_term";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
@@ -69,7 +68,6 @@ public final class InvoiceTermsDto {
         public Long duration;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;

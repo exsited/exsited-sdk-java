@@ -9,7 +9,7 @@ public final class TimesheetsDto {
 
     /** The timesheet body. */
     public static final class Timesheet extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/timesheets");
 
@@ -31,7 +31,7 @@ public final class TimesheetsDto {
 
     /** A page of Timesheet records. */
     public static final class TimesheetList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/timesheets");
 
@@ -43,7 +43,7 @@ public final class TimesheetsDto {
 
     /** What {@code create_timesheet} answers, under {@code timesheet}. */
     public static final class Timesheets extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/timesheets");
 
@@ -59,9 +59,7 @@ public final class TimesheetsDto {
         public String href;
         public String id;
         public TimesheetsLabour labour;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public TimesheetsSaleOrder sale_order;
@@ -73,7 +71,7 @@ public final class TimesheetsDto {
 
     /** What {@code update_timesheet} answers, under {@code timesheet}. */
     public static final class TimesheetUpdated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "PATCH /api/{api_version}/timesheets/{timesheet_id}");
 

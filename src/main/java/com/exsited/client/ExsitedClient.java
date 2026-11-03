@@ -398,6 +398,16 @@ public final class ExsitedClient implements AutoCloseable {
         return (com.exsited.resources.note_groups.NoteGroups) resource("noteGroups");
     }
 
+    /** The operator groups endpoints, bound to this client. */
+    public com.exsited.resources.operator_groups.OperatorGroups operatorGroups() {
+        return (com.exsited.resources.operator_groups.OperatorGroups) resource("operatorGroups");
+    }
+
+    /** The operators endpoints, bound to this client. */
+    public com.exsited.resources.operators.Operators operators() {
+        return (com.exsited.resources.operators.Operators) resource("operators");
+    }
+
     /** The orders endpoints, bound to this client. */
     public com.exsited.resources.orders.Orders orders() {
         return (com.exsited.resources.orders.Orders) resource("orders");
@@ -578,6 +588,11 @@ public final class ExsitedClient implements AutoCloseable {
         return (com.exsited.resources.usages.Usages) resource("usages");
     }
 
+    /** The user settings endpoints, bound to this client. */
+    public com.exsited.resources.user_settings.UserSettings userSettings() {
+        return (com.exsited.resources.user_settings.UserSettings) resource("userSettings");
+    }
+
     /** The webhooks endpoints, bound to this client. */
     public com.exsited.resources.webhooks.Webhooks webhooks() {
         return (com.exsited.resources.webhooks.Webhooks) resource("webhooks");
@@ -648,7 +663,7 @@ public final class ExsitedClient implements AutoCloseable {
         Map<String, Object> formData =
                 Transport.materialiseFormFields(resolvedOptions.getFormData());
         Object reportedBody = jsonBody != null ? jsonBody : formData;
-        // The HTTP layer sets Content-Type from the body kind, so the recorded headers cannot say.
+        // The HTTP layer sets Content-Type from the body kind, so the headers cannot say.
         boolean formEncoded = jsonBody == null && formData != null;
         Transport.TransportRequest wireRequest = Transport.TransportRequest.builder(method, url)
                 // Reduced to its shape so a transport refusal names the call, not the record.

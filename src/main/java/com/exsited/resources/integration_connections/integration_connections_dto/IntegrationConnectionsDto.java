@@ -9,7 +9,7 @@ public final class IntegrationConnectionsDto {
 
     /** The integration connections body. */
     public static final class IntegrationConnections extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/integration_connections");
 

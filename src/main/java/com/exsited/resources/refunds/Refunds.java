@@ -46,7 +46,7 @@ public final class Refunds implements BoundResource {
     }
 
     /**
-     * Delete refund: {@code DELETE /refunds/{refund_id}}. Recorded 204. No typed view; read
+     * Delete refund: {@code DELETE /refunds/{refund_id}}. No typed view; read
      * {@code getMap()}.
      */
     public ApiResponse<Dto> deleteRefund(
@@ -78,7 +78,7 @@ public final class Refunds implements BoundResource {
         return getRefund(refundId, null, null);
     }
 
-    /** Update refund: {@code PATCH /refunds/{refund_id}}. Recorded 202. */
+    /** Update refund: {@code PATCH /refunds/{refund_id}}. */
     public ApiResponse<RefundUpdated> updateRefund(
             String refundId, Object payload, RequestOptions options) {
         requireValue(refundId, "refund_id");
@@ -92,7 +92,7 @@ public final class Refunds implements BoundResource {
         return updateRefund(refundId, payload, null);
     }
 
-    /** Create refund: {@code POST /credit_notes/{credit_note_id}/refunds}. Recorded 201. */
+    /** Create refund: {@code POST /credit_notes/{credit_note_id}/refunds}. */
     public ApiResponse<RefundUpdated> createCreditNoteRefund(
             String creditNoteId, Object payload, RequestOptions options) {
         requireValue(creditNoteId, "credit_note_id");

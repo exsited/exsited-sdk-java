@@ -8,7 +8,7 @@ public final class PortalsDto {
 
     /** The portal login body. */
     public static final class PortalLogin extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/portal/login");
 
@@ -22,7 +22,7 @@ public final class PortalsDto {
 
     /** What {@code create_portal_change_password} answers, under {@code portal}. */
     public static final class PortalChangePassword extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/portal/change_password");
 
@@ -36,7 +36,7 @@ public final class PortalsDto {
 
     /** What {@code create_portal_reset_link} answers. */
     public static final class PortalResetLink extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/portal/reset_link");
 

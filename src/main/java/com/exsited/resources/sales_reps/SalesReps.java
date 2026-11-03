@@ -40,8 +40,7 @@ public final class SalesReps implements BoundResource {
     }
 
     /**
-     * Create a sales rep: {@code POST /settings/sales_reps}; answers 400 validation_error, naming
-     * no field, even for a valid body. No typed view; read {@code getMap()}.
+     * Create a sales rep: {@code POST /settings/sales_reps}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> createSettingsSalesRep(
             Object payload, RequestOptions options) {

@@ -11,7 +11,7 @@ public final class ApprovalUserGroupsDto {
 
     /** The settings approval user group body, under {@code approval_user_group}. */
     public static final class SettingsApprovalUserGroup extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/approval_user_groups",
                 "GET /api/{api_version}/settings/approval_user_groups/{approval_user_group_id}",
@@ -23,14 +23,12 @@ public final class ApprovalUserGroupsDto {
             return "approval_user_group";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -40,7 +38,7 @@ public final class ApprovalUserGroupsDto {
 
     /** One page of {@code SettingsApprovalUserGroup} records, under {@code data}. */
     public static final class SettingsApprovalUserGroupList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/approval_user_groups");
 

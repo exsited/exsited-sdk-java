@@ -13,12 +13,10 @@ import java.util.Map;
  * both for a key the API sent as null and for one it did not send at all, and only the map can
  * tell those apart.
  *
- * <p>A field the API sent as null in every record is typed {@code Object}, and so is one whose
- * types disagree. Every field is boxed, so a JSON null never reads as 0 or false.
+ * <p>A field whose type is not fixed is typed {@code Object}, and so is one whose types disagree. Every field is boxed, so a JSON null never reads as 0 or false.
  *
  * <p>{@link Invoice} serves the listing entry, the detail read and several sub-resources at
- * once; its fields are those the recorded responses carried, and a live answer may carry a
- * different set.
+ * once; its fields are those the responses carry, and a live answer may carry a different set.
  */
 public final class InvoicesDto {
 
@@ -43,7 +41,6 @@ public final class InvoicesDto {
         public String alternate_issue_date;
         public String billing_end_date;
         public String billing_start_date;
-        /** 4 measured, null on 2. */
         public Long code;
         public InvoiceCreatedBy created_by;
         public String created_on;
@@ -64,7 +61,6 @@ public final class InvoicesDto {
         public Map<String, Object> item_fulfillment;
         public List<ItemFulfillment> item_fulfillments;
         public InvoiceKpis kpis;
-        /** 68 measured, null on 202. */
         public LastPayment last_payment;
         public InvoiceLastUpdatedBy last_updated_by;
         public String last_updated_on;
@@ -99,7 +95,7 @@ public final class InvoicesDto {
 
     /**
      * A page of invoices: {@code {object, url, data, pagination}}, the records under
-     * {@code data}, paged by cursor (measured).
+     * {@code data}, paged by cursor.
      */
     public static final class InvoiceList extends Dto {
         public List<Invoice> data;
@@ -111,7 +107,7 @@ public final class InvoicesDto {
     /**
      * A page of an invoice's notes:
      * {@code GET /api/{api_version}/invoices/{invoice_id}/notes} answers the listing's
-     * {@code {object, url, data, pagination}} envelope with a cursor paging block (measured).
+     * {@code {object, url, data, pagination}} envelope with a cursor paging block.
      */
     public static final class InvoiceNoteList extends Dto {
         public List<InvoiceNote> data;
@@ -137,12 +133,12 @@ public final class InvoicesDto {
         public String href;
     }
 
-    /** The accounting code on a line. Present on all lines measured. */
+    /** The accounting code on a line. */
     public static final class AccountingCode extends Dto {
         public String sales_revenue;
     }
 
-    /** The tax block on a line. Present on all lines measured. */
+    /** The tax block on a line. */
     public static final class LineTax extends Dto {
         public String object;
         public String id;
@@ -185,7 +181,7 @@ public final class InvoicesDto {
         public Object value;
     }
 
-    /** The KPI block. Measured 268 times, never null. */
+    /** The KPI block. */
     public static class InvoiceKpis extends Dto {
         public String credit_applied;
         public String credit_issued;
@@ -232,7 +228,7 @@ public final class InvoicesDto {
         public Object last_updated_by;
     }
 
-    /** One fulfilment against an invoice. Measured 4 times. */
+    /** One fulfilment against an invoice. */
     public static final class ItemFulfillment extends Dto {
         public String uuid;
         public String id;
@@ -400,7 +396,7 @@ public final class InvoicesDto {
 
     /**
      * What {@code getInvoiceKpis} answers, under {@code invoice_kpis}: the block an invoice carries
-     * as {@code kpis}, with an {@code object} beside it. Measured on 2 invoices.
+     * as {@code kpis}, with an {@code object} beside it.
      */
     public static final class InvoiceKpisRead extends InvoiceKpis {
         @Override

@@ -10,7 +10,7 @@ public final class ItemFulfillmentsDto {
 
     /** The item fulfillment body. */
     public static final class ItemFulfillment extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/item_fulfillments");
 
@@ -20,7 +20,6 @@ public final class ItemFulfillmentsDto {
         public String created_on;
         public Map<String, Object> custom_attributes;
         public String date;
-        /** never populated in 2 measured records. */
         public Object delivery_status;
         public Boolean fulfillment_completed;
         public String fulfillment_date;
@@ -35,7 +34,6 @@ public final class ItemFulfillmentsDto {
         public String last_updated_on;
         public String note;
         public String object;
-        /** never populated in 2 measured records. */
         public Object order;
         public String order_id;
         public String status;
@@ -46,7 +44,7 @@ public final class ItemFulfillmentsDto {
 
     /** A page of ItemFulfillment records. */
     public static final class ItemFulfillmentList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/item_fulfillments");
 
@@ -58,7 +56,7 @@ public final class ItemFulfillmentsDto {
 
     /** The item fulfillment read body. */
     public static final class ItemFulfillmentRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/invoices/{invoice_id}/item_fulfillments",
                 "GET /api/{api_version}/invoices/{invoice_id}/item_fulfillments/{fulfillment_id}",
@@ -74,7 +72,6 @@ public final class ItemFulfillmentsDto {
         public ItemFulfillmentReadCreatedBy created_by;
         public String created_on;
         public Map<String, Object> custom_attributes;
-        /** never populated in 1 measured record. */
         public Object delivery_status;
         public Boolean fulfillment_completed;
         public String fulfillment_date;
@@ -87,7 +84,6 @@ public final class ItemFulfillmentsDto {
         public ItemFulfillmentReadLastUpdatedBy last_updated_by;
         public String last_updated_on;
         public String object;
-        /** never populated in 1 measured record. */
         public Object order;
         public String status;
         public String tracking_number;
@@ -96,7 +92,7 @@ public final class ItemFulfillmentsDto {
 
     /** A page of ItemFulfillmentRead records. */
     public static final class ItemFulfillmentReadList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/invoices/{invoice_id}/item_fulfillments");
 
@@ -108,7 +104,7 @@ public final class ItemFulfillmentsDto {
 
     /** The item fulfillments body. */
     public static final class ItemFulfillments extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/item_fulfillments");
 
@@ -123,7 +119,7 @@ public final class ItemFulfillmentsDto {
 
     /** The item fulfillment updated body. */
     public static final class ItemFulfillmentUpdated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "PATCH /api/{api_version}/item_fulfillments/{fulfillment_id}");
 
@@ -134,7 +130,7 @@ public final class ItemFulfillmentsDto {
 
     /** What {@code create_item_fulfillment_note} answers, under {@code note}. */
     public static final class ItemFulfillmentNotes extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/item_fulfillments/{fulfillment_id}/notes");
 
@@ -171,7 +167,6 @@ public final class ItemFulfillmentsDto {
         public Double fulfillment_qty;
         public Double fulfillment_sent_qty;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object inventory_tracking;
         public ItemFulfillmentReadRowItem item;
         public String object;
@@ -199,7 +194,6 @@ public final class ItemFulfillmentsDto {
         public List<Object> activity_logs;
         public String code;
         public String fulfillment_date;
-        /** Null in every record measured, so untyped. */
         public Object fulfillment_note;
         public String fulfillment_status;
         public String href;
@@ -257,7 +251,6 @@ public final class ItemFulfillmentsDto {
         public Double fulfillment_qty;
         public Double fulfillment_sent_qty;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object inventory_tracking;
         public ItemFulfillmentRowItem item;
         public String object;
@@ -301,17 +294,13 @@ public final class ItemFulfillmentsDto {
         public String content;
         public ItemFulfillmentCreatedBy created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
         public String id;
         public ItemFulfillmentNotesDetail item_fulfillment;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object user;
         public Long version;
         public List<ItemFulfillmentNoteWatcher> watchers;
@@ -335,7 +324,7 @@ public final class ItemFulfillmentsDto {
 
     /** One page of {@code ItemFulfillmentNote} records, under {@code data}. */
     public static final class ItemFulfillmentNoteList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/item_fulfillments/{fulfillment_id}/notes");
 
@@ -349,7 +338,7 @@ public final class ItemFulfillmentsDto {
      * What {@code getItemFulfillmentNote} answers: the note under {@code item_fulfillment.note}.
      */
     public static final class ItemFulfillmentNoteRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/item_fulfillments/{fulfillment_id}/notes/{note_id}");
 

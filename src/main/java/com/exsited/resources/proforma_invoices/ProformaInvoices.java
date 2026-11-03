@@ -59,8 +59,7 @@ public final class ProformaInvoices implements BoundResource {
     }
 
     /**
-     * Delete a pro-forma invoice: {@code DELETE /proforma_invoices/{proforma_id}}; {@code 204}. A
-     * paid one is refused {@code 400} {@code already_paid}. No typed view; read {@code getMap()}.
+     * Delete a pro-forma invoice: {@code DELETE /proforma_invoices/{proforma_id}}; {@code 204}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteProformaInvoice(
             String proformaId, RequestOptions options) {

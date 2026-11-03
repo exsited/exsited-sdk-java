@@ -11,7 +11,7 @@ public final class TeamsDto {
 
     /** The settings team body, under {@code team}. */
     public static final class SettingsTeam extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/teams",
                 "GET /api/{api_version}/settings/teams/{team_id}",
@@ -23,28 +23,24 @@ public final class TeamsDto {
             return "team";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
-        /** Null in every record measured, so untyped. */
         public Object managed_by;
         public String name;
         public String object;
         public String status;
-        /** Null in every record measured, so untyped. */
         public Object version;
     }
 
     /** One page of {@code SettingsTeam} records, under {@code data}. */
     public static final class SettingsTeamList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/teams");
 

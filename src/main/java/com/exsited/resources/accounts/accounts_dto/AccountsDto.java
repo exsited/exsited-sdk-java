@@ -18,26 +18,24 @@ import java.util.List;
  * both for a key the API sent as null and for one it did not send at all, and only
  * {@code getMap()} can tell those apart.
  *
- * <p>Every type comes from recorded responses. A field the API sent as null in every record is
- * typed {@code Object}, so the view never refuses a body the API legitimately sends.
+ * <p>A field whose type is not fixed is typed {@code Object}, so the view never refuses a body the API legitimately sends.
  *
  * <p>Fields are boxed and named for the wire, so they are snake_case rather than camelCase.
  *
- * <p>Three read/write asymmetries are recorded here and are not mistakes:
+ * <p>Three read/write asymmetries are deliberate:
  * <ul>
  *   <li>An address <b>reads</b> {@code postal_code} and is <b>written</b> {@code post_code}.
  *   <li>A contact's name <b>reads</b> nested under {@code name} and is <b>written</b> flat.
  *   <li>The billing alignment setting is <b>written</b>
  *       {@code charging_and_billing_alignment} as a boolean, and <b>reads back</b>
- *       under that same name as a <i>string</i> (14 of 49 blocks) or as
- *       {@code charges_aligned_to_billing}, a boolean (5 of 49).
+ *       under that same name as a <i>string</i> or as {@code charges_aligned_to_billing}, a boolean.
  * </ul>
  */
 public final class AccountsDto {
 
     private AccountsDto() {}
 
-    /** v4's standard embedded pointer to another record. Seen 2,963 times. */
+    /** v4's standard embedded pointer to another record. */
     public static final class Reference extends Dto {
         public String object;
         public String id;
@@ -47,7 +45,7 @@ public final class AccountsDto {
         public Double rate;
     }
 
-    /** Whoever created or last updated a record. Seen 3,461 times. */
+    /** Whoever created or last updated a record. */
     public static final class User extends Dto {
         public String object;
         public String id;
@@ -78,7 +76,7 @@ public final class AccountsDto {
         public String href;
     }
 
-    /** Present on all 1,683 accounts, never null; each value is typically null. */
+    /** The account's social links; each value may be null. */
     public static final class SocialLinks extends Dto {
         public String website;
         public String linkedin;
@@ -89,8 +87,7 @@ public final class AccountsDto {
     /**
      * An address <b>as it reads back</b>.
      *
-     * <p>Measured over 12 records, all with every field non-null - a thin sample,
-     * enough to say what type each field holds but not which can be null.
+     * 
      */
     public static final class Address extends Dto {
         public String object;
@@ -136,7 +133,7 @@ public final class AccountsDto {
         public String formatted;
     }
 
-    /** A contact <b>as it reads back</b>. Measured over 10 records. */
+    /** A contact <b>as it reads back</b>. */
     public static final class Contact extends Dto {
         public String object;
         public String id;
@@ -147,16 +144,13 @@ public final class AccountsDto {
         public Boolean receives_billing_information;
         public ContactName name;
         public ContactEmail email;
-        /** null in 2 of 10. */
         public ContactPhone phone;
-        /** null in 4 of 10. */
         public ContactPhone mobile;
-        /** null in 4 of 10. */
         public ContactPhone fax;
         public ContactAddress address;
         public List<ContactCustomAttribute> custom_attributes;
         public String created_on;
-        /** null in 8 of 10 - set only on a contact that has been edited. */
+        /** Set only on a contact that has been edited. */
         public String last_updated_on;
         public User created_by;
         public User last_updated_by;
@@ -170,7 +164,7 @@ public final class AccountsDto {
         public String href;
     }
 
-    /** A payment method <b>as it reads back</b>. Measured over 7 records. */
+    /** A payment method <b>as it reads back</b>. */
     public static final class PaymentMethod extends Dto {
         public String object;
         public String id;
@@ -182,13 +176,12 @@ public final class AccountsDto {
         @WireName("default")
         public Boolean isDefault;
         public Boolean restricted_to_orders;
-        /** Untyped: null in <b>all 7</b> records measured. Named as though it holds
-         *  a list, but nothing observed says so. */
+        /** Untyped. Named as though it holds a list. */
         public Object specified_order_ids;
         public PaymentProcessor processor;
         public String reference;
         public Long payment_count;
-        /** null in 4 of 7 - a method never charged. */
+        /** A method never charged. */
         public String last_used_at;
         public String created_on;
         public String last_updated_on;
@@ -198,7 +191,7 @@ public final class AccountsDto {
     }
 
     /**
-     * Billing preferences <b>as they read back</b>. 49 blocks measured.
+     * Billing preferences <b>as they read back</b>.
      *
      * <p>Field presence varies a great deal between accounts, so most of these are
      * absent rather than null on a given one, and {@code map()} is the only way to
@@ -211,11 +204,9 @@ public final class AccountsDto {
         public String billing_period;
         public String billing_start_date;
         public Long billing_start_day_of_month;
-        /** One of the two names the alignment setting reads back under. Boolean on
-         *  all 5 blocks that carried it. */
+        /** One of the two names the alignment setting reads back under. A boolean. */
         public Boolean charges_aligned_to_billing;
-        /** The other. A <b>string</b> on all 14 blocks that carried it - the write
-         *  side sends this same name as a boolean. */
+        /** The other. A <b>string</b> - the write side sends this same name as a boolean. */
         public String charging_and_billing_alignment;
         public String payment_processor;
         public String payment_mode;
@@ -224,8 +215,7 @@ public final class AccountsDto {
         public Boolean consolidate_invoice;
         public String fulfillment_mode;
         public String fulfillment_term;
-        /** Untyped: an object on 20 of 49, whose keys were never varied enough to
-         *  establish a shape. */
+        /** Untyped: an object with no fixed shape. */
         public Object proforma_properties;
         public String communication_group;
         public String billing_mode;
@@ -262,7 +252,7 @@ public final class AccountsDto {
     }
 
     /**
-     * One account. Measured over <b>1,686 records</b>.
+     * One account.
      *
      * <p>The envelope is {@code "account"}, so this reads both a
      * {@code {"account": {...}}} detail body and a single entry out of a listing's
@@ -275,44 +265,39 @@ public final class AccountsDto {
         }
 
         public String object;
-        /** The short code - {@code "W13ZGY"} - and what every path takes. */
+        /** The short code - {@code "your-account-id"} - and what every path takes. */
         public String id;
         public String name;
         public String status;
         public String type;
         public String display_name;
-        /** null on 576 of 1,683. */
         public String email_address;
-        /** null on 953 of 1,678. */
         public String description;
         public Currency currency;
         public TimeZone time_zone;
-        /** null on 1,013 of 1,678 - an account with no tax profile. */
+        /** An account with no tax profile. */
         public Reference tax;
         public CustomForm custom_form;
-        /** null on 1,182 of 1,683. */
         public String parent_account_id;
-        /** Untyped: null in <b>all 1,683</b> records. Use the image endpoint instead. */
+        /** Untyped. Use the image endpoint instead. */
         public Object image_url;
-        /** null on 1,580 of 1,683. */
         public String workflow_status;
         public SocialLinks social_links;
         public List<AccountCommunicationPreference> communication_preferences;
         public Boolean invoice_parent_account;
         public Boolean portal_access;
-        /** null on 1,015 of 1,678. */
         public String origin;
         public Reference group;
         public Reference manager;
-        /** null on 1,663 of 1,678 - rarely set. */
+        /** Rarely set. */
         public Reference sales_rep;
-        /** null on 1,673 of 1,678 - rarely set. */
+        /** Rarely set. */
         public Reference user_team;
         public AccountAccountingCode accounting_code;
         public Reference pricing_level;
         public String referral_tracking;
         public String created_on;
-        /** null on 1,429 of 1,678 - set only once an account has been edited. */
+        /** Set only once an account has been edited. */
         public String last_updated_on;
         public User created_by;
         public User last_updated_by;
@@ -333,9 +318,7 @@ public final class AccountsDto {
         public List<Object> partial_invoices;
         public List<Object> activity_logs;
         public PaymentMethod payment_method;
-        /** Null in every record measured, so untyped. */
         public Object tax_id;
-        /** Null in every record measured, so untyped. */
         public Object tax_id_number;
     }
 
@@ -375,10 +358,8 @@ public final class AccountsDto {
         public User created_by;
         public User last_updated_by;
         public Long version;
-        /** Null in every record measured, so untyped. */
         public Object group;
         public String href;
-        /** Null in every record measured, so untyped. */
         public Object user;
     }
 
@@ -409,18 +390,16 @@ public final class AccountsDto {
             return "account";
         }
 
-        /** Required, and {@code YYYY-MM-DD}. Any other format is a 400 with code
-         *  {@code invalid} - the endpoint does not parse a datetime. */
+        /** Required, and {@code YYYY-MM-DD}. A datetime is not accepted. */
         public String effective_date;
     }
 
     /**
      * <b>Flatter than the read.</b> {@code currency} and {@code time_zone} go in as
-     * plain strings while {@link Account} reads them back as nested objects, so
-     * posting a read body back unchanged is a 400.
+     * plain strings while {@link Account} reads them back as nested objects, so a read body cannot be posted back unchanged.
      *
      * <p>{@code addresses} and {@code communication_preference} are deliberately
-     * absent: the endpoint answers 400 {@code not_understood} for both.
+     * absent: the endpoint does not accept them.
      */
     public static final class AccountInformationUpdate extends Dto {
         @Override
@@ -537,9 +516,7 @@ public final class AccountsDto {
         public String invoice_mode;
         public String invoice_term;
         public String billing_period;
-        /** An <b>enum</b>, not a date - {@code "DAY_OF_MONTH"} and the like. A
-         *  calendar date is a 400 with code {@code matches_invalid}, which reads as
-         *  a formatting complaint and is a type one. */
+        /** An <b>enum</b>, not a date - {@code "DAY_OF_MONTH"} and the like. A calendar date is not accepted. */
         public String billing_start_date;
         public String billing_start_day_of_month;
         /** Written as a <b>boolean</b>; reads back as a string under this same name.
@@ -615,7 +592,6 @@ public final class AccountsDto {
 
     /** One entry of a {@link NoteView}'s {@code watchers}. */
     public static final class NoteViewWatcher extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object email;
         public String name;
         public String type;
@@ -625,7 +601,6 @@ public final class AccountsDto {
     public static final class ContactAddress extends Dto {
         public String city;
         public String country;
-        /** Null in every record measured, so untyped. */
         public Object country_code;
         public String line_1;
         public String line_2;
@@ -763,8 +738,7 @@ public final class AccountsDto {
 
     /**
      * Body for {@code reactivateAccount}, the same as {@link AccountCancel}. To reactivate now send
-     * the mapping {@code {"account": {"effective_date": null}}}: an unset field is left out, and a
-     * body without the key is a 400.
+     * the mapping {@code {"account": {"effective_date": null}}}: an unset field is left out, and a body without the key is not valid.
      */
     public static final class AccountReactivate extends Dto {
         @Override
@@ -886,7 +860,7 @@ public final class AccountsDto {
 
     /** What {@code getAccountKpis} answers, under {@code account_kpis}. */
     public static final class AccountKpis extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/accounts/{account_id}/kpis");
 
@@ -906,11 +880,8 @@ public final class AccountsDto {
         public String total_credit_balance;
         public Long total_orders;
         public Long active_orders;
-        /** Null in every record measured, so untyped. */
         public Object last_reactivated_at;
-        /** Null in every record measured, so untyped. */
         public Object last_cancelled_at;
-        /** Null in every record measured, so untyped. */
         public Object deleted_at;
         public String computed_at;
     }
@@ -920,7 +891,7 @@ public final class AccountsDto {
      * the {@code financial_summary} itself.
      */
     public static final class AccountFinancialSummary extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/accounts/{account_id}/financial_summary");
 
@@ -950,7 +921,7 @@ public final class AccountsDto {
      * the account's instances of it and their own {@code pagination}.
      */
     public static final class AccountCustomObject extends CustomObject {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/accounts/{account_id}/custom_objects/{custom_object_id}");
 
@@ -959,7 +930,6 @@ public final class AccountsDto {
             return "custom_object";
         }
 
-        /** Empty in every record measured, so its entries are untyped. */
         public List<Object> instances;
         public PaginationDto pagination;
     }
@@ -969,7 +939,7 @@ public final class AccountsDto {
      * fields of one entry of the listing {@code getAccountComponentObjects} answers.
      */
     public static final class AccountComponentObject extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/accounts/{account_id}/component/{component_id}/{component_object_id}");
 
@@ -988,7 +958,6 @@ public final class AccountsDto {
         public List<Object> attributes;
         public String code;
         public ComponentObjectsDataDetail component;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public ComponentObjectsDataCustomForm custom_form;
@@ -996,9 +965,7 @@ public final class AccountsDto {
         public String href;
         public String id;
         public List<Object> items;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String object;
         public List<Object> orders;
@@ -1008,11 +975,8 @@ public final class AccountsDto {
         public String status;
         public Long version;
         public List<Object> workflow_data;
-        /** Null in every record measured, so untyped. */
         public Object workflow_stage;
-        /** Null in every record measured, so untyped. */
         public Object workflow_status;
-        /** Null in every record measured, so untyped. */
         public Object workflow_status_uuid;
     }
 }

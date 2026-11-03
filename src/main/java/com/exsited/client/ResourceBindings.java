@@ -52,6 +52,8 @@ import com.exsited.resources.labours.Labours;
 import com.exsited.resources.milestones.Milestones;
 import com.exsited.resources.note_attachments.NoteAttachments;
 import com.exsited.resources.note_groups.NoteGroups;
+import com.exsited.resources.operator_groups.OperatorGroups;
+import com.exsited.resources.operators.Operators;
 import com.exsited.resources.orders.Orders;
 import com.exsited.resources.organisation.Organisation;
 import com.exsited.resources.organisations.Organisations;
@@ -88,6 +90,7 @@ import com.exsited.resources.time_periods.TimePeriods;
 import com.exsited.resources.timesheets.Timesheets;
 import com.exsited.resources.uom.Uom;
 import com.exsited.resources.usages.Usages;
+import com.exsited.resources.user_settings.UserSettings;
 import com.exsited.resources.webhooks.Webhooks;
 import com.exsited.resources.workflows.Workflows;
 import com.exsited.resources.zones.Zones;
@@ -98,7 +101,7 @@ import java.util.function.Function;
 /**
  * Which family class answers each {@code client.resource(name)} lookup.
  *
- * All 91 v4 families, one line each. The name is the family's package name in camelCase,
+ * All 94 v4 families, one line each. The name is the family's package name in camelCase,
  * the SDK's accessor rule, and the name of the client's typed getter for it. It is
  * not the first segment of its paths, because many families do not own their path root:
  * RMAs are received under {@code /invoices}, accounting codes and most of the settings
@@ -113,7 +116,7 @@ final class ResourceBindings {
      * <p>A map rather than a method that registers them, so nothing here calls
      * back into {@link ResourceBinding} while that class is still initialising.
      * A method reference is a fresh object each time it is evaluated, so a second
-     * pass over these lines would look like 91 rebindings against 91 different
+     * pass over these lines would look like 94 rebindings against 94 different
      * factories and the registry would refuse every one of them.
      */
     static Map<String, Function<ExsitedClient, ? extends BoundResource>> bindings() {
@@ -171,6 +174,8 @@ final class ResourceBindings {
         out.put("milestones", Milestones::new);
         out.put("noteAttachments", NoteAttachments::new);
         out.put("noteGroups", NoteGroups::new);
+        out.put("operatorGroups", OperatorGroups::new);
+        out.put("operators", Operators::new);
         out.put("orders", Orders::new);
         out.put("organisation", Organisation::new);
         out.put("organisations", Organisations::new);
@@ -207,6 +212,7 @@ final class ResourceBindings {
         out.put("timesheets", Timesheets::new);
         out.put("uom", Uom::new);
         out.put("usages", Usages::new);
+        out.put("userSettings", UserSettings::new);
         out.put("webhooks", Webhooks::new);
         out.put("workflows", Workflows::new);
         out.put("zones", Zones::new);

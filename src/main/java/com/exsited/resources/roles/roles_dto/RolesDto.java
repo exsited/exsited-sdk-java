@@ -11,7 +11,7 @@ public final class RolesDto {
 
     /** The settings role body, under {@code role}. */
     public static final class SettingsRole extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/roles",
                 "GET /api/{api_version}/settings/roles/{role_id}");
@@ -21,16 +21,13 @@ public final class RolesDto {
             return "role";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_name;
         public String href;
         public String id;
         public Boolean is_system_role;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -40,7 +37,7 @@ public final class RolesDto {
 
     /** One page of {@code SettingsRole} records, under {@code data}. */
     public static final class SettingsRoleList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/roles");
 

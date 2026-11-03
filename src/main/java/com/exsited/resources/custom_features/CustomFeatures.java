@@ -24,7 +24,7 @@ public final class CustomFeatures implements BoundResource {
         return client;
     }
 
-    /** Create custom feature: {@code POST /custom_feature}. Recorded 201. */
+    /** Create custom feature: {@code POST /custom_feature}. */
     public ApiResponse<CustomFeature> createCustomFeature(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -38,7 +38,7 @@ public final class CustomFeatures implements BoundResource {
     }
 
     /**
-     * Delete custom feature: {@code DELETE /component/{custom_feature_id}}. Recorded 204. No typed
+     * Delete custom feature: {@code DELETE /component/{custom_feature_id}}. No typed
      * view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteComponentById(
@@ -53,7 +53,7 @@ public final class CustomFeatures implements BoundResource {
         return deleteComponentById(customFeatureId, null);
     }
 
-    /** Update custom feature: {@code PATCH /custom_feature/{custom_feature_id}}. Recorded 202. */
+    /** Update custom feature: {@code PATCH /custom_feature/{custom_feature_id}}. */
     public ApiResponse<CustomFeature> updateCustomFeatureById(
             String customFeatureId, Object payload, RequestOptions options) {
         requireValue(customFeatureId, "custom_feature_id");
@@ -69,7 +69,7 @@ public final class CustomFeatures implements BoundResource {
 
     /**
      * Customize form layout and attributes:
-     * {@code POST /custom_feature/{custom_feature_id}}. Recorded 201.
+     * {@code POST /custom_feature/{custom_feature_id}}.
      */
     public ApiResponse<CustomFeature> createCustomFeatureById(
             String customFeatureId, Object payload, RequestOptions options) {
@@ -101,7 +101,7 @@ public final class CustomFeatures implements BoundResource {
 
     /**
      * Retrieve custom feature: {@code GET /custom_feature/{custom_feature_id}}, the {@code cmp_}
-     * id, under {@code custom_feature}; a deleted one is {@code 404}.
+     * id, under {@code custom_feature}.
      */
     public ApiResponse<CustomFeature> getCustomFeatureById(
             String customFeatureId, RequestOptions options) {

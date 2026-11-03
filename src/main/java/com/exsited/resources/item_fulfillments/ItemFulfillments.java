@@ -45,7 +45,7 @@ public final class ItemFulfillments implements BoundResource {
         return getItemFulfillments(null, null);
     }
 
-    /** Create fulfillment: {@code POST /item_fulfillments}. Recorded 201. */
+    /** Create fulfillment: {@code POST /item_fulfillments}. */
     public ApiResponse<ItemFulfillmentsDto.ItemFulfillments> createItemFulfillment(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -118,7 +118,7 @@ public final class ItemFulfillments implements BoundResource {
 
     /**
      * Delete fulfillment: {@code DELETE /item_fulfillments/{fulfillment_id}}, by its {@code ifm_}
-     * id; refused {@code 400} {@code stock_committed} once any of its stock has been sent. No typed
+     * id. No typed
      * view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteItemFulfillment(

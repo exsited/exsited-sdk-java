@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * Path templates, body keys and query names for the account endpoints. {@code {account_id}} is
- * the record's {@code id} ({@code "W13ZGY"}), never its {@code uuid}; {@code set-password} is
+ * the record's {@code id} ({@code "your-account-id"}), never its {@code uuid}; {@code set-password} is
  * the one hyphenated path.
  */
 public final class AccountsUrls {
@@ -60,7 +60,7 @@ public final class AccountsUrls {
     public static final String ACCOUNT_PURGE = "/api/{api_version}/accounts/{account_id}/purge";
     /**
      * A read names the contact by its slot, {@code CONTACT_1} to {@code CONTACT_5}; a write names
-     * it by its {@code con_} id, and the server answers a slot there with a 404.
+     * it by its {@code con_} id.
      */
     public static final String ACCOUNT_CONTACT_BY_TYPE = "/api/{api_version}/accounts/{account_id}/contacts/{contact_type}";
     /**
@@ -112,7 +112,7 @@ public final class AccountsUrls {
 
     /**
      * The names that shape the listing; every other name is a {@code filter_<field>} or
-     * {@code filter_<field>_<operator>}, and an unknown one is {@code 400} naming the field.
+     * {@code filter_<field>_<operator>}.
      */
     public static final List<String> ACCOUNTS_QUERY_PARAMS = List.of("limit", "cursor", "sort");
 

@@ -11,7 +11,7 @@ public final class DepartmentsDto {
 
     /** The settings department body, under {@code department}. */
     public static final class SettingsDepartment extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/departments",
                 "GET /api/{api_version}/settings/departments/{department_id}");
@@ -22,7 +22,6 @@ public final class DepartmentsDto {
         }
 
         public String code;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
@@ -30,7 +29,6 @@ public final class DepartmentsDto {
         public SettingsDepartmentDivision division;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -41,7 +39,7 @@ public final class DepartmentsDto {
 
     /** One page of {@code SettingsDepartment} records, under {@code data}. */
     public static final class SettingsDepartmentList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/departments");
 

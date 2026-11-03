@@ -54,7 +54,7 @@ public final class PurchaseOrders implements BoundResource {
         return getPurchaseOrders(null, null);
     }
 
-    /** With status DRAFT: {@code POST /purchase_orders}. Recorded 201. */
+    /** With status DRAFT: {@code POST /purchase_orders}. */
     public ApiResponse<PurchaseOrdersDto.PurchaseOrders> createPurchaseOrder(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -84,7 +84,7 @@ public final class PurchaseOrders implements BoundResource {
     }
 
     /**
-     * Delete purchase order: {@code DELETE /purchase_orders/{purchase_order_id}}. Recorded 204. No
+     * Delete purchase order: {@code DELETE /purchase_orders/{purchase_order_id}}. No
      * typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deletePurchaseOrder(
@@ -99,7 +99,7 @@ public final class PurchaseOrders implements BoundResource {
         return deletePurchaseOrder(purchaseOrderId, null);
     }
 
-    /** Update purchase order: {@code PATCH /purchase_orders/{purchase_order_id}}. Recorded 202. */
+    /** Update purchase order: {@code PATCH /purchase_orders/{purchase_order_id}}. */
     public ApiResponse<PurchaseOrderUpdated> updatePurchaseOrder(
             String purchaseOrderId, Object payload, RequestOptions options) {
         requireValue(purchaseOrderId, "purchase_order_id");
@@ -132,7 +132,6 @@ public final class PurchaseOrders implements BoundResource {
 
     /**
      * Cancel a purchase order: {@code POST /purchase_orders/{purchase_order_id}/cancel}.
-     * Recorded 204.
      */
     public ApiResponse<PurchaseOrderRead> cancelPurchaseOrder(
             String purchaseOrderId, Object payload, RequestOptions options) {
@@ -246,7 +245,7 @@ public final class PurchaseOrders implements BoundResource {
 
     /**
      * Create PI from PO:
-     * {@code POST /purchase_orders/{purchase_order_id}/purchase_invoices}. Recorded 400.
+     * {@code POST /purchase_orders/{purchase_order_id}/purchase_invoices}.
      */
     public ApiResponse<PurchaseOrderPurchaseInvoices> createPurchaseOrderPurchaseInvoice(
             String purchaseOrderId, Object payload, RequestOptions options) {
@@ -297,7 +296,7 @@ public final class PurchaseOrders implements BoundResource {
 
     /**
      * Reactivate a purchase order:
-     * {@code POST /purchase_orders/{purchase_order_id}/reactivate}. Recorded 204.
+     * {@code POST /purchase_orders/{purchase_order_id}/reactivate}.
      */
     public ApiResponse<PurchaseOrderRead> reactivatePurchaseOrder(
             String purchaseOrderId, Object payload, RequestOptions options) {
@@ -335,8 +334,7 @@ public final class PurchaseOrders implements BoundResource {
 
     /**
      * Delete note:
-     * {@code DELETE /purchase_orders/{purchase_order_id}/notes/{purchase_order_note_id}}. Recorded
-     * 400. No typed view; read {@code getMap()}.
+     * {@code DELETE /purchase_orders/{purchase_order_id}/notes/{purchase_order_note_id}}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deletePurchaseOrderNote(
             String purchaseOrderId, String purchaseOrderNoteId, RequestOptions options) {
@@ -396,7 +394,6 @@ public final class PurchaseOrders implements BoundResource {
     /**
      * Get note file:
      * {@code GET /purchase_orders/{purchase_order_id}/notes/{purchase_order_note_id}/files/{purchase_order_file_id}}.
-     * Recorded 404.
      */
     public ApiResponse<PurchaseOrderNoteFile> getPurchaseOrderNoteFile(
             String purchaseOrderId, String purchaseOrderNoteId, String purchaseOrderFileId, Map<String, Object> queryParams, RequestOptions options) {

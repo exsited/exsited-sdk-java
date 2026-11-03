@@ -11,7 +11,7 @@ public final class AdditionalCodesDto {
 
     /** The settings additional code body, under {@code additional_code}. */
     public static final class SettingsAdditionalCode extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/additional_codes",
                 "GET /api/{api_version}/settings/additional_codes/{additional_code_id}",
@@ -33,7 +33,7 @@ public final class AdditionalCodesDto {
 
     /** One page of {@code SettingsAdditionalCode} records, under {@code data}. */
     public static final class SettingsAdditionalCodeList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/additional_codes");
 

@@ -5,7 +5,7 @@ import java.util.Set;
 
 /**
  * Path templates, body keys and filter names for the item endpoints. {@code {item_id}} is the
- * listing's {@code id} ({@code "ITEM-0001"}), never the {@code uuid} or the integer {@code id}
+ * listing's {@code id} ({@code "your-item-id"}), never the {@code uuid} or the integer {@code id}
  * the sale, purchase and inventories reads carry; {@code {warehouse_name}} is a warehouse name.
  */
 public final class ItemsUrls {
@@ -66,8 +66,7 @@ public final class ItemsUrls {
 
     /**
      * The names that shape the listing, which pages by cursor; every other name is a
-     * {@code filter_<field>}. {@code order_by} and {@code direction} are accepted and ignored,
-     * and a bare {@code filter} expression is {@code 400}.
+     * {@code filter_<field>}. {@code order_by} and {@code direction} are accepted and ignored.
      */
     public static final List<String> ITEMS_QUERY_PARAMS = List.of("limit", "cursor", "sort");
 
@@ -83,7 +82,7 @@ public final class ItemsUrls {
 
     /**
      * Fields the API documentation lists as {@code filter_<field>} and the API
-     * <b>rejects</b> with {@code 400 "Filter syntax deprecated bracket"}. Each lives
+     * <b>rejects</b>. Each lives
      * inside a nested block and is reachable through the {@code filter} expression
      * instead.
      */

@@ -49,7 +49,7 @@ public final class Items implements BoundResource {
         return getItems(null, null);
     }
 
-    /** One item by its {@code id} ({@code "ITEM-0001"}), not the {@code uuid} or an integer id. */
+    /** One item by its {@code id} ({@code "your-item-id"}), not the {@code uuid} or an integer id. */
     public ApiResponse<Item> getItem(
             String itemId, RequestOptions options) {
         return client.sendGetRequest(ItemsUrls.ITEM, reopen(options).pathParam("item_id", itemId).build(), Item.class);
@@ -70,7 +70,7 @@ public final class Items implements BoundResource {
         return getItemInformation(itemId, null);
     }
 
-    /** Create an item from {@code type} and {@code name}; an unknown {@code group} is a 400. */
+    /** Create an item from {@code type} and {@code name}. */
     public ApiResponse<Item> createItem(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -94,7 +94,7 @@ public final class Items implements BoundResource {
         return updateItemInformation(itemId, payload, null);
     }
 
-    /** Deactivate an item. Takes no body. The one recorded call answered 500. */
+    /** Deactivate an item. Takes no body. */
     public ApiResponse<Item> deactivateItem(
             String itemId, RequestOptions options) {
         return client.sendPostRequest(ItemsUrls.ITEM_DEACTIVATE,
@@ -105,7 +105,7 @@ public final class Items implements BoundResource {
         return deactivateItem(itemId, null);
     }
 
-    /** Reactivate a deactivated item. Takes no body. The one recorded call answered 500. */
+    /** Reactivate a deactivated item. Takes no body. */
     public ApiResponse<Item> reactivateItem(
             String itemId, RequestOptions options) {
         return client.sendPostRequest(ItemsUrls.ITEM_REACTIVATE,
@@ -126,7 +126,7 @@ public final class Items implements BoundResource {
         return deleteItem(itemId, null);
     }
 
-    /** Set the image, {@code image_base64} at the top level with no envelope. Recorded 500. */
+    /** Set the image, {@code image_base64} at the top level with no envelope. */
     public ApiResponse<Item> uploadItemImage(
             String itemId, Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -150,7 +150,7 @@ public final class Items implements BoundResource {
         return getItemSale(itemId, null);
     }
 
-    /** Create an item's sale configuration; 409 {@code already_exists} when it has one. */
+    /** Create an item's sale configuration. */
     public ApiResponse<Item> createItemSale(
             String itemId, Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -188,7 +188,7 @@ public final class Items implements BoundResource {
         return getItemPurchase(itemId, null);
     }
 
-    /** Create an item's purchase configuration. Answers 409 already_exists if one exists. */
+    /** Create an item's purchase configuration. */
     public ApiResponse<Item> createItemPurchase(
             String itemId, Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -228,7 +228,7 @@ public final class Items implements BoundResource {
 
     /**
      * Update inventory configuration; the write's {@code warehouse_enabled} is the read's
-     * {@code enable_warehouse_management}, and disabling it with stock is a 400.
+     * {@code enable_warehouse_management}.
      */
     public ApiResponse<Item> updateItemInventories(
             String itemId, Object payload, RequestOptions options) {
@@ -242,7 +242,7 @@ public final class Items implements BoundResource {
         return updateItemInventories(itemId, payload, null);
     }
 
-    /** Add stock; the warehouse is {@code name} here, {@code warehouse} on reads. Recorded 400. */
+    /** Add stock; the warehouse is {@code name} here, {@code warehouse} on reads. */
     public ApiResponse<Item> addItemInventory(
             String itemId, Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -302,7 +302,7 @@ public final class Items implements BoundResource {
 
     /**
      * Configure variations: {@code configure_variations} on a parent, {@code parent_item_id} and
-     * {@code use_variations} on a child. Both recorded calls answered 400.
+     * {@code use_variations} on a child.
      */
     public ApiResponse<Item> updateItemVariations(
             String itemId, Object payload, RequestOptions options) {
@@ -327,7 +327,7 @@ public final class Items implements BoundResource {
         return getItemFamilyDetails(itemId, null);
     }
 
-    /** Add family members under {@code family_details.add}. Recorded 405. */
+    /** Add family members under {@code family_details.add}. */
     public ApiResponse<Item> createItemFamilyDetails(
             String itemId, Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -365,7 +365,7 @@ public final class Items implements BoundResource {
         return getItemPackageDetail(itemId, packageDetailId, null);
     }
 
-    /** Add a package to an item. The recorded call answered 405 method_not_allowed. */
+    /** Add a package to an item. */
     public ApiResponse<Item> createItemPackageDetails(
             String itemId, Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -449,7 +449,7 @@ public final class Items implements BoundResource {
     }
 
     /**
-     * Update a note's text, form-encoded; a {@code noteId} that is not a UUID is a 400.
+     * Update a note's text, form-encoded.
      * Any {@code files} are sent beside the text as a multipart body.
      */
     public ApiResponse<NoteView> updateItemNote(
@@ -473,7 +473,7 @@ public final class Items implements BoundResource {
         return updateItemNote(itemId, noteId, note, null);
     }
 
-    /** Delete one note. Answers {@code 400 "Invalid note_id"} when the id is not one. */
+    /** Delete one note. */
     public ApiResponse<Dto> deleteItemNote(
             String itemId, String noteId, RequestOptions options) {
         return client.sendDeleteRequest(ItemsUrls.ITEM_NOTE,
@@ -485,7 +485,7 @@ public final class Items implements BoundResource {
         return deleteItemNote(itemId, noteId, null);
     }
 
-    /** A note's attachments; unverified, the recorded call answered 404. */
+    /** A note's attachments. */
     public ApiResponse<NoteFileList> getItemNoteFiles(
             String itemId, String noteId, RequestOptions options) {
         return client.sendGetRequest(ItemsUrls.ITEM_NOTE_FILES,
@@ -498,7 +498,7 @@ public final class Items implements BoundResource {
         return getItemNoteFiles(itemId, noteId, null);
     }
 
-    /** One attachment, perhaps bytes in {@code getMap()}; unverified, recorded 400. */
+    /** One attachment, perhaps bytes in {@code getMap()}. */
     public ApiResponse<ItemNoteFile> getItemNoteFile(
             String itemId, String noteId, String fileId,
             RequestOptions options) {
@@ -586,7 +586,7 @@ public final class Items implements BoundResource {
 
     /**
      * Delete one attachment: {@code DELETE /items/{item_id}/notes/{note_id}/files/{file_id}}, the
-     * {@code uuid} the note's files listing gives; any failure is answered {@code 404}. No typed
+     * {@code uuid} the note's files listing gives. No typed
      * view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteItemNoteFile(
@@ -620,8 +620,7 @@ public final class Items implements BoundResource {
     }
 
     /**
-     * Retrieve an item's KPI summary: {@code GET /items/{item_id}/kpis}, under {@code item_kpis};
-     * empty for every item measured, so no typed view. No typed view; read {@code getMap()}.
+     * Retrieve an item's KPI summary: {@code GET /items/{item_id}/kpis}, under {@code item_kpis}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> getItemKpis(
             String itemId, RequestOptions options) {

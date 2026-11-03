@@ -9,7 +9,7 @@ public final class ReportsDto {
 
     /** The reports accounts account overview body. */
     public static final class ReportsAccountsAccountOverview extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/reports/accounts/account_overview");
 
@@ -23,7 +23,7 @@ public final class ReportsDto {
 
     /** What {@code get_reports_invoices_invoice_overview} answers, under {@code report}. */
     public static final class ReportsInvoicesInvoiceOverview extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/reports/invoices/invoice_overview");
 
@@ -37,7 +37,7 @@ public final class ReportsDto {
 
     /** What {@code get_reports_orders_order_overview} answers, under {@code report}. */
     public static final class ReportsOrdersOrderOverview extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/reports/orders/order_overview");
 
@@ -54,7 +54,7 @@ public final class ReportsDto {
      * report}.
      */
     public static final class ReportsPurchaseInvoicesPurchaseInvoiceOverview extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/reports/purchase_invoices/purchase_invoice_overview");
 
@@ -71,7 +71,7 @@ public final class ReportsDto {
      * report}.
      */
     public static final class ReportsPurchaseOrdersPurchaseOrderOverview extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/reports/purchase_orders/purchase_order_overview");
 
@@ -88,7 +88,7 @@ public final class ReportsDto {
      * under {@code report}.
      */
     public static final class ReportsPurchaseTransactionsPurchasePaymentAndRefundOverview extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/reports/purchase_transactions/purchase_payment_and_refund_overview");
 
@@ -105,7 +105,7 @@ public final class ReportsDto {
      * report}.
      */
     public static final class ReportsTransactionsPaymentAndRefundOverview extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/reports/transactions/payment_and_refund_overview");
 

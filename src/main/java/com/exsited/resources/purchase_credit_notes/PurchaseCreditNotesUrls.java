@@ -10,8 +10,7 @@ public final class PurchaseCreditNotesUrls {
     public static final String PURCHASE_CREDIT_NOTES = "/api/{api_version}/purchase_credit_notes";
     public static final String PURCHASE_CREDIT_NOTE = "/api/{api_version}/purchase_credit_notes/{purchase_credit_note_id}";
     /**
-     * These three take the {@code pcn_} id only; a code is refused {@code 400} where the reads
-     * accept one.
+     * These three take the {@code pcn_} id only.
      */
     public static final String PURCHASE_CREDIT_NOTE_APPLY = "/api/{api_version}/purchase_credit_notes/{purchase_credit_note_id}/apply";
     public static final String PURCHASE_CREDIT_NOTE_NOTES = "/api/{api_version}/purchase_credit_notes/{purchase_credit_note_id}/notes";

@@ -40,8 +40,7 @@ public final class Uom implements BoundResource {
     }
 
     /**
-     * Create a unit of measurement: {@code POST /settings/uom}; answers 400 validation_error,
-     * naming no field, even for a valid body. No typed view; read {@code getMap()}.
+     * Create a unit of measurement: {@code POST /settings/uom}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> createSettingsUom(
             Object payload, RequestOptions options) {

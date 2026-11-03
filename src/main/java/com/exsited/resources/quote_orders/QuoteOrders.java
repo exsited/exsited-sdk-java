@@ -23,8 +23,7 @@ public final class QuoteOrders implements BoundResource {
     }
 
     /**
-     * List the invoices raised from a quote: {@code GET /quote_orders/{quote_order_id}/invoices};
-     * an order that is not a quote answers {@code 404}.
+     * List the invoices raised from a quote: {@code GET /quote_orders/{quote_order_id}/invoices}.
      */
     public ApiResponse<QuoteOrderInvoiceList> getQuoteOrderInvoices(
             String quoteOrderId, Map<String, Object> queryParams, RequestOptions options) {

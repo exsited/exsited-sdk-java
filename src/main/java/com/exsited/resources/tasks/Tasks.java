@@ -192,7 +192,7 @@ public final class Tasks implements BoundResource {
     }
 
     /**
-     * Delete note [V4 N/A - 405]: {@code DELETE /tasks/{task_code}/notes/{note_id}}. No typed
+     * Delete note: {@code DELETE /tasks/{task_code}/notes/{note_id}}. No typed
      * view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteTaskNote(
@@ -224,8 +224,7 @@ public final class Tasks implements BoundResource {
     }
 
     /**
-     * Delete one checklist item: {@code DELETE /tasks/{task_id}/checklist/{task_checklist_uuid}};
-     * {@code 409} once the item is {@code COMPLETED}. No typed view; read {@code getMap()}.
+     * Delete one checklist item: {@code DELETE /tasks/{task_id}/checklist/{task_checklist_uuid}}; not allowed once the item is {@code COMPLETED}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteTaskChecklistByUuid(
             String taskId, String taskChecklistUuid, RequestOptions options) {
@@ -309,8 +308,7 @@ public final class Tasks implements BoundResource {
     }
 
     /**
-     * Get one note: {@code GET /tasks/{task_code}/notes/{note_id}}, by the task's code; a
-     * {@code wt_} id answers {@code 404}. No typed view; read {@code getMap()}.
+     * Get one note: {@code GET /tasks/{task_code}/notes/{note_id}}, by the task's code. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> getTaskNote(
             String taskCode, String noteId, RequestOptions options) {

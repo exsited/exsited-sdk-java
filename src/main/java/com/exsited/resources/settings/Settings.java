@@ -143,7 +143,7 @@ public final class Settings implements BoundResource {
         return getSettingsCustomLogicScripts(null, null);
     }
 
-    /** Create custom object: {@code POST /settings/custom_objects}. Recorded 201. */
+    /** Create custom object: {@code POST /settings/custom_objects}. */
     public ApiResponse<SettingsCustomObjects> createSettingsCustomObject(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -188,7 +188,7 @@ public final class Settings implements BoundResource {
         return getSettingsItemGroups(null, null);
     }
 
-    /** Create item group: {@code POST /settings/item_groups}. Recorded 201. */
+    /** Create item group: {@code POST /settings/item_groups}. */
     public ApiResponse<SettingsItemGroups> createSettingsItemGroup(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -313,7 +313,7 @@ public final class Settings implements BoundResource {
         return getSettingsVariations(null, null);
     }
 
-    /** Create variation: {@code POST /settings/variations}. Recorded 201. */
+    /** Create variation: {@code POST /settings/variations}. */
     public ApiResponse<SettingsVariations> createSettingsVariation(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -377,8 +377,7 @@ public final class Settings implements BoundResource {
     }
 
     /**
-     * Delete custom object: {@code DELETE /settings/custom_objects/{custom_object_id}}. Recorded
-     * 204. No typed view; read {@code getMap()}.
+     * Delete custom object: {@code DELETE /settings/custom_objects/{custom_object_id}}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteSettingsCustomObject(
             String customObjectId, RequestOptions options) {
@@ -394,7 +393,6 @@ public final class Settings implements BoundResource {
 
     /**
      * Update custom object: {@code PATCH /settings/custom_objects/{custom_object_id}}.
-     * Recorded 202.
      */
     public ApiResponse<SettingsCustomObjects> updateSettingsCustomObject(
             String customObjectId, Object payload, RequestOptions options) {
@@ -464,7 +462,7 @@ public final class Settings implements BoundResource {
     }
 
     /**
-     * Delete item group: {@code DELETE /settings/item_groups/{item_group_id}}. Recorded 204. No
+     * Delete item group: {@code DELETE /settings/item_groups/{item_group_id}}. No
      * typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteSettingsItemGroup(
@@ -496,7 +494,7 @@ public final class Settings implements BoundResource {
         return getSettingsItemGroup(itemGroupId, null, null);
     }
 
-    /** Update item group: {@code PATCH /settings/item_groups/{item_group_id}}. Recorded 202. */
+    /** Update item group: {@code PATCH /settings/item_groups/{item_group_id}}. */
     public ApiResponse<SettingsItemGroups> updateSettingsItemGroup(
             String itemGroupId, Object payload, RequestOptions options) {
         requireValue(itemGroupId, "item_group_id");
@@ -544,7 +542,7 @@ public final class Settings implements BoundResource {
         return getSettingsVariation(variationId, null, null);
     }
 
-    /** Update variation: {@code PATCH /settings/variations/{variation_id}}. Recorded 202. */
+    /** Update variation: {@code PATCH /settings/variations/{variation_id}}. */
     public ApiResponse<SettingsVariations> updateSettingsVariation(
             String variationId, Object payload, RequestOptions options) {
         requireValue(variationId, "variation_id");
@@ -560,7 +558,7 @@ public final class Settings implements BoundResource {
 
     /**
      * Customize attributes:
-     * {@code POST /settings/custom_objects/{custom_object_id}/customize}. Recorded 201.
+     * {@code POST /settings/custom_objects/{custom_object_id}/customize}.
      */
     public ApiResponse<SettingsCustomObjectCustomize> createSettingsCustomObjectCustomize(
             String customObjectId, Object payload, RequestOptions options) {
@@ -577,7 +575,7 @@ public final class Settings implements BoundResource {
 
     /**
      * Update billing preferences:
-     * {@code POST /settings/item_groups/{item_group_id}/billing_preferences}. Recorded 201.
+     * {@code POST /settings/item_groups/{item_group_id}/billing_preferences}.
      */
     public ApiResponse<SettingsItemGroups> createSettingsItemGroupBillingPreference(
             String itemGroupId, Object payload, RequestOptions options) {
@@ -758,8 +756,7 @@ public final class Settings implements BoundResource {
 
     /**
      * Create a discount profile: {@code POST /settings/discount_profiles}; {@code 201}. Times go as
-     * {@code YYYY-MM-DD HH:mm} and the accounting code must be a discount one, or it is a
-     * {@code 500}.
+     * {@code YYYY-MM-DD HH:mm} and the accounting code must be a discount one.
      */
     public ApiResponse<SettingsDiscountProfileRead> createSettingsDiscountProfile(
             Object payload, RequestOptions options) {
@@ -854,7 +851,10 @@ public final class Settings implements BoundResource {
 
     /**
      * Read one group of general settings: {@code GET /settings/general_settings/{group}}, under
-     * {@code general_settings}; {@code group} is one of the twelve the server names, any case.
+     * {@code general_settings}; {@code group} is one of {@code account}, {@code dashboard},
+     * {@code date_and_time}, {@code display}, {@code general}, {@code item}, {@code labour},
+     * {@code order}, {@code portal}, {@code purchase}, {@code security} and {@code transaction},
+     * any case.
      */
     public ApiResponse<SettingsGeneralSettings> getSettingsGeneralSettings(
             String group, RequestOptions options) {
@@ -1255,8 +1255,7 @@ public final class Settings implements BoundResource {
     }
 
     /**
-     * Update a shipping profile: {@code PATCH /settings/shipping_profiles/{shipping_profile_id}}.
-     * Answers {@code 500}. No typed view; read {@code getMap()}.
+     * Update a shipping profile: {@code PATCH /settings/shipping_profiles/{shipping_profile_id}}.  No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> updateSettingsShippingProfile(
             String shippingProfileId, Object payload, RequestOptions options) {

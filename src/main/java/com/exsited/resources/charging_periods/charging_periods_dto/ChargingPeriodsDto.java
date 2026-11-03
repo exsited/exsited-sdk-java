@@ -11,7 +11,7 @@ public final class ChargingPeriodsDto {
 
     /** The settings charging period body, under {@code charging_period}. */
     public static final class SettingsChargingPeriod extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/charging_periods",
                 "GET /api/{api_version}/settings/charging_periods/{charging_period_id}",
@@ -23,14 +23,12 @@ public final class ChargingPeriodsDto {
             return "charging_period";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -41,7 +39,7 @@ public final class ChargingPeriodsDto {
 
     /** One page of {@code SettingsChargingPeriod} records, under {@code data}. */
     public static final class SettingsChargingPeriodList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/charging_periods");
 

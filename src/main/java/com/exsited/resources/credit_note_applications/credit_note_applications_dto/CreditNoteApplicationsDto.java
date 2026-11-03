@@ -10,7 +10,7 @@ public final class CreditNoteApplicationsDto {
 
     /** The credit note application body. */
     public static final class CreditNoteApplication extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_note_applications");
 
@@ -23,7 +23,6 @@ public final class CreditNoteApplicationsDto {
         public String href;
         public String id;
         public String issue_date;
-        /** never populated in 66 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String object;
@@ -41,7 +40,7 @@ public final class CreditNoteApplicationsDto {
 
     /** A page of CreditNoteApplication records. */
     public static final class CreditNoteApplicationList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_note_applications");
 
@@ -53,7 +52,7 @@ public final class CreditNoteApplicationsDto {
 
     /** The credit note application read body. */
     public static final class CreditNoteApplicationRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/credit_note_applications/{credit_note_application_id}");
 
@@ -69,7 +68,6 @@ public final class CreditNoteApplicationsDto {
         public String href;
         public String id;
         public String issue_date;
-        /** never populated in 1 measured record. */
         public Object last_updated_by;
         public String last_updated_on;
         public String object;
@@ -84,7 +82,7 @@ public final class CreditNoteApplicationsDto {
 
     /** The invoice credit note applications body. */
     public static final class InvoiceCreditNoteApplications extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/invoices/{invoice_id}/credit_note_applications");
 

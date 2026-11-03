@@ -189,7 +189,7 @@ public final class PurchasePayments implements BoundResource {
 
     /**
      * Delete purchase payment note:
-     * {@code DELETE /purchase_payments/{purchase_payment_id}/notes/{pp_note_id}}. Recorded 204. No
+     * {@code DELETE /purchase_payments/{purchase_payment_id}/notes/{pp_note_id}}. No
      * typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deletePurchasePaymentNote(

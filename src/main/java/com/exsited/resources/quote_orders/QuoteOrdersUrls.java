@@ -7,7 +7,7 @@ public final class QuoteOrdersUrls {
 
     /**
      * The server serves this one read under quote_orders; a quote itself is read, written and
-     * converted under /orders. A quote_order_id that is not a quote answers 404.
+     * converted under /orders.
      */
     public static final String QUOTE_ORDER_INVOICES = "/api/{api_version}/quote_orders/{quote_order_id}/invoices";
 

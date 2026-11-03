@@ -18,8 +18,7 @@ public final class WorkflowsUrls {
     public static final String WORKFLOW_STAGE = "/api/{api_version}/workflows/{workflow_id}/stages/{stage_id}";
     /**
      * One component instance's workflow on v4. {@code {component_uuid}} is the component's dashed
-     * uuid, the hex of its {@code cmp_} id with the dashes put back; the {@code cmp_} id itself is
-     * a 404. {@code {object_code}} is the instance's {@code code}, not its {@code cco_} id.
+     * uuid, the hex of its {@code cmp_} id with the dashes put back. {@code {object_code}} is the instance's {@code code}, not its {@code cco_} id.
      */
     public static final String WORKFLOW_CUSTOM_COMPONENT_HISTORY = "/api/{api_version}/workflows/custom_components/{component_uuid}/{object_code}/history";
     public static final String WORKFLOW_CUSTOM_COMPONENT_MILESTONES = "/api/{api_version}/workflows/custom_components/{component_uuid}/{object_code}/milestones";

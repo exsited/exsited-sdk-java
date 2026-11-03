@@ -14,7 +14,7 @@ public final class ActionScriptsDto {
      * create answer only.
      */
     public static final class ActionScript extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/action_scripts",
                 "GET /api/{api_version}/action_scripts/{action_script_id}",
@@ -26,7 +26,6 @@ public final class ActionScriptsDto {
             return "action_script";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object action_name;
         public List<Object> activity_logs;
         public ActionScriptCreatedBy created_by;
@@ -36,18 +35,16 @@ public final class ActionScriptsDto {
         public String href;
         public String id;
         public ActionScriptLastUpdatedBy last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String name;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object object_name;
         public String status;
     }
 
     /** One page of {@code ActionScript} records, under {@code data}. */
     public static final class ActionScriptList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/action_scripts");
 

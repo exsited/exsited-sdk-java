@@ -63,7 +63,7 @@ public final class Payments implements BoundResource {
     }
 
     /**
-     * Delete payment: {@code DELETE /payments/{payment_id}}. Recorded 204. No typed view; read
+     * Delete payment: {@code DELETE /payments/{payment_id}}. No typed view; read
      * {@code getMap()}.
      */
     public ApiResponse<Dto> deletePayment(
@@ -208,7 +208,7 @@ public final class Payments implements BoundResource {
     }
 
     /**
-     * Delete note: {@code DELETE /payments/{payment_id}/notes/{payment_note_id}}. Recorded 400. No
+     * Delete note: {@code DELETE /payments/{payment_id}/notes/{payment_note_id}}. No
      * typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deletePaymentNote(
@@ -227,7 +227,6 @@ public final class Payments implements BoundResource {
     /**
      * Get note file:
      * {@code GET /payments/{payment_id}/notes/{payment_note_id}/files/{payment_file_id}}.
-     * Recorded 404.
      */
     public ApiResponse<PaymentNoteFile> getPaymentNoteFile(
             String paymentId, String paymentNoteId, String paymentFileId, Map<String, Object> queryParams, RequestOptions options) {

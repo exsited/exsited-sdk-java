@@ -11,7 +11,7 @@ public final class TimePeriodsDto {
 
     /** The settings time period body, under {@code time_period}. */
     public static final class SettingsTimePeriod extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/time_periods",
                 "GET /api/{api_version}/settings/time_periods/{time_period_id}",
@@ -23,7 +23,6 @@ public final class TimePeriodsDto {
             return "time_period";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
@@ -31,7 +30,6 @@ public final class TimePeriodsDto {
         public Long duration;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -42,7 +40,7 @@ public final class TimePeriodsDto {
 
     /** One page of {@code SettingsTimePeriod} records, under {@code data}. */
     public static final class SettingsTimePeriodList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/time_periods");
 

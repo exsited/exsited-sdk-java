@@ -10,7 +10,7 @@ public final class UsagesDto {
 
     /** The usage body. */
     public static final class Usage extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/usages",
                 "GET /api/{api_version}/usages/{usage_id}");
@@ -34,19 +34,17 @@ public final class UsagesDto {
         public String last_updated_on;
         public String object;
         public Double quantity;
-        /** never populated in 2 measured records. */
         public Object source;
         public String start_time;
         public String status;
         public String type;
-        /** never populated in 2 measured records. */
         public Object uom;
         public Long version;
     }
 
     /** A page of Usage records. */
     public static final class UsageList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/usages");
 
@@ -58,7 +56,7 @@ public final class UsagesDto {
 
     /** The usages body. */
     public static final class Usages extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/usages");
 
@@ -96,7 +94,7 @@ public final class UsagesDto {
 
     /** The usage updated body. */
     public static final class UsageUpdated extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "PATCH /api/{api_version}/usages/{usage_id}",
                 "PUT /api/{api_version}/usages/{usage_id}");

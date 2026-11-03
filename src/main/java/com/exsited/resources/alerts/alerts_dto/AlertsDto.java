@@ -9,7 +9,7 @@ public final class AlertsDto {
 
     /** The alerts body. */
     public static final class Alerts extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/alerts",
                 "GET /api/{api_version}/alerts/account/{account_id}",

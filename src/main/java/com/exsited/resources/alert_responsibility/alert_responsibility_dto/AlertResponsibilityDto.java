@@ -14,7 +14,7 @@ public final class AlertResponsibilityDto {
      * comes on the create answer only.
      */
     public static final class AlertResponsibility extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/alert_responsibility",
                 "GET /api/{api_version}/alert_responsibility/{alert_responsibility_id}",
@@ -40,7 +40,7 @@ public final class AlertResponsibilityDto {
 
     /** One page of {@code AlertResponsibility} records, under {@code data}. */
     public static final class AlertResponsibilityList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/alert_responsibility");
 

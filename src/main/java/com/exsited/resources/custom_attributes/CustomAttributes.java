@@ -41,7 +41,7 @@ public final class CustomAttributes implements BoundResource {
         return getCustomAttributes(null, null);
     }
 
-    /** Create custom attribute: {@code POST /custom_attributes}. Recorded 201. */
+    /** Create custom attribute: {@code POST /custom_attributes}. */
     public ApiResponse<CustomAttributesDto.CustomAttributes> createCustomAttribute(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -55,8 +55,7 @@ public final class CustomAttributes implements BoundResource {
     }
 
     /**
-     * Delete custom attribute: {@code DELETE /custom_attributes/{custom_attribute_id}}. Recorded
-     * 204. No typed view; read {@code getMap()}.
+     * Delete custom attribute: {@code DELETE /custom_attributes/{custom_attribute_id}}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteCustomAttribute(
             String customAttributeId, RequestOptions options) {

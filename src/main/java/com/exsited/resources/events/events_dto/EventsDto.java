@@ -9,7 +9,7 @@ public final class EventsDto {
 
     /** The event body. */
     public static final class Event extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/events",
                 "GET /api/{api_version}/events/{event_uuid}",
@@ -34,7 +34,7 @@ public final class EventsDto {
 
     /** A page of Event records. */
     public static final class EventList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/events");
 

@@ -19,10 +19,7 @@
 
     <groupId>com.exsited</groupId>
     <artifactId>exsited</artifactId>
-    <!-- The version lives here and in the newest CHANGELOG heading, which move
-         together; maven-jar-plugin writes it into the manifest, which is what
-         SdkConfig.SDK_VERSION reports. -->
-    <version>4.0.0</version>
+    <version>4.0.1</version>
     <packaging>jar</packaging>
 
     <name>Exsited Java SDK</name>
@@ -60,29 +57,13 @@
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
-        <!-- `mvn install -DskipTests` runs no test and still compiles both source
-             sets. Declared so the exec plugin never receives the unresolved text. -->
-        <skipTests>false</skipTests>
-        <!-- The live selection, read by LiveSuite. Empty means "no case
-             selected", so the live run started without a selector runs
-             nothing. Name what to run on the command line (-Dexsited.live=all, a
-             group, or a case) or with -Plive. -->
-        <exsited.live></exsited.live>
-        <!-- The verbose selector, same shape. Empty leaves payloads, bodies,
-             headers and curl off; they carry live customer records. -->
-        <exsited.test.verbose></exsited.test.verbose>
     </properties>
 
-    <!-- Empty on purpose: the SDK depends on the JDK and nothing else, and so do
-         its tests. Every plugin below is a build plugin, which is not transitive
-         and never reaches a consumer's dependency graph. -->
+    <!-- The SDK depends on the JDK and nothing else. -->
     <dependencies/>
 
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
-        <!-- src/test/java holds every test: the harness, the credentials
-             fixture and case, and resources/<family>/. -->
-        <testSourceDirectory>src/test/java</testSourceDirectory>
         <!-- The licence and the consumer guide travel inside the jar, under
              META-INF, so the terms the <licenses> block above states arrive with
              the artifact rather than only with the repository. -->
@@ -98,69 +79,18 @@
             </resource>
         </resources>
         <plugins>
-            <!-- Local credential-bearing *Driver.java files, gitignored by the
-                 same pattern, are excluded so the build compiles what a clone
-                 carries. -Xlint:all with -Werror on both source sets: any
-                 warning fails the build. -->
+            <!-- -Xlint:all with -Werror: any compiler warning fails the build. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <testExcludes>
-                        <testExclude>**/*Driver.java</testExclude>
-                    </testExcludes>
                     <showWarnings>true</showWarnings>
                     <compilerArgs>
                         <arg>-Xlint:all</arg>
                         <arg>-Werror</arg>
                     </compilerArgs>
                 </configuration>
-            </plugin>
-            <!-- Declared only to be switched off: nothing here is JUnit, and
-                 surefire's default includes would match every *Test.java. -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.2</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-            <!-- The test run: LiveSuite as a plain main class, in the test phase.
-                 It reads the live selection from exsited.live, and with none,
-                 which is the default, it prints that nothing was selected and
-                 returns before it reads .env or builds a client, so `mvn test`
-                 compiles every case and runs none. exec:exec forks a JVM, so
-                 LiveSuite's System.exit(1) becomes a non-zero exit that fails the
-                 build. workingDirectory is load bearing: Auth reads .env from
-                 it. -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.5.0</version>
-                <executions>
-                    <execution>
-                        <id>live-suite</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <skip>${skipTests}</skip>
-                            <executable>java</executable>
-                            <workingDirectory>${project.basedir}</workingDirectory>
-                            <classpathScope>test</classpathScope>
-                            <arguments>
-                                <argument>-Dexsited.live=${exsited.live}</argument>
-                                <argument>-Dexsited.test.verbose=${exsited.test.verbose}</argument>
-                                <argument>-classpath</argument>
-                                <classpath/>
-                                <argument>com.exsited.LiveSuite</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <!-- Writes Implementation-Version (and friends) into the jar
                  manifest, which is where SdkConfig.SDK_VERSION and the
@@ -236,19 +166,6 @@
     </build>
 
     <profiles>
-        <!-- The whole live suite in one word: `mvn test -Plive` selects every
-             case. It reads .env from the project root (the environment wins),
-             and a blank credential stops it with the SDK's own AuthConfig
-             refusal. It creates, updates and deletes records of its own on
-             whatever instance .env points at, and each case removes or
-             neutralises what it created where the API allows it.
-             -Dexsited.live=<group|case> is the narrower form. -->
-        <profile>
-            <id>live</id>
-            <properties>
-                <exsited.live>all</exsited.live>
-            </properties>
-        </profile>
         <profile>
             <id>release</id>
             <activation>

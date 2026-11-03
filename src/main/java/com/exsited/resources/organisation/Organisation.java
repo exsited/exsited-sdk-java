@@ -21,8 +21,7 @@ public final class Organisation implements BoundResource {
     }
 
     /**
-     * Get the root organisation: {@code GET /settings/organisation}; read only, a PATCH here
-     * answers 405.
+     * Get the root organisation: {@code GET /settings/organisation}; read only.
      */
     public ApiResponse<SettingsOrganisation> getSettingsOrganisation(
             RequestOptions options) {

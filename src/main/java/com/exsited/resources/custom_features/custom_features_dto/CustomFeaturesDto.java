@@ -8,7 +8,7 @@ import java.util.List;
 public final class CustomFeaturesDto {
     /** The custom feature body. */
     public static final class CustomFeature extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/custom_feature",
                 "PATCH /api/{api_version}/custom_feature/{custom_feature_id}",
@@ -22,10 +22,8 @@ public final class CustomFeaturesDto {
     public static final class CustomFeatureDetail extends Dto {
         public List<Object> activity_logs;
         public List<Object> child_custom_components;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
-        /** Null in every record measured, so untyped. */
         public Object custom_component;
         public List<CustomFeatureDetailCustomForm> custom_forms;
         public List<Object> custom_objects;
@@ -33,7 +31,6 @@ public final class CustomFeaturesDto {
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -98,7 +95,7 @@ public final class CustomFeaturesDto {
 
     /** One page of what {@code getCustomFeatures} lists, under {@code data}. */
     public static final class CustomFeatureList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/custom_feature");
 

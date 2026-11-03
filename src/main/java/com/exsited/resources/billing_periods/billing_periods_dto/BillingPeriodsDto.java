@@ -11,7 +11,7 @@ public final class BillingPeriodsDto {
 
     /** The settings billing period body, under {@code billing_period}. */
     public static final class SettingsBillingPeriod extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/billing_periods",
                 "GET /api/{api_version}/settings/billing_periods/{billing_period_id}",
@@ -23,7 +23,6 @@ public final class BillingPeriodsDto {
             return "billing_period";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
@@ -31,7 +30,6 @@ public final class BillingPeriodsDto {
         public Long duration;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -44,7 +42,7 @@ public final class BillingPeriodsDto {
 
     /** One page of {@code SettingsBillingPeriod} records, under {@code data}. */
     public static final class SettingsBillingPeriodList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/billing_periods");
 

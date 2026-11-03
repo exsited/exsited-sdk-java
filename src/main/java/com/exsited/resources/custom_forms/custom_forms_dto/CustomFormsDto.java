@@ -11,7 +11,7 @@ public final class CustomFormsDto {
 
     /** The settings custom form body, under {@code custom_form}. */
     public static final class SettingsCustomForm extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/custom_forms",
                 "GET /api/{api_version}/settings/custom_forms/{custom_form_id}",
@@ -23,7 +23,6 @@ public final class CustomFormsDto {
             return "custom_form";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
@@ -32,7 +31,6 @@ public final class CustomFormsDto {
         public String href;
         public String id;
         public Boolean is_system_template;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -42,7 +40,7 @@ public final class CustomFormsDto {
 
     /** One page of {@code SettingsCustomForm} records, under {@code data}. */
     public static final class SettingsCustomFormList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/custom_forms");
 

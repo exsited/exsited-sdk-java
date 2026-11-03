@@ -82,8 +82,7 @@ public final class Zones implements BoundResource {
     }
 
     /**
-     * Update a zone: {@code PATCH /settings/zones/{zone_id}}; measured answering 200 and changing
-     * nothing.
+     * Update a zone: {@code PATCH /settings/zones/{zone_id}}.
      */
     public ApiResponse<SettingsZone> updateSettingsZone(
             String zoneId, Object payload, RequestOptions options) {

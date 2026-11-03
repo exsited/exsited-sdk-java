@@ -9,7 +9,7 @@ public final class PurchaseRefundsDto {
 
     /** The purchase refunds body. */
     public static final class PurchaseRefunds extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_refunds");
 
@@ -38,7 +38,7 @@ public final class PurchaseRefundsDto {
 
     /** The purchase refund body. */
     public static final class PurchaseRefund extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_refunds/{purchase_refund_id}");
 
@@ -64,7 +64,6 @@ public final class PurchaseRefundsDto {
         public String object;
         public String payment_method;
         public String payment_processor;
-        /** never populated in 2 measured records. */
         public Object purchase_refund;
         public String reference;
         public String status;
@@ -74,7 +73,7 @@ public final class PurchaseRefundsDto {
 
     /** The account purchase refunds body. */
     public static final class AccountPurchaseRefunds extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/accounts/{account_id}/purchase_refunds");
 
@@ -94,9 +93,7 @@ public final class PurchaseRefundsDto {
         public List<AccountPurchaseRefundsDataCustomAttribute> custom_attributes;
         public String id;
         public String issue_date;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String note;
         public String object;
@@ -118,9 +115,7 @@ public final class PurchaseRefundsDto {
         public List<PurchaseRefundsDataCustomAttribute> custom_attributes;
         public String id;
         public String issue_date;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public String note;
         public String object;

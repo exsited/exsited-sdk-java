@@ -53,7 +53,7 @@ public final class Invoices implements BoundResource {
         return getInvoices(null, null);
     }
 
-    /** Create an invoice: {@code POST /invoices}. Recorded 201. */
+    /** Create an invoice: {@code POST /invoices}. */
     public ApiResponse<Invoice> createInvoice(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -96,7 +96,7 @@ public final class Invoices implements BoundResource {
         return getInvoice(invoiceId, null, null);
     }
 
-    /** Amend an invoice: {@code POST /invoices/{invoice_id}/amend}. Recorded 201. */
+    /** Amend an invoice: {@code POST /invoices/{invoice_id}/amend}. */
     public ApiResponse<Invoice> amendInvoice(
             String invoiceId, Object payload, RequestOptions options) {
         requireValue(invoiceId, "invoice_id");
@@ -110,7 +110,7 @@ public final class Invoices implements BoundResource {
         return amendInvoice(invoiceId, payload, null);
     }
 
-    /** Cancel an invoice: {@code POST /invoices/{invoice_id}/cancel}. Recorded 202. */
+    /** Cancel an invoice: {@code POST /invoices/{invoice_id}/cancel}. */
     public ApiResponse<Invoice> cancelInvoice(
             String invoiceId, Object payload, RequestOptions options) {
         requireValue(invoiceId, "invoice_id");
@@ -124,7 +124,7 @@ public final class Invoices implements BoundResource {
         return cancelInvoice(invoiceId, payload, null);
     }
 
-    /** Update core information: {@code PATCH /invoices/{invoice_id}/information}. Recorded 202. */
+    /** Update core information: {@code PATCH /invoices/{invoice_id}/information}. */
     public ApiResponse<Invoice> updateInvoiceInformation(
             String invoiceId, Object payload, RequestOptions options) {
         requireValue(invoiceId, "invoice_id");
@@ -234,7 +234,7 @@ public final class Invoices implements BoundResource {
         return getInvoicePdf(invoiceId, null, null);
     }
 
-    /** Reactivate an invoice: {@code POST /invoices/{invoice_id}/reactivate}. Recorded 202. */
+    /** Reactivate an invoice: {@code POST /invoices/{invoice_id}/reactivate}. */
     public ApiResponse<Invoice> reactivateInvoice(
             String invoiceId, Object payload, RequestOptions options) {
         requireValue(invoiceId, "invoice_id");
@@ -282,7 +282,7 @@ public final class Invoices implements BoundResource {
         return getOrderInvoices(orderId, null, null);
     }
 
-    /** Raise an invoice on an order: {@code POST /orders/{order_id}/invoices}. Recorded 201. */
+    /** Raise an invoice on an order: {@code POST /orders/{order_id}/invoices}. */
     public ApiResponse<Invoice> createOrderInvoice(
             String orderId, Object payload, RequestOptions options) {
         requireValue(orderId, "order_id");
@@ -333,7 +333,7 @@ public final class Invoices implements BoundResource {
     }
 
     /**
-     * Delete a note: {@code DELETE /invoices/{invoice_id}/notes/{invoice_note_id}}. Recorded 400.
+     * Delete a note: {@code DELETE /invoices/{invoice_id}/notes/{invoice_note_id}}.
      */
     public ApiResponse<Dto> deleteInvoiceNote(
             String invoiceId, String invoiceNoteId, RequestOptions options) {

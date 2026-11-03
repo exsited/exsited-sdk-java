@@ -40,8 +40,7 @@ public final class Workflows implements BoundResource {
     }
 
     /**
-     * Update component workflow: {@code PATCH /workflow/component/{cc_id}}. The API
-     * answers 405 on this path, and no verified body is known.
+     * Update component workflow: {@code PATCH /workflow/component/{cc_id}}.
      */
     public ApiResponse<Dto> updateWorkflowComponentById(
             String ccId, Object payload, RequestOptions options) {
@@ -74,8 +73,7 @@ public final class Workflows implements BoundResource {
     }
 
     /**
-     * Schedule milestones: {@code POST /workflow/component/{cc_id}/milestone}. The API
-     * answers 405 on this path, and no verified body is known.
+     * Schedule milestones: {@code POST /workflow/component/{cc_id}/milestone}.
      */
     public ApiResponse<Dto> createWorkflowComponentCcMilestone(
             String ccId, Object payload, RequestOptions options) {
@@ -203,8 +201,7 @@ public final class Workflows implements BoundResource {
     }
 
     /**
-     * Delete a workflow: {@code DELETE /workflows/{workflow_id}}; answered {@code 204}. The record
-     * is kept as {@code DELETED} and reads {@code 404} after; a pre-built workflow is refused. No
+     * Delete a workflow: {@code DELETE /workflows/{workflow_id}}; answered {@code 204}. The record is kept as {@code DELETED}. No
      * typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteWorkflow(
@@ -219,8 +216,7 @@ public final class Workflows implements BoundResource {
     }
 
     /**
-     * List a workflow's stages: {@code GET /workflows/{workflow_id}/stages}. No stage has been
-     * measured, so no typed view. No typed view; read {@code getMap()}.
+     * List a workflow's stages: {@code GET /workflows/{workflow_id}/stages}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> getWorkflowStages(
             String workflowId, Map<String, Object> queryParams, RequestOptions options) {
@@ -239,8 +235,7 @@ public final class Workflows implements BoundResource {
 
     /**
      * Retrieve one stage: {@code GET /workflows/{workflow_id}/stages/{stage_id}}, the {@code wfs_}
-     * id, under {@code workflow_stage}. No stage has been measured, so no typed view. No typed
-     * view; read {@code getMap()}.
+     * id, under {@code workflow_stage}. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> getWorkflowStage(
             String workflowId, String stageId, RequestOptions options) {

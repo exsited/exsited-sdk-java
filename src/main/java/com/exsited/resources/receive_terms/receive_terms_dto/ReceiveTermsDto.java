@@ -11,7 +11,7 @@ public final class ReceiveTermsDto {
 
     /** The settings receive term body, under {@code receive_term}. */
     public static final class SettingsReceiveTerm extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/receive_terms",
                 "GET /api/{api_version}/settings/receive_terms/{receive_term_id}",
@@ -23,7 +23,6 @@ public final class ReceiveTermsDto {
             return "receive_term";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public String description;
@@ -31,7 +30,6 @@ public final class ReceiveTermsDto {
         public Long duration;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
         public String last_updated_on;
         public String name;
@@ -42,7 +40,7 @@ public final class ReceiveTermsDto {
 
     /** One page of {@code SettingsReceiveTerm} records, under {@code data}. */
     public static final class SettingsReceiveTermList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/receive_terms");
 

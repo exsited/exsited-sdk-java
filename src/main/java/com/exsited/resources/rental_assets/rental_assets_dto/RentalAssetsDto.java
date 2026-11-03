@@ -10,7 +10,7 @@ public final class RentalAssetsDto {
 
     /** The rental asset body. */
     public static final class RentalAsset extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/rental_assets",
                 "GET /api/{api_version}/rental_assets/{rental_asset_uuid}",
@@ -34,9 +34,7 @@ public final class RentalAssetsDto {
         public String display_name;
         public String href;
         public String id;
-        /** never populated in 2 measured records. */
         public Object image_name;
-        /** never populated in 2 measured records. */
         public Object item;
         public RentalAssetLastUpdatedBy last_updated_by;
         public String last_updated_on;
@@ -46,14 +44,13 @@ public final class RentalAssetsDto {
         public List<RentalAssetRentalAssetCustomAvailability> rental_asset_custom_availability;
         public RentalAssetRentalAssetProfile rental_asset_profile;
         public String status;
-        /** 1 measured, null on 1. */
         public Boolean use_custom_availability;
         public Long version;
     }
 
     /** A page of RentalAsset records. */
     public static final class RentalAssetList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/rental_assets");
 
@@ -65,7 +62,7 @@ public final class RentalAssetsDto {
 
     /** The rental asset profile body. */
     public static final class RentalAssetProfile extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/rental_asset_profiles");
 
@@ -78,21 +75,19 @@ public final class RentalAssetsDto {
         public Boolean is_tax_inclusive;
         public RentalAssetProfileLastUpdatedBy last_updated_by;
         public String last_updated_on;
-        /** never populated in 2 measured records. */
         public Object max_booking_limit;
         public String name;
         public String object;
         public List<RentalAssetProfileRentalAssetProfileSession> rental_asset_profile_sessions;
         public List<RentalAssetProfileRow> rental_assets;
         public String status;
-        /** never populated in 2 measured records. */
         public Object tax;
         public Long version;
     }
 
     /** A page of RentalAssetProfile records. */
     public static final class RentalAssetProfileList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/rental_asset_profiles");
 
@@ -104,7 +99,7 @@ public final class RentalAssetsDto {
 
     /** The rental asset availability body. */
     public static final class RentalAssetAvailability extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/rental_asset_availability");
 
@@ -126,7 +121,7 @@ public final class RentalAssetsDto {
 
     /** A page of RentalAssetAvailability records. */
     public static final class RentalAssetAvailabilityList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/rental_asset_availability");
 
@@ -138,7 +133,7 @@ public final class RentalAssetsDto {
 
     /** What {@code get_rental_asset_profile} answers, under {@code rental_asset_profile}. */
     public static final class RentalAssetProfileView extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/rental_asset_profiles/{rental_asset_profile_id}",
                 "POST /api/{api_version}/rental_asset_profiles");
@@ -158,14 +153,12 @@ public final class RentalAssetsDto {
         public Boolean is_tax_inclusive;
         public RentalAssetProfileViewLastUpdatedBy last_updated_by;
         public String last_updated_on;
-        /** Null in every record measured, so untyped. */
         public Object max_booking_limit;
         public String name;
         public String object;
         public List<RentalAssetProfileViewRentalAssetProfileSession> rental_asset_profile_sessions;
         public List<RentalAssetProfileViewRow> rental_assets;
         public String status;
-        /** Null in every record measured, so untyped. */
         public Object tax;
         public Long version;
     }
@@ -183,7 +176,6 @@ public final class RentalAssetsDto {
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object image_name;
         public String name;
         public String object;
@@ -295,7 +287,6 @@ public final class RentalAssetsDto {
         public String display_name;
         public String href;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object image_name;
         public String name;
         public String object;
@@ -338,7 +329,6 @@ public final class RentalAssetsDto {
         public String object;
         public Double price;
         public String price_type;
-        /** Null in every record measured, so untyped. */
         public Object pricing_level;
         public List<Object> rental_asset_profile_session_price_hours;
         public List<Object> rental_asset_profile_session_price_peak_hourly;
@@ -390,7 +380,6 @@ public final class RentalAssetsDto {
         public String object;
         public Double price;
         public String price_type;
-        /** Null in every record measured, so untyped. */
         public Object pricing_level;
         public List<Object> rental_asset_profile_session_price_hours;
         public List<Object> rental_asset_profile_session_price_peak_hourly;

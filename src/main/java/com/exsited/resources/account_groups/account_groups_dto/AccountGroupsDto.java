@@ -11,7 +11,7 @@ public final class AccountGroupsDto {
 
     /** The settings account group body, under {@code account_group}. */
     public static final class SettingsAccountGroup extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/account_groups",
                 "GET /api/{api_version}/settings/account_groups/{account_group_id}",
@@ -22,21 +22,16 @@ public final class AccountGroupsDto {
             return "account_group";
         }
 
-        /** Null in every record measured, so untyped. */
         public Object accounting_code;
-        /** Present but empty on every record measured, so the element type is unknown. */
         public List<Object> custom_attributes;
-        /** Null in every record measured, so untyped. */
         public Object description;
         public String display_name;
         public String href;
         public String id;
         public List<String> invoice_account_media;
-        /** Null in every record measured, so untyped. */
         public Object managed_by;
         public String name;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object pricing_level;
         public SettingsAccountGroupStateRule state_rule;
         public String status;
@@ -44,7 +39,7 @@ public final class AccountGroupsDto {
 
     /** One page of {@code SettingsAccountGroup} records, under {@code data}. */
     public static final class SettingsAccountGroupList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/settings/account_groups");
 

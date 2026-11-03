@@ -43,7 +43,7 @@ public final class ReturnMerchandiseAuthorisations implements BoundResource {
         return getReturnMerchandiseAuthorisations(null, null);
     }
 
-    /** Create RMA: {@code POST /return_merchandise_authorisations}. Recorded 201. */
+    /** Create RMA: {@code POST /return_merchandise_authorisations}. */
     public ApiResponse<ReturnMerchandiseAuthorisationsDto.ReturnMerchandiseAuthorisations> createReturnMerchandiseAuthorisation(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -152,8 +152,7 @@ public final class ReturnMerchandiseAuthorisations implements BoundResource {
     }
 
     /**
-     * Delete RMA: {@code DELETE /return_merchandise_authorisations/{rma_id}}, the {@code rma_} id;
-     * only a draft is deleted, anything else is refused {@code 400} {@code stock_committed}. No
+     * Delete RMA: {@code DELETE /return_merchandise_authorisations/{rma_id}}, the {@code rma_} id; only a draft is deleted. No
      * typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteReturnMerchandiseAuthorisation(
@@ -186,8 +185,7 @@ public final class ReturnMerchandiseAuthorisations implements BoundResource {
     }
 
     /**
-     * Approve RMA: {@code POST /return_merchandise_authorisations/{rma_id}/approve}, no body;
-     * {@code 422} when the RMA holds no pending approval.
+     * Approve RMA: {@code POST /return_merchandise_authorisations/{rma_id}/approve}, no body.
      */
     public ApiResponse<ReturnMerchandiseAuthorisationRead> approveReturnMerchandiseAuthorisation(
             String rmaId, RequestOptions options) {
@@ -203,7 +201,7 @@ public final class ReturnMerchandiseAuthorisations implements BoundResource {
 
     /**
      * Delete RMA note: {@code DELETE /return_merchandise_authorisations/{rma_id}/notes/{note_id}},
-     * the {@code rma_} id; a code answers {@code 404}. No typed view; read {@code getMap()}.
+     * the {@code rma_} id. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteReturnMerchandiseAuthorisationNote(
             String rmaId, String noteId, RequestOptions options) {
@@ -237,8 +235,7 @@ public final class ReturnMerchandiseAuthorisations implements BoundResource {
     }
 
     /**
-     * Reject RMA: {@code POST /return_merchandise_authorisations/{rma_id}/reject}, no body;
-     * {@code 422} when the RMA holds no pending approval.
+     * Reject RMA: {@code POST /return_merchandise_authorisations/{rma_id}/reject}, no body.
      */
     public ApiResponse<ReturnMerchandiseAuthorisationRead> rejectReturnMerchandiseAuthorisation(
             String rmaId, RequestOptions options) {
@@ -254,7 +251,7 @@ public final class ReturnMerchandiseAuthorisations implements BoundResource {
 
     /**
      * List RMA notes: {@code GET /return_merchandise_authorisations/{rma_code}/notes}, by the RMA's
-     * code; an {@code rma_} id answers {@code 404}. No typed view; read {@code getMap()}.
+     * code. No typed view; read {@code getMap()}.
      */
     public ApiResponse<Dto> getReturnMerchandiseAuthorisationNotes(
             String rmaCode, Map<String, Object> queryParams, RequestOptions options) {
@@ -326,7 +323,7 @@ public final class ReturnMerchandiseAuthorisations implements BoundResource {
 
     /**
      * List an RMA's receipts: {@code GET /return_merchandise_authorisations/{rma_code}/receive}, by
-     * the RMA's code; an {@code rma_} id answers {@code 404}.
+     * the RMA's code.
      */
     public ApiResponse<InvoiceReturnMerchandiseAuthorisationReceiveList> getReturnMerchandiseAuthorisationReceive(
             String rmaCode, Map<String, Object> queryParams, RequestOptions options) {

@@ -9,7 +9,7 @@ public final class EmployeesDto {
 
     /** The employee body. */
     public static final class Employee extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/employees",
                 "GET /api/{api_version}/employees/{employee_id}",
@@ -33,7 +33,6 @@ public final class EmployeesDto {
         public String email_address;
         public String href;
         public String id;
-        /** never populated in 4 measured records. */
         public Object image_uuid;
         public EmployeeLastUpdatedBy last_updated_by;
         public String last_updated_on;
@@ -45,7 +44,7 @@ public final class EmployeesDto {
 
     /** A page of Employee records. */
     public static final class EmployeeList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/employees");
 
@@ -65,23 +64,17 @@ public final class EmployeesDto {
 
     /** One entry of a {@link Employee}'s {@code contacts}. */
     public static final class EmployeeContact extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object address;
         public EmployeeContactCreatedBy created_by;
         public String created_on;
         public EmployeeContactEmail email;
-        /** Null in every record measured, so untyped. */
         public Object fax;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
-        /** Null in every record measured, so untyped. */
         public Object mobile;
         public EmployeeContactName name;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object phone;
         public String status;
         public String type;
@@ -102,13 +95,10 @@ public final class EmployeesDto {
 
     /** A {@link EmployeeContact}'s {@code name}. */
     public static final class EmployeeContactName extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object designation;
         public String first;
         public String last;
-        /** Null in every record measured, so untyped. */
         public Object middle;
-        /** Null in every record measured, so untyped. */
         public Object salutation;
     }
 

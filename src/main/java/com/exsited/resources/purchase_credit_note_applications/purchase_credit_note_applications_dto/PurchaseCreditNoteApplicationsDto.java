@@ -9,7 +9,7 @@ public final class PurchaseCreditNoteApplicationsDto {
 
     /** The purchase credit note application body. */
     public static final class PurchaseCreditNoteApplication extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_credit_note_applications");
 
@@ -21,7 +21,6 @@ public final class PurchaseCreditNoteApplicationsDto {
         public String href;
         public String id;
         public String issue_date;
-        /** never populated in 2 measured records. */
         public Object last_updated_by;
         public String last_updated_on;
         public String object;
@@ -36,7 +35,7 @@ public final class PurchaseCreditNoteApplicationsDto {
 
     /** A page of PurchaseCreditNoteApplication records. */
     public static final class PurchaseCreditNoteApplicationList extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_credit_note_applications");
 
@@ -48,7 +47,7 @@ public final class PurchaseCreditNoteApplicationsDto {
 
     /** The purchase credit note application read body. */
     public static final class PurchaseCreditNoteApplicationRead extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "GET /api/{api_version}/purchase_credit_note_applications/{purchase_credit_note_application_id}");
 
@@ -63,7 +62,6 @@ public final class PurchaseCreditNoteApplicationsDto {
         public String href;
         public String id;
         public String issue_date;
-        /** never populated in 1 measured record. */
         public Object last_updated_by;
         public String last_updated_on;
         public String object;

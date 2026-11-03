@@ -139,8 +139,7 @@ public final class GiftCertificates implements BoundResource {
 
     /**
      * Set a new balance: {@code POST /gift_certificates/{gc_id}/amend}, as {@code
-     * {"gift_certificate": {"new_balance": ...}}}; a balance below the used amount is a
-     * {@code 400}.
+     * {"gift_certificate": {"new_balance": ...}}}.
      */
     public ApiResponse<GiftCertificate> amendGiftCertificate(
             String gcId, Object payload, RequestOptions options) {

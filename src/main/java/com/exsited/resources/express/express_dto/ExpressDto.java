@@ -8,7 +8,7 @@ public final class ExpressDto {
 
     /** What {@code create_express} answers, under {@code express}. */
     public static final class Express extends Dto {
-        /** The endpoints these fields were measured from. */
+        /** The endpoints these fields belong to. */
         public static final List<String> MEASURED_FROM = List.of(
                 "POST /api/{api_version}/express");
 
@@ -20,56 +20,42 @@ public final class ExpressDto {
         public ExpressAccount account;
         public List<ExpressActivityLog> activity_logs;
         public Boolean allow_contract;
-        /** Null in every record measured, so untyped. */
         public Object billing_address;
         public ExpressBillingPreferences billing_preferences;
         public String billing_start_date;
         public List<Object> communication_preferences;
-        /** Null in every record measured, so untyped. */
         public Object created_by;
         public String created_on;
         public ExpressCurrency currency;
         public List<Object> custom_attributes;
         public ExpressCustomForm custom_form;
-        /** Null in every record measured, so untyped. */
         public Object customer_purchase_order_id;
-        /** Null in every record measured, so untyped. */
         public Object description;
-        /** Null in every record measured, so untyped. */
         public Object discount_profile;
         public String display_name;
         public String id;
-        /** Null in every record measured, so untyped. */
         public Object invoice_note;
         public ExpressKpis kpis;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_by;
-        /** Null in every record measured, so untyped. */
         public Object last_updated_on;
         public List<ExpressLine> lines;
-        /** Null in every record measured, so untyped. */
         public Object manager;
         public String name;
         public String next_billing_from_date;
         public String object;
         public String order_start_date;
         public String order_type;
-        /** Null in every record measured, so untyped. */
         public Object origin;
         public String original_total;
         public Boolean pre_order;
         public Boolean price_tax_inclusive;
         public Boolean quote_converted;
         public Boolean quote_order;
-        /** Null in every record measured, so untyped. */
         public Object referral_account;
-        /** Null in every record measured, so untyped. */
         public Object sales_rep;
-        /** Null in every record measured, so untyped. */
         public Object shipping_address;
         public Double shipping_cost;
         public List<Object> shipping_line_items;
-        /** Null in every record measured, so untyped. */
         public Object shipping_profile;
         public String status;
         public String subtotal;
@@ -156,23 +142,16 @@ public final class ExpressDto {
 
     /** A {@link Express}'s {@code kpis}. */
     public static final class ExpressKpis extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object deleted_at;
         public String estimated_total;
-        /** Null in every record measured, so untyped. */
         public Object last_cancelled_at;
-        /** Null in every record measured, so untyped. */
         public Object last_changed_at;
-        /** Null in every record measured, so untyped. */
         public Object last_invoice_issue_date;
         public String last_invoice_total;
-        /** Null in every record measured, so untyped. */
         public Object last_reactivated_at;
         public String monthly_recurring_revenue;
-        /** Null in every record measured, so untyped. */
         public Object next_invoice_issue_date;
         public String object;
-        /** Null in every record measured, so untyped. */
         public Object start_date;
         public String total_collected;
         public String total_due;
@@ -188,13 +167,10 @@ public final class ExpressDto {
 
     /** A {@link ExpressBillingPreferences}'s {@code proforma_properties}. */
     public static final class ExpressBillingPreferencesProformaProperties extends Dto {
-        /** Null in every record measured, so untyped. */
         public Object acceptance_date;
         public Boolean acceptance_required;
-        /** Null in every record measured, so untyped. */
         public Object acceptance_term;
         public Boolean payment_required;
-        /** Null in every record measured, so untyped. */
         public Object terms_and_conditions;
     }
 

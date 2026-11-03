@@ -43,7 +43,7 @@ public final class ItemReceipts implements BoundResource {
         return getItemReceipts(null, null);
     }
 
-    /** Create item receipt: {@code POST /item_receipts}. Recorded 201. */
+    /** Create item receipt: {@code POST /item_receipts}. */
     public ApiResponse<ItemReceiptsDto.ItemReceipts> createItemReceipt(
             Object payload, RequestOptions options) {
         requirePayload(payload);
@@ -56,7 +56,7 @@ public final class ItemReceipts implements BoundResource {
         return createItemReceipt(payload, null);
     }
 
-    /** Update item receipt: {@code PATCH /item_receipts/{item_receipt_id}}. Recorded 202. */
+    /** Update item receipt: {@code PATCH /item_receipts/{item_receipt_id}}. */
     public ApiResponse<ItemReceiptUpdated> updateItemReceipt(
             String itemReceiptId, Object payload, RequestOptions options) {
         requireValue(itemReceiptId, "item_receipt_id");
@@ -108,8 +108,7 @@ public final class ItemReceipts implements BoundResource {
     }
 
     /**
-     * Delete item receipt: {@code DELETE /item_receipts/{item_receipt_id}}, by its {@code ir_} id;
-     * refused {@code 400} {@code stock_committed} once the receipt is completed. No typed view;
+     * Delete item receipt: {@code DELETE /item_receipts/{item_receipt_id}}, by its {@code ir_} id. No typed view;
      * read {@code getMap()}.
      */
     public ApiResponse<Dto> deleteItemReceipt(
